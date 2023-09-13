@@ -4,18 +4,67 @@ using System.IO;
 using System.Globalization;
 using System.Text;
 using System.Xml.Linq;
-using static COMP609_Assessment2_ConsoleApp.Program.App;
-using static System.Console;
+using System.Diagnostics.Metrics;
+using System.Drawing;
+using System.Diagnostics;
 
-namespace COMP609_Assessment2_ConsoleApp;
-
+namespace COMP609_Assessment2_ConsoleApp
+{
     class Program
     {
-    static void Main(string[] args)
-    {
-        Console.Title = "LiveStock Management System";
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        string title = @"
+
+        static void Main(string[] args)
+        {
+            Console.Title = "LiveStock Management System";
+            var app = new App();
+
+            #region MAIN MENU / SWITCH
+            while (true)
+            {
+                int opt = MainMenu();
+                switch (opt)
+                {
+                    case 1:
+                        Console.Clear();
+                        app.DisplayDataSwitch();
+                        break;
+                    case 2:
+                        // Implement code to display statistics.
+                        Console.Clear();
+                        break;
+                    case 3:
+                        // Implement code to query by ID/colour/livestock type/weight.
+                        Console.Clear();
+                        break;
+                    case 4:
+                        // Implement code to delete a record from the database.
+                        Console.Clear();
+                        break;
+                    case 5:
+                        // Implement code to insert a record into the database.
+                        Console.Clear();
+                        break;
+                    // Exit Console Program
+                    case 6:
+                        Console.Clear();
+                        Environment.Exit(0);
+                        return;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+        }
+
+        private static int MainMenu()
+        {
+            int opt = 0;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                string title = @"
   _     _____     _______  ____ _____ ___   ____ _  __     ______   ______ _____ _____ __  __ 
  | |   |_ _\ \   / / ____|/ ___|_   _/ _ \ / ___| |/ /    / ___\ \ / / ___|_   _| ____|  \/  |
  | |    | | \ \ / /|  _|  \___ \ | || | | | |   | ' /     \___ \\ V /\___ \ | | |  _| | |\/| |
@@ -26,62 +75,43 @@ namespace COMP609_Assessment2_ConsoleApp;
                                                               ║  by Dylan, Tristan & Lucky  ║
                                                               ╚═════════════════════════════╝";
 
-        WriteLine(title);
-        MainMenu();
-    }
+                Console.WriteLine(title);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("******************* [ Main Menu ] ********************");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("*              1 - Display Data Menu                 *");
+                Console.WriteLine("*              2 -                                   *");
+                Console.WriteLine("*              3 -                                   *");
+                Console.WriteLine("*              4 -                                   *");
+                Console.WriteLine("*              5 -                                   *");
+                Console.WriteLine("*              6 - Exit                              *");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine("Enter an Option: ");
 
-    static void MainMenu() // Can be changed, just basic structure.
-    {
-        var app = new App();
-        while (true)
-        {
-            ForegroundColor = ConsoleColor.White;
-            WriteLine();
-            // Can be changed to whatever
-            WriteLine("1. Read data from database");
-            WriteLine("2. Display data");
-            WriteLine("3. Display statistics");
-            WriteLine("4. Query by ID/colour/livestock type/weight");
-            WriteLine("5. Delete record from database");
-            WriteLine("6. Insert record in database");
-            WriteLine("7. Exit");
-
-            Write("Enter your choice: ");
-            int choice;
-            if (int.TryParse(ReadLine(), out choice))
-            {
-                switch (choice)
+                try
                 {
-                    case 1:
-                        app.PrintConsole();
-                        break;
-                    case 2:
-                        // Implement code to display statistics.
-                        break;
-                    case 3:
-                        // Implement code to query by ID/colour/livestock type/weight.
-                        break;
-                    case 4:
-                        // Implement code to delete a record from the database.
-                        break;
-                    case 5:
-                        // Implement code to insert a record into the database.
-                        break;
-                    case 6:
-                        WriteLine("Exiting the application.");
-                        return;
-                    default:
-                        WriteLine("Invalid choice. Please try again.");
-                        break;
+                    opt = int.Parse(Console.ReadLine());
+                    if (opt >= 1 && opt <= 6)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.\n");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-6).\n");
                 }
             }
-            else
-            {
-                WriteLine("Invalid input. Please enter a valid number.");
-            }
-
-            WriteLine();
+            return opt;
         }
+        #endregion
     }
 
     internal class App
@@ -96,42 +126,185 @@ namespace COMP609_Assessment2_ConsoleApp;
             ReadDB();
         }
 
-        #region ----------------------------------------------------------------------------------- [ PRINT METHOD ] ---------------------------------------
-        public void PrintConsole()
+        #region ----------------------------------------------------------------------------------- [ PRINT METHODS ] ---------------------------------------
+
+        #region DISPLAY DATA MENU / SWITCH
+        public void DisplayDataSwitch()
         {
-            WriteLine("======= [ Live Stock Management System ] =======\n");
-            string commodity;
-            foreach (var commodityItem in LMS)
+            string item;
+            while (true)
             {
-                commodity = commodityItem.ToString();
-                WriteLine(commodity);
+                int opt = DisplayDataMenu();
+                switch (opt)
+                {
+                    case 1:
+                        Console.Clear();
+                        // Layout of Titles for Data
+                        Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                            "Type", "ID", "Water", "Cost", "Weight", "Colour", "Milk/Wool"));
+                        foreach (var itemList in LMS)
+                        {
+                            item = itemList.ToString();
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        break;
+                    case 3:
+                        // Return to the main menu
+                        Console.Clear();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid Input.");
+                        break;
+                }
             }
+        }
+
+        private static int DisplayDataMenu() // Display Menu to Print the Data and Statistics
+        {
+            int opt = 0;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("*************** [ Data & Statistics ] ****************");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("*             1. Display LMS Data                    *");
+                Console.WriteLine("*             2. Display LMS Statistics              *");
+                Console.WriteLine("*             3. Exit to Main Menu                   *");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine("Enter an Option: ");
+
+                try
+                {
+                    opt = int.Parse(Console.ReadLine());
+                    if (opt >= 1 && opt <= 3)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.\n");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-3).\n");
+                }
+            }
+            return opt;
         }
         #endregion
 
-        #region ----------------------------------------------------------------------------------- [ LIVE STOCK MANAGEMENT - METHODS ] ---------------------
+        #endregion
+
+        #region ----------------------------------------------------------------------------------- [ LIVE STOCK MANAGEMENT - METHODS ] --------------------
         internal abstract class LiveStockManagement
         {
-            public string Item { get; set; }
+            public string Type { get; set; }
 
-            public LiveStockManagement(string item)
+            public LiveStockManagement(string type)
             {
-                this.Item = item;
+                this.Type = type;
+            }
+        }
+
+        internal abstract class Animals : LiveStockManagement
+        {
+            public int ID { get; set; }
+            public string Colour { get; set; }
+
+            public Animals(string type, int id, string colour) : base(type)
+            {
+                this.ID = id;
+                this.Colour = colour;
+            }
+        }
+
+        internal class Cow : Animals
+        {
+            public double Water { get; set; }
+            public int Cost { get; set; }
+            public int Weight { get; set; }
+            public double Milk { get; set; }
+            public Cow(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, colour)
+            {
+                this.Water = water;
+                this.Cost = cost;
+                this.Weight = weight;
+                this.Milk = milk;
+            }
+            public override string ToString()
+            {
+                return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Milk
+                );
+            }
+        }
+
+        internal class Goat: Animals
+        {
+            public double Water { get; set; }
+            public int Cost { get; set; }
+            public int Weight { get; set; }
+            public double Milk { get; set; }
+            public Goat(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, colour)
+            {
+                this.Water = water;
+                this.Cost = cost;
+                this.Weight = weight;
+                this.Milk = milk;
+            }
+            public override string ToString()
+            {
+                return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Milk
+                );
+            }
+        }
+
+        internal class Sheep : Animals
+        {
+            public double Water { get; set; }
+            public double Cost { get; set; }
+            public double Weight { get; set; }
+            public double Wool { get; set; }
+            public Sheep(string type, int id, double water, double cost, double weight, string colour, double wool) : base(type, id, colour)
+            {
+                this.Water = water;
+                this.Cost = cost;
+                this.Weight = weight;
+                this.Wool = wool;
+            }
+            public override string ToString()
+            {
+                return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Wool
+                );
             }
         }
 
         internal class Commodity : LiveStockManagement
         {
+            public string Item { get; set; }
             public double Price { get; set; }
-            public Commodity(string item, double price) : base(item)
+            public Commodity(string type, string item, double price) : base(type)
             {
+                this.Item = item;
                 this.Price = price;
             }
             public override string ToString()
             {
-                return string.Format(
-                    "{0}: {1,-20} {2,10:C}", // Adjust the widths as needed
-                    this.GetType().Name,
+                return string.Format("{0,-20} {1,27:C}", // Adjust the widths as needed
                     this.Item,
                     this.Price
                 );
@@ -139,9 +312,9 @@ namespace COMP609_Assessment2_ConsoleApp;
         }
         #endregion
 
-            #region ----------------------------------------------------------------------------------- [ DATABASE METHODS ] -----------------------------------
+        #region ----------------------------------------------------------------------------------- [ DATABASE METHODS ] -----------------------------------
 
-            internal void ReadDB() // Read the database
+        internal void ReadDB() // Read the database
         {
             using (var cmd = Conn.CreateCommand())
             {
@@ -149,37 +322,114 @@ namespace COMP609_Assessment2_ConsoleApp;
                 string sql;
                 OdbcDataReader reader;
 
+                #region ------------------------------------------------------------------ [   COW TABLE   ] ---------------------------------------------
+                sql = "SELECT * FROM Cow";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string type = GetType().Name;
+                    int id = Util.GetInt(reader["ID"]);
+                    double water = Util.GetDouble(reader["Water"]);
+                    int cost = Util.GetInt(reader["Cost"]);
+                    int weight = Util.GetInt(reader["Weight"]);
+                    string colour = Util.GetString(reader["Colour"]);
+                    double milk = Util.GetDouble(reader["Milk"]);
+                    if (id == Util.BAD_INT ||
+                        water == Util.BAD_DOUBLE ||
+                        cost == Util.BAD_INT ||
+                        weight == Util.BAD_INT ||
+                        colour == Util.BAD_STRING || 
+                        milk == Util.BAD_DOUBLE)
+                    {
+                        Console.WriteLine("Bad Row Detected");
+                        continue; // Corrupted Row, Skips
+                    }
+                    var cow = new Cow(type, id, water, cost, weight, colour, milk);
+                    LMS.Add(cow);
+                }
+                reader.Close();
+                #endregion
+
+                #region ------------------------------------------------------------------ [   GOAT TABLE   ] ---------------------------------------------
+                sql = "SELECT * FROM Goat";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string type = GetType().Name;
+                    int id = Util.GetInt(reader["ID"]);
+                    double water = Util.GetDouble(reader["Water"]);
+                    int cost = Util.GetInt(reader["Cost"]);
+                    int weight = Util.GetInt(reader["Weight"]);
+                    string colour = Util.GetString(reader["Colour"]);
+                    double milk = Util.GetDouble(reader["Milk"]);
+                    if (id == Util.BAD_INT ||
+                        water == Util.BAD_DOUBLE ||
+                        cost == Util.BAD_INT ||
+                        weight == Util.BAD_INT ||
+                        colour == Util.BAD_STRING ||
+                        milk == Util.BAD_DOUBLE)
+                    {
+                        Console.WriteLine("Bad Row Detected");
+                        continue; // Corrupted Row, Skips
+                    }
+                    var goat = new Goat(type, id, water, cost, weight, colour, milk);
+                    LMS.Add(goat);
+                }
+                reader.Close();
+                #endregion
+
+                #region ------------------------------------------------------------------ [   SHEEP TABLE   ] ---------------------------------------------
+                sql = "SELECT * FROM Sheep";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string type = GetType().Name;
+                    int id = Util.GetInt(reader["ID"]);
+                    double water = Util.GetDouble(reader["Water"]);
+                    double cost = Util.GetDouble(reader["Cost"]);
+                    double weight = Util.GetDouble(reader["Weight"]);
+                    string colour = Util.GetString(reader["Colour"]);
+                    double wool = Util.GetDouble(reader["Wool"]);
+                    if (id == Util.BAD_INT ||
+                        water == Util.BAD_DOUBLE ||
+                        cost == Util.BAD_DOUBLE ||
+                        weight == Util.BAD_DOUBLE ||
+                        colour == Util.BAD_STRING ||
+                        wool == Util.BAD_DOUBLE)
+                    {
+                        Console.WriteLine("Bad Row Detected");
+                        continue; // Corrupted Row, Skips
+                    }
+                    var sheep = new Sheep(type, id, water, cost, weight, colour, wool);
+                    LMS.Add(sheep);
+                }
+                reader.Close();
+                #endregion
+
                 #region ------------------------------------------------------------------ [   COMMODITY TABLE   ] -------------------------------------------
                 sql = "SELECT * FROM Commodity";
                 cmd.CommandText = sql;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    string type = GetType().Name;
                     string item = Util.GetString(reader["Item"]);
                     double price = Util.GetDouble(reader["Price"]);
                     if (item == Util.BAD_STRING ||
                         price == Util.BAD_DOUBLE)
                     {
-                        WriteLine("Bad Row Detected");
+                        Console.WriteLine("Bad Row Detected");
                         continue; // Corrupted Row, Skips
                     }
-                    var commodity = new Commodity(item, price);
+                    var commodity = new Commodity(type, item, price);
                     LMS.Add(commodity);
                 }
                 reader.Close();
                 #endregion
 
-                #region ------------------------------------------------------------------ [   COW TABLE   ] ---------------------------------------------
-
-                #endregion
-
-                #region ------------------------------------------------------------------ [   GOAT TABLE   ] ---------------------------------------------
-
-                #endregion
-
-                #region ------------------------------------------------------------------ [   SHEEP TABLE   ] ---------------------------------------------
-
-                #endregion
             }
         }
 

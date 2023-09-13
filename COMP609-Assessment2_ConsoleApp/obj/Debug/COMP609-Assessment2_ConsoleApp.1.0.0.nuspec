@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>COMP609-Assessment2_ConsoleApp</id>
+    <version>1.0.0</version>
+    <authors>COMP609-Assessment2_ConsoleApp</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="7.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.Odbc" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" />
+    <file src="C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.dll" />
+  </files>
+</package>

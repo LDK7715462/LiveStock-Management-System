@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj": {}
+    "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj": {
+    "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
         "projectName": "COMP609-Assessment2_ConsoleApp",
-        "projectPath": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\mrdyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\obj\\",
+        "projectPath": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mrdyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,6 +43,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.Data.Odbc": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

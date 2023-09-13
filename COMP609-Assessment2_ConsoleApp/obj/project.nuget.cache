@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "I0xwgbTzqpnQk+obEdhboh131K6ijNqiOKLaOdgd+xbPpWD7fnBbD73b0ffey2ZIBoLJ5A6xmYrF/UMnWY6jWw==",
+  "dgSpecHash": "X7JVspqPo4LdP0iLtcRFZBPJZEB7TPDMjNX2Tx5HebZ+xMZA1ccf9O9dIUOwvCdZK4PaoImZZo1DPsa/uYi2BQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_ConsoleApp\\COMP609-Assessment2_ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.data.odbc\\7.0.0\\system.data.odbc.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0\\system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

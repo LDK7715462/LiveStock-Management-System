@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "COMP609-Assessment2_GUIApp/1.0.0": {
+        "runtime": {
+          "COMP609-Assessment2_GUIApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "COMP609-Assessment2_GUIApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

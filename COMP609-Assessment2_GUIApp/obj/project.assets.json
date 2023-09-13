@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mrdyl\\.nuget\\packages\\": {},
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
       "projectName": "COMP609-Assessment2_GUIApp",
-      "projectPath": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
-      "packagesPath": "C:\\Users\\mrdyl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrdyl\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\App Development\\Assignments\\COMP609-Assessment2_GUIApp\\obj\\",
+      "projectPath": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\OneDrive\\My Study\\Development Workspaces\\Visual Studio Workplace\\Repos\\COMP609-Assessment2_GUIApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mrdyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

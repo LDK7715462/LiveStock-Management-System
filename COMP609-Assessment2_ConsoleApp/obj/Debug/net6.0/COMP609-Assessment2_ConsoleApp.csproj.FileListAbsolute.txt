@@ -31,3 +31,4 @@ C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Rep
 C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb
 C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.genruntimeconfig.cache
 C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\ref\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll.config

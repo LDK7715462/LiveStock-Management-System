@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Data.Odbc;
+using System.IO;
 using System.Globalization;
 using System.Text;
 using System.Xml.Linq;
@@ -12,6 +13,7 @@ namespace COMP609_Assessment2_ConsoleApp;
     {
     static void Main(string[] args)
     {
+        Console.Title = "LiveStock Management System";
         MainMenu();
     }
 
@@ -20,18 +22,33 @@ namespace COMP609_Assessment2_ConsoleApp;
         var app = new App();
         while (true)
         {
-            Console.WriteLine("Livestock Management System (LMS)");
-            Console.WriteLine("1. Read data from database");
-            Console.WriteLine("2. Display data");
-            Console.WriteLine("3. Display statistics");
-            Console.WriteLine("4. Query by ID/colour/livestock type/weight");
-            Console.WriteLine("5. Delete record from database");
-            Console.WriteLine("6. Insert record in database");
-            Console.WriteLine("7. Exit");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            string title = @"
+  _     _____     _______ ____ _____ ___   ____ _  __     ______   ______ _____ _____ __  __ 
+ | |   |_ _\ \   / / ____/ ___|_   _/ _ \ / ___| |/ /    / ___\ \ / / ___|_   _| ____|  \/  |
+ | |    | | \ \ / /|  _| \___ \ | || | | | |   | ' /     \___ \\ V /\___ \ | | |  _| | |\/| |
+ | |___ | |  \ V / | |___ ___) || || |_| | |___| . \      ___) || |  ___) || | | |___| |  | |
+ |_____|___|  \_/  |_____|____/ |_| \___/ \____|_|\_\    |____/ |_| |____/ |_| |_____|_|  |_|
+                                                              ╔═════════════════════════════╗
+                                                              ║ LiveStock Managment System  ║
+                                                              ║  by Dylan, Tristan & Lucky  ║
+                                                              ╚═════════════════════════════╝";
 
-            Console.Write("Enter your choice: ");
+            WriteLine(title);
+            ForegroundColor = ConsoleColor.White;
+            WriteLine();
+            // Can be changed to whatever
+            WriteLine("1. Read data from database");
+            WriteLine("2. Display data");
+            WriteLine("3. Display statistics");
+            WriteLine("4. Query by ID/colour/livestock type/weight");
+            WriteLine("5. Delete record from database");
+            WriteLine("6. Insert record in database");
+            WriteLine("7. Exit");
+
+            Write("Enter your choice: ");
             int choice;
-            if (int.TryParse(Console.ReadLine(), out choice))
+            if (int.TryParse(ReadLine(), out choice))
             {
                 switch (choice)
                 {
@@ -51,19 +68,19 @@ namespace COMP609_Assessment2_ConsoleApp;
                         // Implement code to insert a record into the database.
                         break;
                     case 6:
-                        Console.WriteLine("Exiting the application.");
+                        WriteLine("Exiting the application.");
                         return;
                     default:
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        WriteLine("Invalid choice. Please try again.");
                         break;
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
+                WriteLine("Invalid input. Please enter a valid number.");
             }
 
-            Console.WriteLine();
+            WriteLine();
         }
     }
 

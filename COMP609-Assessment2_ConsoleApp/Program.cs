@@ -14,6 +14,19 @@ namespace COMP609_Assessment2_ConsoleApp;
     static void Main(string[] args)
     {
         Console.Title = "LiveStock Management System";
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        string title = @"
+  _     _____     _______  ____ _____ ___   ____ _  __     ______   ______ _____ _____ __  __ 
+ | |   |_ _\ \   / / ____|/ ___|_   _/ _ \ / ___| |/ /    / ___\ \ / / ___|_   _| ____|  \/  |
+ | |    | | \ \ / /|  _|  \___ \ | || | | | |   | ' /     \___ \\ V /\___ \ | | |  _| | |\/| |
+ | |___ | |  \ V / | |___  ___) || || |_| | |___| . \      ___) || |  ___) || | | |___| |  | |
+ |_____|___|  \_/  |_____||____/ |_| \___/ \____|_|\_\    |____/ |_| |____/ |_| |_____|_|  |_|
+                                                              ╔═════════════════════════════╗
+                                                              ║ LiveStock Managment System  ║
+                                                              ║  by Dylan, Tristan & Lucky  ║
+                                                              ╚═════════════════════════════╝";
+
+        WriteLine(title);
         MainMenu();
     }
 
@@ -22,19 +35,6 @@ namespace COMP609_Assessment2_ConsoleApp;
         var app = new App();
         while (true)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            string title = @"
-  _     _____     _______ ____ _____ ___   ____ _  __     ______   ______ _____ _____ __  __ 
- | |   |_ _\ \   / / ____/ ___|_   _/ _ \ / ___| |/ /    / ___\ \ / / ___|_   _| ____|  \/  |
- | |    | | \ \ / /|  _| \___ \ | || | | | |   | ' /     \___ \\ V /\___ \ | | |  _| | |\/| |
- | |___ | |  \ V / | |___ ___) || || |_| | |___| . \      ___) || |  ___) || | | |___| |  | |
- |_____|___|  \_/  |_____|____/ |_| \___/ \____|_|\_\    |____/ |_| |____/ |_| |_____|_|  |_|
-                                                              ╔═════════════════════════════╗
-                                                              ║ LiveStock Managment System  ║
-                                                              ║  by Dylan, Tristan & Lucky  ║
-                                                              ╚═════════════════════════════╝";
-
-            WriteLine(title);
             ForegroundColor = ConsoleColor.White;
             WriteLine();
             // Can be changed to whatever

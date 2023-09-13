@@ -83,6 +83,12 @@ namespace COMP609_Assessment2_ConsoleApp;
         public void PrintConsole()
         {
             WriteLine("======= [ Live Stock Management System ] =======\n");
+            string commodity;
+            foreach (var commodityItem in LMS)
+            {
+                commodity = commodityItem.ToString();
+                WriteLine(commodity);
+            }
         }
         #endregion
 
@@ -102,13 +108,12 @@ namespace COMP609_Assessment2_ConsoleApp;
             public double Price { get; set; }
             public Commodity(string item, double price) : base(item)
             {
-                this.Item = item;
                 this.Price = price;
             }
             public override string ToString()
             {
                 return string.Format(
-                    "{0}: {1,9} {3,5}",
+                    "{0}: {1,-20} {2,10:C}", // Adjust the widths as needed
                     this.GetType().Name,
                     this.Item,
                     this.Price
@@ -117,9 +122,9 @@ namespace COMP609_Assessment2_ConsoleApp;
         }
         #endregion
 
-        #region ----------------------------------------------------------------------------------- [ DATABASE METHODS ] -----------------------------------
+            #region ----------------------------------------------------------------------------------- [ DATABASE METHODS ] -----------------------------------
 
-        internal void ReadDB() // Read the database
+            internal void ReadDB() // Read the database
         {
             using (var cmd = Conn.CreateCommand())
             {

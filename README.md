@@ -1,7 +1,5 @@
-# COMP609-LiveStockManagement_System
-COMP609 Group Assessment 2
+# COMP609 Group Assessment 2
 
-<!-- ROADMAP -->
 ## LMS console app (Livestock Management System)
 
 - [x] Read data from database - COMPLETED by Dylan

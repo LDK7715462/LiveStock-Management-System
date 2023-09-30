@@ -2,12 +2,13 @@
 
 ## LMS console app (Livestock Management System)
 
-- [x] Read data from database - COMPLETED by Dylan
-- [x] Display data - COMPLETED by Dylan
-- [ ] Display statistics
-- [ ] Query by ID/colour/livestock type/weight
-- [ ] Delete record from database
-- [ ] Insert record in database
+- [x] Read data from database - COMPLETED
+- [x] Display data - COMPLETED
+- [ ] Display statistics - TODO
+- [x] Queries by ID/Type/Colour - COMPLETED
+    - [ ] Weight - TODO
+- [ ] Delete record from database - TODO
+- [ ] Insert record in database - TODO
 
 Note: all data, whether entered by user or retrieved from database, must be validated. For example,
 * For an entered livestock id, it must be a valid integer.

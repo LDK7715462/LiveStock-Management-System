@@ -29,23 +29,11 @@ namespace COMP609_Assessment2_ConsoleApp
                         app.DisplayDataSwitch();
                         break;
                     case 2:
-                        // Implement code to display statistics.
                         Console.Clear();
-                        break;
-                    case 3:
-                        // Implement code to query by ID/colour/livestock type/weight.
-                        Console.Clear();
-                        break;
-                    case 4:
-                        // Implement code to delete a record from the database.
-                        Console.Clear();
-                        break;
-                    case 5:
-                        // Implement code to insert a record into the database.
-                        Console.Clear();
+                        app.QueryDataSwitch();
                         break;
                     // Exit Console Program
-                    case 6:
+                    case 3:
                         Console.Clear();
                         Environment.Exit(0);
                         return;
@@ -80,11 +68,8 @@ namespace COMP609_Assessment2_ConsoleApp
                 Console.WriteLine("******************* [ Main Menu ] ********************");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("*              1 - Display Data Menu                 *");
-                Console.WriteLine("*              2 -                                   *");
-                Console.WriteLine("*              3 -                                   *");
-                Console.WriteLine("*              4 -                                   *");
-                Console.WriteLine("*              5 -                                   *");
-                Console.WriteLine("*              6 - Exit                              *");
+                Console.WriteLine("*              2 - Query Data Menu                   *");
+                Console.WriteLine("*              3 - Exit                              *");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("******************************************************");
                 Console.WriteLine();
@@ -93,7 +78,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 try
                 {
                     opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 6)
+                    if (opt >= 1 && opt <= 3)
                     {
                         validInput = true;
                     }
@@ -118,7 +103,7 @@ namespace COMP609_Assessment2_ConsoleApp
     {
         public List<LiveStockManagement> LMS { get; set; }
         OdbcConnection Conn;
-
+        
         public App()
         {
             LMS = new List<LiveStockManagement>();
@@ -199,6 +184,78 @@ namespace COMP609_Assessment2_ConsoleApp
                 {
                     Console.Clear();
                     Console.WriteLine("Invalid input. Please enter a valid option (1-3).\n");
+                }
+            }
+            return opt;
+        }
+        #endregion
+
+        #region QUERY DATA MENU / SWITCH
+        public void QueryDataSwitch()
+        {
+            string item;
+            while (true)
+            {
+                int opt = QueryDataMenu();
+                switch (opt)
+                {
+                    case 1:
+                        // Implement code to query by ID/colour/livestock type/weight.
+                        Console.Clear();
+                        break;
+                    case 2:
+                        // Implement code to delete a record from the database.
+                        Console.Clear();
+                        break;
+                    case 3:
+                        // Implement code to insert a record into the database.
+                        Console.Clear();
+                        break;
+                    case 4:
+                        // Return to the main menu
+                        Console.Clear();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid Input.");
+                        break;
+                }
+            }
+        }
+
+        private static int QueryDataMenu() // Query Menu to Insert/Delete & Find Data by User Input
+        {
+            int opt = 0;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("****************** [ Query Menu ] ********************");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("*                 1. Query Data                      *");
+                Console.WriteLine("*                 2. Insert a Record                 *");
+                Console.WriteLine("*                 3. Delete a Record                 *");
+                Console.WriteLine("*                 4. Exit to Main Menu               *");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine("Enter an Option: ");
+
+                try
+                {
+                    opt = int.Parse(Console.ReadLine());
+                    if (opt >= 1 && opt <= 4)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.\n");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-6).\n");
                 }
             }
             return opt;

@@ -25,10 +25,12 @@ namespace COMP609_Assessment2_ConsoleApp
                 switch (opt)
                 {
                     case 1:
+                    // Display Data Menu
                         Console.Clear();
                         app.DisplayDataSwitch();
                         break;
                     case 2:
+                    // Query Data Menu
                         Console.Clear();
                         app.QueryDataSwitch();
                         break;
@@ -102,8 +104,9 @@ namespace COMP609_Assessment2_ConsoleApp
     internal class App
     {
         public List<LiveStockManagement> LMS { get; set; }
+
         OdbcConnection Conn;
-        
+
         public App()
         {
             LMS = new List<LiveStockManagement>();
@@ -202,6 +205,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     case 1:
                         // Implement code to query by ID/colour/livestock type/weight.
                         Console.Clear();
+                        QueryAnimalByID();
                         break;
                     case 2:
                         // Implement code to delete a record from the database.
@@ -278,6 +282,7 @@ namespace COMP609_Assessment2_ConsoleApp
         internal abstract class Animals : LiveStockManagement
         {
             public int ID { get; set; }
+
             public string Colour { get; set; }
 
             public Animals(string type, int id, string colour) : base(type)
@@ -308,7 +313,7 @@ namespace COMP609_Assessment2_ConsoleApp
             }
         }
 
-        internal class Goat: Animals
+        internal class Goat : Animals
         {
             public double Water { get; set; }
             public int Cost { get; set; }
@@ -371,7 +376,7 @@ namespace COMP609_Assessment2_ConsoleApp
 
         #region ----------------------------------------------------------------------------------- [ DATABASE METHODS ] -----------------------------------
 
-        internal void ReadDB() // Read the database
+        internal void ReadDB() // Read the Database
         {
             using (var cmd = Conn.CreateCommand())
             {
@@ -396,7 +401,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         water == Util.BAD_DOUBLE ||
                         cost == Util.BAD_INT ||
                         weight == Util.BAD_INT ||
-                        colour == Util.BAD_STRING || 
+                        colour == Util.BAD_STRING ||
                         milk == Util.BAD_DOUBLE)
                     {
                         Console.WriteLine("Bad Row Detected");
@@ -490,7 +495,38 @@ namespace COMP609_Assessment2_ConsoleApp
             }
         }
 
-        internal static class Util
+        internal void QueryAnimalByID() // Query by Animal ID
+        {
+            Console.WriteLine("Enter the ID of the animal you want to query:");
+            int id;
+            if (int.TryParse(Console.ReadLine(), out id))
+            {
+                var animal = LMS.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                if (animal != null)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Animal with the ID: [" + id + "] Found.");
+                    Console.WriteLine();
+                    Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                   "Type", "ID", "Water", "Cost", "Weight", "Colour", "Milk/Wool"));
+                    Console.WriteLine(animal);
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("Animal not found with the specified ID.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid integer ID.");
+            }
+        }
+
+        internal static class Util // Validate Data & Connection
         {
             internal static readonly string BAD_STRING = string.Empty;
             internal static readonly int BAD_INT = Int32.MinValue;
@@ -517,7 +553,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 return o?.ToString() ?? BAD_STRING;
             }
 
-            internal static OdbcConnection GetConn()
+            internal static OdbcConnection GetConn() // Connection to the Database
             {
                 string? dbstr = ConfigurationManager.AppSettings.Get("odbcString");
                 string fpath = @"..\..\FarmData.accdb";

@@ -129,7 +129,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         Console.Clear();
                         // Layout of Titles for Data
                         Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
-                            "Type", "ID", "Water", "Cost", "Weight", "Colour", "Milk/Wool"));
+                            "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
                         foreach (var itemList in LMS)
                         {
                             item = itemList.ToString();
@@ -203,19 +203,29 @@ namespace COMP609_Assessment2_ConsoleApp
                 switch (opt)
                 {
                     case 1:
-                        // Implement code to query by ID/colour/livestock type/weight.
+                        // Query by ID
                         Console.Clear();
                         QueryAnimalByID();
                         break;
                     case 2:
-                        // Implement code to delete a record from the database.
+                        // Query by Type
                         Console.Clear();
+                        QueryAnimalByType();
                         break;
                     case 3:
-                        // Implement code to insert a record into the database.
+                        // Query by Colour
                         Console.Clear();
+                        QueryAnimalByColour();
                         break;
                     case 4:
+                        // Insert a record from the database.
+                        Console.Clear();
+                        break;
+                    case 5:
+                        // Delete a record into the database.
+                        Console.Clear();
+                        break;
+                    case 6:
                         // Return to the main menu
                         Console.Clear();
                         return;
@@ -234,10 +244,12 @@ namespace COMP609_Assessment2_ConsoleApp
             {
                 Console.WriteLine("****************** [ Query Menu ] ********************");
                 Console.WriteLine("*                                                    *");
-                Console.WriteLine("*                 1. Query Data                      *");
-                Console.WriteLine("*                 2. Insert a Record                 *");
-                Console.WriteLine("*                 3. Delete a Record                 *");
-                Console.WriteLine("*                 4. Exit to Main Menu               *");
+                Console.WriteLine("*                 1. Query By ID                     *");
+                Console.WriteLine("*                 2. Query By Type                   *");
+                Console.WriteLine("*                 3. Query By Colour                 *");
+                Console.WriteLine("*                 4. Insert a Record                 *");
+                Console.WriteLine("*                 5. Delete a Record                 *");
+                Console.WriteLine("*                 6. Exit to Main Menu               *");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("******************************************************");
                 Console.WriteLine();
@@ -246,7 +258,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 try
                 {
                     opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 4)
+                    if (opt >= 1 && opt <= 6)
                     {
                         validInput = true;
                     }
@@ -495,20 +507,19 @@ namespace COMP609_Assessment2_ConsoleApp
             }
         }
 
-        internal void QueryAnimalByID() // Query by Animal ID
+        internal void QueryAnimalByID()
         {
             Console.WriteLine("Enter the ID of the animal you want to query:");
-            int id;
-            if (int.TryParse(Console.ReadLine(), out id))
+            if (int.TryParse(Console.ReadLine(), out int input))
             {
-                var animal = LMS.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                var animal = LMS.FirstOrDefault(a => a is Animals && ((Animals)a).ID == input);
                 if (animal != null)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("Animal with the ID: [" + id + "] Found.");
+                    Console.WriteLine("Animal with the ID: [" + input + "] Found.");
                     Console.WriteLine();
                     Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
-                                                   "Type", "ID", "Water", "Cost", "Weight", "Colour", "Milk/Wool"));
+                                                    "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
                     Console.WriteLine(animal);
                     Console.WriteLine();
                     Console.WriteLine("Press any key to continue...");
@@ -524,6 +535,67 @@ namespace COMP609_Assessment2_ConsoleApp
             {
                 Console.WriteLine("Invalid input. Please enter a valid integer ID.");
             }
+        }
+
+        internal void QueryAnimalByType()
+        {
+            Console.WriteLine("Enter the Type of the animal you want to query:");
+            string inputType = Console.ReadLine();
+            var animalsOfType = LMS.Where(a => a is Animals && string.Equals(a.GetType().Name, inputType, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (animalsOfType.Any())
+            {
+                Console.WriteLine();
+                Console.WriteLine("Animals with Type: [" + inputType + "] Found.");
+                Console.WriteLine();
+                Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                foreach (var animal in animalsOfType)
+                {
+                    Console.WriteLine(animal);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine("No animals found with the specified Type.");
+            }
+        }
+
+        internal void QueryAnimalByColour()
+        {
+            Console.WriteLine("Enter the Colour of the animal you want to query:");
+            string inputColour = Console.ReadLine();
+            var animalsOfColour = LMS.Where(a => a is Animals && string.Equals(((Animals)a).Colour, inputColour, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (animalsOfColour.Any())
+            {
+                Console.WriteLine();
+                Console.WriteLine("Animals with Colour: [" + inputColour + "] Found.");
+                Console.WriteLine();
+                Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                foreach (var animal in animalsOfColour)
+                {
+                    Console.WriteLine(animal);
+                }
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine("No animals found with the specified Colour.");
+            }
+        }
+
+        internal void QueryAnimalByWeight()
+        {
+            // TODO
         }
 
         internal static class Util // Validate Data & Connection

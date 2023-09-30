@@ -528,12 +528,14 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
                 else
                 {
-                    Console.WriteLine("Animal not found with the specified ID.");
+                    Console.WriteLine("\nAnimal not found with the specified ID.");
+                    Console.WriteLine();
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid integer ID.");
+                Console.WriteLine("\nInvalid input. Please enter a valid integer ID.");
+                Console.WriteLine();
             }
         }
 
@@ -561,7 +563,8 @@ namespace COMP609_Assessment2_ConsoleApp
             }
             else
             {
-                Console.WriteLine("No animals found with the specified Type.");
+                Console.WriteLine("\nNo animals found with the specified Type.");
+                Console.WriteLine();
             }
         }
 
@@ -589,7 +592,8 @@ namespace COMP609_Assessment2_ConsoleApp
             }
             else
             {
-                Console.WriteLine("No animals found with the specified Colour.");
+                Console.WriteLine("\nNo animals found with the specified Colour.");
+                Console.WriteLine();
             }
         }
 

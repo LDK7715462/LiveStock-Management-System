@@ -1,6 +1,6 @@
 # COMP609 Group Assessment 2
 
-## LMS console app (Livestock Management System)
+## LMS Console App (Livestock Management System)
 
 - [x] Read data from database - COMPLETED
 - [x] Display data - COMPLETED
@@ -21,3 +21,14 @@ Note: all data, whether entered by user or retrieved from database, must be vali
   
 * For data loaded from database, there could be data rows that are 
 corrupted. 
+
+
+## LMS GUI App (Livestock Management System)
+
+- [x] Code-behind that provides the funcionalities. (This is the same part as the LMS console app above.)
+- [ ] Working GUI
+- [ ] Display Database Records - TODO
+- [ ] Display Database Records Statistics - TODO
+- [ ] Query Database Records - TODO
+- [ ] Insert Database Records - TODO
+- [ ] Delete Database Records - TODO

@@ -5,7 +5,8 @@
 - [x] Read data from database - COMPLETED by Dylan
 - [x] Display data - COMPLETED by Dylan
 - [ ] Display statistics
-- [ ] Query by ID/colour/livestock type/weight
+- [x] Queries by ID/Type/Colour
+    - [ ] Weight - TODO
 - [ ] Delete record from database
 - [ ] Insert record in database
 

@@ -249,7 +249,8 @@ namespace COMP609_Assessment2_ConsoleApp
                 Console.WriteLine("*                 3. Query By Colour                 *");
                 Console.WriteLine("*                 4. Insert a Record                 *");
                 Console.WriteLine("*                 5. Delete a Record                 *");
-                Console.WriteLine("*                 6. Exit to Main Menu               *");
+                Console.WriteLine("*                 6. Update a Record                 *");
+                Console.WriteLine("*                 7. Exit to Main Menu               *");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("******************************************************");
                 Console.WriteLine();
@@ -258,7 +259,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 try
                 {
                     opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 6)
+                    if (opt >= 1 && opt <= 7)
                     {
                         validInput = true;
                     }
@@ -271,7 +272,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 catch (FormatException)
                 {
                     Console.Clear();
-                    Console.WriteLine("Invalid input. Please enter a valid option (1-6).\n");
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-7).\n");
                 }
             }
             return opt;
@@ -599,8 +600,125 @@ namespace COMP609_Assessment2_ConsoleApp
 
         internal void QueryAnimalByWeight()
         {
-            // TODO
+            // To Do
         }
+
+        //insert row
+        public void InsertAnimal(Animals a)
+        {
+            using (var cmd = Conn.CreateCommand())
+            {
+                string sql;
+                Console.WriteLine("What kind of animal would you like to insert?\n cow, goat, or sheep?");
+                string type = Console.ReadLine();
+                string tbl;
+                if (type.Equals("Cow", StringComparison.OrdinalIgnoreCase))
+                {
+                    tbl = "Cow";
+                    Cow cow = a as Cow;
+                    if (cow != null)
+                    {
+                    sql = "INSERT INTO Cow (Water, Cost, Weight, Colour, Milk) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                    cmd.Parameters.AddWithValue("@Water", a.Water);
+                    cmd.Parameters.AddWithValue("@Cost", a.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", a.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", a.Colour);
+                    cmd.Parameters.AddWithValue("@Milk", a.Milk);
+
+                    cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        Console.WriteLine("What kind of animal?");
+                    }
+                    
+                }
+                else if (type.Equals("Goat", StringComparison.OrdinalIgnoreCase))
+                {
+                    tbl = "Goat";
+                    Goat goat = (Goat)a;
+                    sql = "INSERT INTO Goat (Water, Cost, Weight, Colour, Milk) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                    cmd.Parameters.AddWithValue("@Water", a.Water);
+                    cmd.Parameters.AddWithValue("@Cost", a.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", a.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", a.Colour);
+                    cmd.Parameters.AddWithValue("@Milk", a.Milk);
+                }
+                else if (type.Equals("Sheep", StringComparison.OrdinalIgnoreCase))
+                {
+                    tbl = "Sheep";
+                    Sheep sheep = (Sheep)a;
+                    sql = "INSERT INTO Sheep (Water, Cost, Weight, Colour, Wool) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Wool)";
+                    cmd.Parameters.AddWithValue("@Water", a.Water);
+                    cmd.Parameters.AddWithValue("@Cost", a.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", a.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", a.Colour);
+                    cmd.Parameters.AddWithValue("@Wool", a.Wool);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid animal type, please try again.");
+                }
+            }
+
+            // Collect input for the new animal, such as type, ID, water, cost, etc.
+            //LiveStockManagement-> Animals-> Cow, Goat, Sheep
+            //LivestockManagement-> Commodity
+        }
+
+        //delete row
+        internal void DeleteAnimal(int animalID)
+        {
+            // Create a SQL DELETE statement and execute it using your OdbcConnection
+            string sql = "DELETE FROM AnimalTable WHERE ID = @ID";
+
+            using (var cmd = Conn.CreateCommand())
+            {
+                cmd.Parameters.AddWithValue("@ID", animalID);
+
+                // Execute the DELETE command
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                }
+            }
+        }
+
+
+        //update row
+        internal void UpdateAnimal(int animalID, double newWeight)
+        {
+            // Create a SQL UPDATE statement and execute it using your OdbcConnection
+            string sql = "UPDATE AnimalTable SET Weight = @NewWeight WHERE ID = @ID";
+
+            using (var cmd = new OdbcCommand(sql, Conn))
+            {
+                cmd.Parameters.AddWithValue("@NewWeight", newWeight);
+                cmd.Parameters.AddWithValue("@ID", animalID);
+
+                // Execute the UPDATE command
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " updated successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                }
+            }
+        }
+
 
         internal static class Util // Validate Data & Connection
         {

@@ -655,9 +655,6 @@ namespace COMP609_Assessment2_ConsoleApp
 
                     Console.WriteLine("Animal inserted into the database.");
                 }
-                // Collect input for the new animal, such as type, ID, water, cost, etc.
-                //LiveStockManagement-> Animals-> Cow, Goat, Sheep
-                //LivestockManagement-> Commodity
             }
         }
 

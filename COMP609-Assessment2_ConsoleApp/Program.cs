@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace COMP609_Assessment2_ConsoleApp
 {
@@ -249,7 +250,8 @@ namespace COMP609_Assessment2_ConsoleApp
                 Console.WriteLine("*                 3. Query By Colour                 *");
                 Console.WriteLine("*                 4. Insert a Record                 *");
                 Console.WriteLine("*                 5. Delete a Record                 *");
-                Console.WriteLine("*                 6. Exit to Main Menu               *");
+                Console.WriteLine("*                 6. Update a Record                 *");
+                Console.WriteLine("*                 7. Exit to Main Menu               *");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("******************************************************");
                 Console.WriteLine();
@@ -258,7 +260,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 try
                 {
                     opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 6)
+                    if (opt >= 1 && opt <= 7)
                     {
                         validInput = true;
                     }
@@ -271,7 +273,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 catch (FormatException)
                 {
                     Console.Clear();
-                    Console.WriteLine("Invalid input. Please enter a valid option (1-6).\n");
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-7).\n");
                 }
             }
             return opt;
@@ -295,22 +297,34 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             public int ID { get; set; }
 
+            public double Water { get; set; }
+
+            public double Cost { get; set; }
+
+            public double Weight { get; set; }
+
             public string Colour { get; set; }
 
-            public Animals(string type, int id, string colour) : base(type)
+            public double Wool_Milk { get; set; }
+
+            public Animals(string type, int id, double water, double cost, double weight, string colour, double wool_milk) : base(type)
             {
                 this.ID = id;
+                this.Water = water;
+                this.Cost = cost;
+                this.Weight = weight;
                 this.Colour = colour;
+                this.Wool_Milk = wool_milk;
             }
         }
 
         internal class Cow : Animals
         {
             public double Water { get; set; }
-            public int Cost { get; set; }
-            public int Weight { get; set; }
+            public double Cost { get; set; }
+            public double Weight { get; set; }
             public double Milk { get; set; }
-            public Cow(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, colour)
+            public Cow(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, water, cost, weight, colour, milk)
             {
                 this.Water = water;
                 this.Cost = cost;
@@ -331,7 +345,7 @@ namespace COMP609_Assessment2_ConsoleApp
             public int Cost { get; set; }
             public int Weight { get; set; }
             public double Milk { get; set; }
-            public Goat(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, colour)
+            public Goat(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, water, cost, weight, colour, milk)
             {
                 this.Water = water;
                 this.Cost = cost;
@@ -351,18 +365,18 @@ namespace COMP609_Assessment2_ConsoleApp
             public double Water { get; set; }
             public double Cost { get; set; }
             public double Weight { get; set; }
-            public double Wool { get; set; }
-            public Sheep(string type, int id, double water, double cost, double weight, string colour, double wool) : base(type, id, colour)
+            public double Wool_Milk { get; set; }
+            public Sheep(string type, int id, double water, double cost, double weight, string colour, double wool) : base(type, id, water, cost, weight, colour, wool)
             {
                 this.Water = water;
                 this.Cost = cost;
                 this.Weight = weight;
-                this.Wool = wool;
+                this.Wool_Milk = wool;
             }
             public override string ToString()
             {
                 return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
-                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Wool
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Wool_Milk
                 );
             }
         }
@@ -599,7 +613,167 @@ namespace COMP609_Assessment2_ConsoleApp
 
         internal void QueryAnimalByWeight()
         {
-            // TODO
+            // To Do
+        }
+
+        //insert row
+        private void InsertAnimalIntoDatabase(Animals animal)
+        {
+            if (animal != null)
+            {
+            using (var cmd = Conn.CreateCommand())
+            {
+                    string tableName = animal.GetType().Name;
+                    string sql = "";
+
+                    if (animal is Cow cow)
+                    {
+                    sql = "INSERT INTO Cow (Water, Cost, Weight, Colour, Milk) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                        cmd.Parameters.AddWithValue("@Milk", cow.Wool_Milk);
+                    }
+                    else if (animal is Goat goat)
+                    {
+                    sql = "INSERT INTO Goat (Water, Cost, Weight, Colour, Milk) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                        cmd.Parameters.AddWithValue("@Milk", goat.Wool_Milk);
+                }
+                    else if (animal is Sheep sheep)
+                {
+                    sql = "INSERT INTO Sheep (Water, Cost, Weight, Colour, Wool) " +
+                         "VALUES (@Water, @Cost, @Weight, @Colour, @Wool)";
+                        cmd.Parameters.AddWithValue("@Wool", sheep.Wool_Milk);
+                }
+
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@Water", animal.Water);
+                    cmd.Parameters.AddWithValue("@Cost", animal.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", animal.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", animal.Colour);
+
+                    cmd.ExecuteNonQuery();
+
+                    Console.WriteLine("Animal inserted into the database.");
+            }
+            // Collect input for the new animal, such as type, ID, water, cost, etc.
+            //LiveStockManagement-> Animals-> Cow, Goat, Sheep
+            //LivestockManagement-> Commodity
+        }
+        }
+
+        private Cow CreateCow()
+        {
+            Console.WriteLine("Enter Cow details:");
+            // Collect input for Cow (Water, Cost, Weight, Colour, Milk)
+            int id = int.TryParse(Console.ReadLine());
+            double water = GetValidDoubleInput("Water:");
+            int cost = GetValidIntInput("Cost:");
+            int weight = GetValidIntInput("Weight:");
+            string colour = Console.ReadLine();
+            double milk = GetValidDoubleInput("Milk:");
+
+            return new Cow("Cow", id, water, cost, weight, colour, milk);
+        }
+
+        //private int GenerateAnimalID()
+        //{
+        // Generate a unique ID for the new animal (You can implement your own logic here)
+        // Example: return a unique ID based on existing animals in the database
+        //}
+
+        //delete row
+        internal void DeleteAnimal(int animalID)
+        {
+            // Create a SQL DELETE statement and execute it using your OdbcConnection
+            string sql = "DELETE FROM AnimalTable WHERE ID = @ID";
+
+            using (var cmd = Conn.CreateCommand())
+            {
+                cmd.Parameters.AddWithValue("@ID", animalID);
+
+                // Execute the DELETE command
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                }
+            }
+        }
+
+        //update row
+        internal void UpdateAnimal(int animalID, double newWeight)
+        {
+            // Create a SQL UPDATE statement and execute it using your OdbcConnection
+            string sql = "UPDATE AnimalTable SET Weight = @NewWeight WHERE ID = @ID";
+
+            using (var cmd = new OdbcCommand(sql, Conn))
+            {
+                cmd.Parameters.AddWithValue("@NewWeight", newWeight);
+                cmd.Parameters.AddWithValue("@ID", animalID);
+
+                // Execute the UPDATE command
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " updated successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                }
+            }
+        }
+
+        private int GetValidIntInput(string prompt)
+        {
+            int result;
+            bool isValidInput = false;
+
+            do
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out result))
+                {
+                    isValidInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid integer value.");
+                }
+            } while (!isValidInput);
+
+            return result;
+        }
+
+        private double GetValidDoubleInput(string prompt)
+        {
+            double result;
+            bool isValidInput = false;
+
+            do
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+
+                if (double.TryParse(input, out result))
+                {
+                    isValidInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid numeric value.");
+                }
+            } while (!isValidInput);
+
+            return result;
         }
 
         internal static class Util // Validate Data & Connection

@@ -221,6 +221,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     case 4:
                         // Insert a record from the database.
                         Console.Clear();
+                        InsertAnimal();
                         break;
                     case 5:
                         // Delete a record into the database.
@@ -616,7 +617,35 @@ namespace COMP609_Assessment2_ConsoleApp
             // To Do
         }
 
-        //insert row
+        public void InsertAnimal()
+        {
+            Console.WriteLine("What kind of animal would you like to insert?\nCow, Goat, or Sheep?");
+            string type = Console.ReadLine();
+            Animals animal = null;
+
+            if (type.Equals("Cow", StringComparison.OrdinalIgnoreCase))
+            {
+                animal = CreateCow();
+            }
+            else if (type.Equals("Goat", StringComparison.OrdinalIgnoreCase))
+            {
+                animal = CreateGoat();
+            }
+            else if (type.Equals("Sheep", StringComparison.OrdinalIgnoreCase))
+            {
+                animal = CreateSheep();
+            }
+            else
+            {
+                Console.WriteLine("Invalid animal type, please try again.");
+            }
+
+            if (animal != null)
+            {
+                InsertAnimalIntoDatabase(animal);
+            }
+        }
+
         private void InsertAnimalIntoDatabase(Animals animal)
         {
             if (animal != null)
@@ -690,7 +719,7 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter Sheep details:");
             // Collect input for Sheep (Water, Cost, Weight, Colour, Wool)
-            int id = int.Parse
+            int id = int.TryParse(Console.ReadLine());
             double water = GetValidDoubleInput("Water:");
             int cost = GetValidIntInput("Cost:");
             int weight = GetValidIntInput("Weight:");

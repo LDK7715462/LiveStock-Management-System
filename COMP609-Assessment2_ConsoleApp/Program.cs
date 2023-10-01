@@ -691,7 +691,6 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter Cow details:");
             // Collect input for Cow (Water, Cost, Weight, Colour, Milk)
-            int id = int.TryParse(Console.ReadLine());
             double water = GetValidDoubleInput("Water:");
             int cost = GetValidIntInput("Cost:");
             int weight = GetValidIntInput("Weight:");
@@ -705,7 +704,6 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter Goat details:");
             // Collect input for Goat (Water, Cost, Weight, Colour, Milk)
-            int id = int.TryParse(Console.ReadLine());
             double water = GetValidDoubleInput("Water:");
             int cost = GetValidIntInput("Cost:");
             int weight = GetValidIntInput("Weight:");
@@ -719,7 +717,6 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter Sheep details:");
             // Collect input for Sheep (Water, Cost, Weight, Colour, Wool)
-            int id = int.TryParse(Console.ReadLine());
             double water = GetValidDoubleInput("Water:");
             int cost = GetValidIntInput("Cost:");
             int weight = GetValidIntInput("Weight:");
@@ -729,9 +726,12 @@ namespace COMP609_Assessment2_ConsoleApp
             return new Sheep("Sheep", id, water, cost, weight, colour, wool);
         }
 
+        public int GetNewID() 
+        { 
+            return LMS.Max(x => x.ID) + 1; 
+        }
         //private int GenerateAnimalID()
         //{
-        // Generate a unique ID for the new animal (You can implement your own logic here)
         // Example: return a unique ID based on existing animals in the database
         //}
 

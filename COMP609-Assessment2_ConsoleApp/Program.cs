@@ -655,9 +655,6 @@ namespace COMP609_Assessment2_ConsoleApp
 
                     Console.WriteLine("Animal inserted into the database.");
                 }
-                // Collect input for the new animal, such as type, ID, water, cost, etc.
-                //LiveStockManagement-> Animals-> Cow, Goat, Sheep
-                //LivestockManagement-> Commodity
             }
         }
 
@@ -673,6 +670,34 @@ namespace COMP609_Assessment2_ConsoleApp
             double milk = GetValidDoubleInput("Milk:");
 
             return new Cow("Cow", id, water, cost, weight, colour, milk);
+        }
+
+        private Goat CreateGoat()
+        {
+            Console.WriteLine("Enter Goat details:");
+            // Collect input for Goat (Water, Cost, Weight, Colour, Milk)
+            int id = int.TryParse(Console.ReadLine());
+            double water = GetValidDoubleInput("Water:");
+            int cost = GetValidIntInput("Cost:");
+            int weight = GetValidIntInput("Weight:");
+            string colour = Console.ReadLine();
+            double milk = GetValidDoubleInput("Milk:");
+
+            return new Goat("Goat", id, water, cost, weight, colour, milk);
+        }
+
+        private Sheep CreateSheep()
+        {
+            Console.WriteLine("Enter Sheep details:");
+            // Collect input for Sheep (Water, Cost, Weight, Colour, Wool)
+            int id = int.Parse
+            double water = GetValidDoubleInput("Water:");
+            int cost = GetValidIntInput("Cost:");
+            int weight = GetValidIntInput("Weight:");
+            string colour = Console.ReadLine();
+            double wool = GetValidDoubleInput("Milk:");
+
+            return new Sheep("Sheep", id, water, cost, weight, colour, wool);
         }
 
         //private int GenerateAnimalID()

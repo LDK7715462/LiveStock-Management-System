@@ -26,12 +26,12 @@ namespace COMP609_Assessment2_ConsoleApp
                 switch (opt)
                 {
                     case 1:
-                    // Display Data Menu
+                        // Display Data Menu
                         Console.Clear();
                         app.DisplayDataSwitch();
                         break;
                     case 2:
-                    // Query Data Menu
+                        // Query Data Menu
                         Console.Clear();
                         app.QueryDataSwitch();
                         break;
@@ -621,29 +621,29 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             if (animal != null)
             {
-            using (var cmd = Conn.CreateCommand())
-            {
+                using (var cmd = Conn.CreateCommand())
+                {
                     string tableName = animal.GetType().Name;
                     string sql = "";
 
                     if (animal is Cow cow)
                     {
-                    sql = "INSERT INTO Cow (Water, Cost, Weight, Colour, Milk) " +
-                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                        sql = "INSERT INTO Cow (Water, Cost, Weight, Colour, Milk) " +
+                             "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
                         cmd.Parameters.AddWithValue("@Milk", cow.Wool_Milk);
                     }
                     else if (animal is Goat goat)
                     {
-                    sql = "INSERT INTO Goat (Water, Cost, Weight, Colour, Milk) " +
-                         "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
+                        sql = "INSERT INTO Goat (Water, Cost, Weight, Colour, Milk) " +
+                             "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
                         cmd.Parameters.AddWithValue("@Milk", goat.Wool_Milk);
-                }
+                    }
                     else if (animal is Sheep sheep)
-                {
-                    sql = "INSERT INTO Sheep (Water, Cost, Weight, Colour, Wool) " +
-                         "VALUES (@Water, @Cost, @Weight, @Colour, @Wool)";
+                    {
+                        sql = "INSERT INTO Sheep (Water, Cost, Weight, Colour, Wool) " +
+                             "VALUES (@Water, @Cost, @Weight, @Colour, @Wool)";
                         cmd.Parameters.AddWithValue("@Wool", sheep.Wool_Milk);
-                }
+                    }
 
                     cmd.CommandText = sql;
                     cmd.Parameters.AddWithValue("@Water", animal.Water);
@@ -654,11 +654,11 @@ namespace COMP609_Assessment2_ConsoleApp
                     cmd.ExecuteNonQuery();
 
                     Console.WriteLine("Animal inserted into the database.");
+                }
+                // Collect input for the new animal, such as type, ID, water, cost, etc.
+                //LiveStockManagement-> Animals-> Cow, Goat, Sheep
+                //LivestockManagement-> Commodity
             }
-            // Collect input for the new animal, such as type, ID, water, cost, etc.
-            //LiveStockManagement-> Animals-> Cow, Goat, Sheep
-            //LivestockManagement-> Commodity
-        }
         }
 
         private Cow CreateCow()

@@ -100,3 +100,6 @@ C:\Users\RTX RYZEN\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\
 C:\Users\RTX RYZEN\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb
 C:\Users\RTX RYZEN\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.genruntimeconfig.cache
 C:\Users\RTX RYZEN\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\ref\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\RTX RYZEN\source\repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\RTX RYZEN\source\repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\refint\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\RTX RYZEN\source\repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb

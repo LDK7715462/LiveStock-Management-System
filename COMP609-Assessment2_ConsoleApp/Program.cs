@@ -8,6 +8,7 @@ using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Diagnostics;
 using System.Collections.Generic;
+using static COMP609_Assessment2_ConsoleApp.App;
 
 namespace COMP609_Assessment2_ConsoleApp
 {
@@ -105,12 +106,14 @@ namespace COMP609_Assessment2_ConsoleApp
     internal class App
     {
         public List<LiveStockManagement> LMS { get; set; }
+        public List<Animals> Animal { get; set; }
 
         OdbcConnection Conn;
 
         public App()
         {
             LMS = new List<LiveStockManagement>();
+            Animal = new List<Animals>();
             this.Conn = Util.GetConn();
             ReadDB();
         }
@@ -131,9 +134,14 @@ namespace COMP609_Assessment2_ConsoleApp
                         // Layout of Titles for Data
                         Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
                             "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
-                        foreach (var itemList in LMS)
+                        foreach (var list in Animal)
                         {
-                            item = itemList.ToString();
+                            item = list.ToString();
+                            Console.WriteLine(item);
+                        }
+                        foreach (var list in LMS)
+                        {
+                            item = list.ToString();
                             Console.WriteLine(item);
                         }
                         Console.WriteLine();
@@ -219,15 +227,24 @@ namespace COMP609_Assessment2_ConsoleApp
                         QueryAnimalByColour();
                         break;
                     case 4:
-                        // Insert a record from the database.
+                        // Query by Weight
                         Console.Clear();
-                        InsertAnimal();
+                        QueryAnimalByColour();
                         break;
                     case 5:
+                        // Insert a record from the database.
+                        Console.Clear();
+                        ConsoleInsertDB();
+                        break;
+                    case 6:
                         // Delete a record into the database.
                         Console.Clear();
                         break;
-                    case 6:
+                    case 7:
+                        // Update a record into the database.
+                        Console.Clear();
+                        break;
+                    case 8:
                         // Return to the main menu
                         Console.Clear();
                         return;
@@ -249,10 +266,11 @@ namespace COMP609_Assessment2_ConsoleApp
                 Console.WriteLine("*                 1. Query By ID                     *");
                 Console.WriteLine("*                 2. Query By Type                   *");
                 Console.WriteLine("*                 3. Query By Colour                 *");
-                Console.WriteLine("*                 4. Insert a Record                 *");
-                Console.WriteLine("*                 5. Delete a Record                 *");
-                Console.WriteLine("*                 6. Update a Record                 *");
-                Console.WriteLine("*                 7. Exit to Main Menu               *");
+                Console.WriteLine("*                 4. Query By Weight                 *");
+                Console.WriteLine("*                 5. Insert a Record                 *");
+                Console.WriteLine("*                 6. Delete a Record                 *");
+                Console.WriteLine("*                 7. Update a Record                 *");
+                Console.WriteLine("*                 8. Exit to Main Menu               *");
                 Console.WriteLine("*                                                    *");
                 Console.WriteLine("******************************************************");
                 Console.WriteLine();
@@ -261,7 +279,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 try
                 {
                     opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 7)
+                    if (opt >= 1 && opt <= 8)
                     {
                         validInput = true;
                     }
@@ -274,7 +292,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 catch (FormatException)
                 {
                     Console.Clear();
-                    Console.WriteLine("Invalid input. Please enter a valid option (1-7).\n");
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-8).\n");
                 }
             }
             return opt;
@@ -294,7 +312,7 @@ namespace COMP609_Assessment2_ConsoleApp
             }
         }
 
-        internal abstract class Animals : LiveStockManagement
+        internal abstract class Animals
         {
             public int ID { get; set; }
 
@@ -308,7 +326,7 @@ namespace COMP609_Assessment2_ConsoleApp
 
             public double Wool_Milk { get; set; }
 
-            public Animals(string type, int id, double water, double cost, double weight, string colour, double wool_milk) : base(type)
+            public Animals(string type, int id, double water, double cost, double weight, string colour, double wool_milk)
             {
                 this.ID = id;
                 this.Water = water;
@@ -321,58 +339,35 @@ namespace COMP609_Assessment2_ConsoleApp
 
         internal class Cow : Animals
         {
-            public double Water { get; set; }
-            public double Cost { get; set; }
-            public double Weight { get; set; }
-            public double Milk { get; set; }
+
             public Cow(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, water, cost, weight, colour, milk)
             {
-                this.Water = water;
-                this.Cost = cost;
-                this.Weight = weight;
-                this.Milk = milk;
             }
             public override string ToString()
             {
                 return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
-                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Milk
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Wool_Milk
                 );
             }
         }
 
         internal class Goat : Animals
         {
-            public double Water { get; set; }
-            public int Cost { get; set; }
-            public int Weight { get; set; }
-            public double Milk { get; set; }
             public Goat(string type, int id, double water, int cost, int weight, string colour, double milk) : base(type, id, water, cost, weight, colour, milk)
             {
-                this.Water = water;
-                this.Cost = cost;
-                this.Weight = weight;
-                this.Milk = milk;
             }
             public override string ToString()
             {
                 return string.Format("{0,-20} {1,-10} {2,-10:C} {3,-10:C} {4,-10} {5,-10} {6,-10:C}", // Adjust the widths as needed
-                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Milk
+                    this.GetType().Name, this.ID, this.Water, this.Cost, this.Weight, this.Colour, this.Wool_Milk
                 );
             }
         }
 
         internal class Sheep : Animals
         {
-            public double Water { get; set; }
-            public double Cost { get; set; }
-            public double Weight { get; set; }
-            public double Wool_Milk { get; set; }
             public Sheep(string type, int id, double water, double cost, double weight, string colour, double wool) : base(type, id, water, cost, weight, colour, wool)
             {
-                this.Water = water;
-                this.Cost = cost;
-                this.Weight = weight;
-                this.Wool_Milk = wool;
             }
             public override string ToString()
             {
@@ -435,7 +430,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         continue; // Corrupted Row, Skips
                     }
                     var cow = new Cow(type, id, water, cost, weight, colour, milk);
-                    LMS.Add(cow);
+                    Animal.Add(cow);
                 }
                 reader.Close();
                 #endregion
@@ -464,7 +459,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         continue; // Corrupted Row, Skips
                     }
                     var goat = new Goat(type, id, water, cost, weight, colour, milk);
-                    LMS.Add(goat);
+                    Animal.Add(goat);
                 }
                 reader.Close();
                 #endregion
@@ -493,7 +488,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         continue; // Corrupted Row, Skips
                     }
                     var sheep = new Sheep(type, id, water, cost, weight, colour, wool);
-                    LMS.Add(sheep);
+                    Animal.Add(sheep);
                 }
                 reader.Close();
                 #endregion
@@ -527,7 +522,7 @@ namespace COMP609_Assessment2_ConsoleApp
             Console.WriteLine("Enter the ID of the animal you want to query:");
             if (int.TryParse(Console.ReadLine(), out int input))
             {
-                var animal = LMS.FirstOrDefault(a => a is Animals && ((Animals)a).ID == input);
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == input);
                 if (animal != null)
                 {
                     Console.WriteLine();
@@ -558,7 +553,7 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter the Type of the animal you want to query:");
             string inputType = Console.ReadLine();
-            var animalsOfType = LMS.Where(a => a is Animals && string.Equals(a.GetType().Name, inputType, StringComparison.OrdinalIgnoreCase)).ToList();
+            var animalsOfType = Animal.Where(a => a is Animals && string.Equals(a.GetType().Name, inputType, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (animalsOfType.Any())
             {
@@ -587,7 +582,7 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             Console.WriteLine("Enter the Colour of the animal you want to query:");
             string inputColour = Console.ReadLine();
-            var animalsOfColour = LMS.Where(a => a is Animals && string.Equals(((Animals)a).Colour, inputColour, StringComparison.OrdinalIgnoreCase)).ToList();
+            var animalsOfColour = Animal.Where(a => a is Animals && string.Equals(((Animals)a).Colour, inputColour, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (animalsOfColour.Any())
             {
@@ -617,123 +612,162 @@ namespace COMP609_Assessment2_ConsoleApp
             // To Do
         }
 
-        public void InsertAnimal()
+        public void ConsoleInsertDB()
         {
-            Console.WriteLine("What kind of animal would you like to insert?\nCow, Goat, or Sheep?");
-            string type = Console.ReadLine();
-            Animals animal = null;
+            Console.WriteLine("\n==== Insert Animal =====");
 
-            if (type.Equals("Cow", StringComparison.OrdinalIgnoreCase))
+            // Read the animal type from the user
+            string animalType = ReadAnimalType();
+
+            // Generate a new ID
+            int id = GetNewID();
+
+            Animals animal;
+            string colour;
+            double water, milkOrWool;
+            int cost, weight;
+
+            switch (animalType.ToLower())
             {
-                animal = CreateCow();
+                case "cow":
+                    water = GetValidDoubleInput("Water: ");
+                    cost = GetValidIntInput("Cost: ");
+                    weight = GetValidIntInput("Weight: ");
+                    colour = ReadColour();
+                    milkOrWool = GetValidDoubleInput("Milk: ");
+                    animal = new Cow("Cow", id, water, cost, weight, colour, milkOrWool);
+                    break;
+                case "goat":
+                    water = GetValidDoubleInput("Water: ");
+                    cost = GetValidIntInput("Cost: ");
+                    weight = GetValidIntInput("Weight: ");
+                    colour = ReadColour();
+                    milkOrWool = GetValidDoubleInput("Milk: ");
+                    animal = new Goat("Goat", id, water, cost, weight, colour, milkOrWool);
+                    break;
+                case "sheep":
+                    water = GetValidDoubleInput("Water: ");
+                    cost = GetValidIntInput("Cost: ");
+                    weight = GetValidIntInput("Weight: ");
+                    colour = ReadColour();
+                    milkOrWool = GetValidDoubleInput("Milk: ");
+                    animal = new Sheep("Sheep", id, water, cost, weight, colour, milkOrWool);
+                    break;
+                default:
+                    Console.WriteLine("Invalid animal type.");
+                    return;
             }
-            else if (type.Equals("Goat", StringComparison.OrdinalIgnoreCase))
-            {
-                animal = CreateGoat();
-            }
-            else if (type.Equals("Sheep", StringComparison.OrdinalIgnoreCase))
-            {
-                animal = CreateSheep();
-            }
+            if (!InsertAnimal(animal))
+                Console.WriteLine("Insertion didn't go through.");
             else
-            {
-                Console.WriteLine("Invalid animal type, please try again.");
-            }
-
-            if (animal != null)
-            {
-                InsertAnimalIntoDatabase(animal);
-            }
+                Console.WriteLine($"Inserted: {animal}\n");
         }
 
-        private void InsertAnimalIntoDatabase(Animals animal)
+        private string ReadAnimalType()
         {
-            if (animal != null)
+            List<string> validAnimalTypes = new List<string> { "cow", "goat", "sheep" };
+            var textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+            while (true)
             {
-                using (var cmd = Conn.CreateCommand())
+                Console.Write("Enter animal type (Cow, Goat, or Sheep): ");
+                string animalType = Console.ReadLine()?.Trim().ToLower();
+
+                if (validAnimalTypes.Contains(animalType))
                 {
-                    string tableName = animal.GetType().Name;
-                    string sql = "";
-
-                    if (animal is Cow cow)
-                    {
-                        sql = "INSERT INTO Cow (Water, Cost, Weight, Colour, Milk) " +
-                             "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
-                        cmd.Parameters.AddWithValue("@Milk", cow.Wool_Milk);
-                    }
-                    else if (animal is Goat goat)
-                    {
-                        sql = "INSERT INTO Goat (Water, Cost, Weight, Colour, Milk) " +
-                             "VALUES (@Water, @Cost, @Weight, @Colour, @Milk)";
-                        cmd.Parameters.AddWithValue("@Milk", goat.Wool_Milk);
-                    }
-                    else if (animal is Sheep sheep)
-                    {
-                        sql = "INSERT INTO Sheep (Water, Cost, Weight, Colour, Wool) " +
-                             "VALUES (@Water, @Cost, @Weight, @Colour, @Wool)";
-                        cmd.Parameters.AddWithValue("@Wool", sheep.Wool_Milk);
-                    }
-
-                    cmd.CommandText = sql;
-                    cmd.Parameters.AddWithValue("@Water", animal.Water);
-                    cmd.Parameters.AddWithValue("@Cost", animal.Cost);
-                    cmd.Parameters.AddWithValue("@Weight", animal.Weight);
-                    cmd.Parameters.AddWithValue("@Colour", animal.Colour);
-
-                    cmd.ExecuteNonQuery();
-
-                    Console.WriteLine("Animal inserted into the database.");
+                    return textInfo.ToTitleCase(animalType);
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid animal type. Valid options are: Cow, Goat, Sheep.\n");
                 }
             }
         }
 
-        private Cow CreateCow()
+        private string ReadColour()
         {
-            Console.WriteLine("Enter Cow details:");
-            // Collect input for Cow (Water, Cost, Weight, Colour, Milk)
-            double water = GetValidDoubleInput("Water:");
-            int cost = GetValidIntInput("Cost:");
-            int weight = GetValidIntInput("Weight:");
-            string colour = Console.ReadLine();
-            double milk = GetValidDoubleInput("Milk:");
+            List<string> validColors = new List<string> { "red", "black", "white" };
 
-            return new Cow("Cow", id, water, cost, weight, colour, milk);
+            while (true)
+            {
+                Console.WriteLine("Enter colour (Red, Black, or White): ");
+                string colour = Console.ReadLine().Trim().ToLower();
+
+                if (validColors.Contains(colour))
+                {
+                    // Capitalize the first letter and return the formatted color
+                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+                    return textInfo.ToTitleCase(colour);
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid input. Valid options are: Red, Black, or White.\n");
+                }
+            }
         }
 
-        private Goat CreateGoat()
+        public bool InsertAnimal(Animals a)
         {
-            Console.WriteLine("Enter Goat details:");
-            // Collect input for Goat (Water, Cost, Weight, Colour, Milk)
-            double water = GetValidDoubleInput("Water:");
-            int cost = GetValidIntInput("Cost:");
-            int weight = GetValidIntInput("Weight:");
-            string colour = Console.ReadLine();
-            double milk = GetValidDoubleInput("Milk:");
+            int numRows;
+            using (var cmd = Conn.CreateCommand())
+            {
+                string sql;
+                string tbl = a.GetType().Name;
 
-            return new Goat("Goat", id, water, cost, weight, colour, milk);
+                if (tbl.Equals("Cow"))
+                {
+                    Animals animal = (Animals)a;
+                    sql = "INSERT INTO Cow ([ID],[Water], [Cost], [Weight], [Colour], [Milk]) " +
+                         "VALUES (?,?,?,?,?,?)";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@ID", animal.ID);
+                    cmd.Parameters.AddWithValue("@Water", animal.Water);
+                    cmd.Parameters.AddWithValue("@Cost", animal.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", animal.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", animal.Colour);
+                    cmd.Parameters.AddWithValue("@Milk", animal.Wool_Milk);
+                }
+                else if (tbl.Equals("Goat"))
+                {
+                    Animals animal = (Animals)a;
+                    sql = "INSERT INTO Goat ([ID],[Water], [Cost], [Weight], [Colour], [Milk]) " +
+                         "VALUES (?,?,?,?,?,?)";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@ID", animal.ID);
+                    cmd.Parameters.AddWithValue("@Water", animal.Water);
+                    cmd.Parameters.AddWithValue("@Cost", animal.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", animal.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", animal.Colour);
+                    cmd.Parameters.AddWithValue("@Milk", animal.Wool_Milk);
+                }
+                else if (tbl.Equals("Sheep"))
+                {
+                    Animals animal = (Animals)a;
+                    sql = "INSERT INTO Sheep ([ID],[Water], [Cost], [Weight], [Colour], [Wool]) " +
+                         "VALUES (?,?,?,?,?,?)";
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@ID", animal.ID);
+                    cmd.Parameters.AddWithValue("@Water", animal.Water);
+                    cmd.Parameters.AddWithValue("@Cost", animal.Cost);
+                    cmd.Parameters.AddWithValue("@Weight", animal.Weight);
+                    cmd.Parameters.AddWithValue("@Colour", animal.Colour);
+                    cmd.Parameters.AddWithValue("@Milk", animal.Wool_Milk);
+                }
+                numRows = CommitDB(cmd);
+            }
+            Conn.Close();
+            if (numRows == 1)
+            {
+                Animal.Add(a);
+                return true;
+            }
+            return false;
         }
 
-        private Sheep CreateSheep()
+        public int GetNewID()
         {
-            Console.WriteLine("Enter Sheep details:");
-            // Collect input for Sheep (Water, Cost, Weight, Colour, Wool)
-            double water = GetValidDoubleInput("Water:");
-            int cost = GetValidIntInput("Cost:");
-            int weight = GetValidIntInput("Weight:");
-            string colour = Console.ReadLine();
-            double wool = GetValidDoubleInput("Milk:");
-
-            return new Sheep("Sheep", id, water, cost, weight, colour, wool);
+            return Animal.Max(x => x.ID) + 1;
         }
-
-        public int GetNewID() 
-        { 
-            return LMS.Max(x => x.ID) + 1; 
-        }
-        //private int GenerateAnimalID()
-        //{
-        // Example: return a unique ID based on existing animals in the database
-        //}
 
         //delete row
         internal void DeleteAnimal(int animalID)
@@ -830,6 +864,24 @@ namespace COMP609_Assessment2_ConsoleApp
             return result;
         }
 
+        public int CommitDB(OdbcCommand cmd)
+        {
+            try
+            {
+                cmd.Transaction = Conn.BeginTransaction();
+                int NumRowsAffected = cmd.ExecuteNonQuery();
+                cmd.Transaction.Commit();
+                return NumRowsAffected;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (cmd.Transaction != null)
+                    cmd.Transaction.Rollback();
+                return 0;
+            }
+        }
+
         internal static class Util // Validate Data & Connection
         {
             internal static readonly string BAD_STRING = string.Empty;
@@ -843,6 +895,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     return BAD_INT;
                 return n;
             }
+
             internal static double GetDouble(object o)
             {
                 if (o == null) return BAD_DOUBLE;

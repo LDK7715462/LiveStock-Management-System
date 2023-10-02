@@ -518,6 +518,7 @@ namespace COMP609_Assessment2_ConsoleApp
             }
         }
 
+        #region ANIMAL QUERIES
         internal void QueryAnimalByID()
         {
             Console.WriteLine("Enter the ID of the animal you want to query:");
@@ -612,6 +613,7 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             // To Do
         }
+        #endregion
 
         #region INSERT ANIMAL
         public void ConsoleInsertDB()

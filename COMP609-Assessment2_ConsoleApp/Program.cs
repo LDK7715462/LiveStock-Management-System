@@ -929,7 +929,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
             }
         }
-
+        //
         internal void UpdateAnimalId()
         {
             Console.WriteLine("Enter the ID of the animal you want to update:");
@@ -948,16 +948,16 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
                 else
                 {
-                    Console.WriteLine("\nAnimal not found with the specified ID.");
+                    Console.WriteLine("Animal ID not found.\n");
                     Console.WriteLine();
                 }
             }
             else
             {
-                Console.WriteLine("\nInvalid input. Please enter a valid integer ID.");
+                Console.WriteLine("\nInvalid input. Please enter a valid ID.");
                 Console.WriteLine();
             }
-
+            |
             if (int.TryParse(Console.ReadLine(), out int inputId))
             {
                 Console.WriteLine("Choose an option:");
@@ -968,23 +968,32 @@ namespace COMP609_Assessment2_ConsoleApp
                 Console.WriteLine("5. Update Milk/ Wool production");
                 Console.Write("Enter your choice (1, 2, 3, 4, or 5): ");
 
-                if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 5))
+                if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 6))
                 {
                     var animalId = Animal
-                        .Where(a => a is Animals)
+                        .Where(a => ((Animals)a).ID == inputId)
                         .ToList();
 
                     if (option == 1)
                     {
                         animalId = animalId
-                            .Where(a => ((Animals)a).Weight >= inputId)
+                        string sql = "UPDATE AnimalTable SET Weight = @NewWeight WHERE ID = @ID";
+
+                        using (var cmd = new OdbcCommand(sql, Conn)),,
+                        {
+                            cmd.Parameters.AddWithValue("@NewWeight", newWeight);
+                            cmd.Parameters.AddWithValue("@ID", animalID);
+
+                            // Execute the UPDATE command
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                        }
                             .ToList();
                         Console.WriteLine($"Water consumption for ID {inputId} Updated");
                     }
                     else if (option == 2)
                     {
                         animalId = animalId
-                            .Where(a => ((Animals)a).Weight <= inputId)
+                            .Where(a => ((Animals)a).Cost <= inputId)
                             .ToList();
                         Console.WriteLine($"Tax cost for ID {inputId} Updated");
                     }
@@ -1014,12 +1023,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     if (animalId.Any())
                     {
                         Console.WriteLine();
-                        Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
-                                                        "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
-                        foreach (var animal in animalId)
-                        {
-                            Console.WriteLine(animal);
-                        }
+                        Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}","Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
                         Console.WriteLine();
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
@@ -1027,19 +1031,19 @@ namespace COMP609_Assessment2_ConsoleApp
                     }
                     else
                     {
-                        Console.WriteLine($"No animals found with the specified Weight.");
+                        Console.WriteLine("No animals found with the specified ID.");
                         Console.WriteLine();
                     }
                 }
                 else
                 {
-                    Console.WriteLine("\nInvalid option. Please enter 1 for greater than or 2 for less than.");
+                    Console.WriteLine("\nInvalid option. Please choose again");
                     Console.WriteLine();
                 }
             }
             else
             {
-                Console.WriteLine("\nInvalid input. Please enter a valid numeric weight.");
+                Console.WriteLine("\nInvalid input. Please enter a valid ID");
                 Console.WriteLine();
             }
         }

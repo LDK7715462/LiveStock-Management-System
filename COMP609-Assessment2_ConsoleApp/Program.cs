@@ -239,6 +239,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     case 6:
                         // Delete a record into the database.
                         Console.Clear();
+                        ConsoleDeleteByID();
                         break;
                     case 7:
                         // Update a record into the database.
@@ -612,9 +613,10 @@ namespace COMP609_Assessment2_ConsoleApp
             // To Do
         }
 
+        #region INSERT ANIMAL
         public void ConsoleInsertDB()
         {
-            Console.WriteLine("\n==== Insert Animal =====");
+            Console.WriteLine("======[ Insert Animal ]======");
 
             // Read the animal type from the user
             string animalType = ReadAnimalType();
@@ -660,7 +662,7 @@ namespace COMP609_Assessment2_ConsoleApp
             if (!InsertAnimal(animal))
                 Console.WriteLine("Insertion didn't go through.");
             else
-                Console.WriteLine($"Inserted: {animal}\n");
+                Console.WriteLine($"\nRecord Inserted: {animal}\n");
         }
 
         private string ReadAnimalType()
@@ -690,7 +692,7 @@ namespace COMP609_Assessment2_ConsoleApp
 
             while (true)
             {
-                Console.WriteLine("Enter colour (Red, Black, or White): ");
+                Console.Write("Enter colour (Red, Black, or White): ");
                 string colour = Console.ReadLine().Trim().ToLower();
 
                 if (validColors.Contains(colour))
@@ -768,32 +770,79 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             return Animal.Max(x => x.ID) + 1;
         }
+        #endregion
 
-        //delete row
-        internal void DeleteAnimal(int animalID)
+        #region DELETE ANIMAL BY ID
+        // Delete Animal by ID
+        public void ConsoleDeleteByID()
         {
-            // Create a SQL DELETE statement and execute it using your OdbcConnection
-            string sql = "DELETE FROM AnimalTable WHERE ID = @ID";
+            Console.WriteLine("======[ Delete Record ]======");
+            int id = ConsoleGetID();
+            var c = GetObjectByID(id);
+            if (c == null)
+            {
+                Console.WriteLine($"Non-existent id: {id}");
+                return;
+            }
 
+            string tbl = c.GetType().Name;
+            if (DeleteByID(tbl, id))
+                Console.WriteLine($"Record deleted: {c}\n");
+            else
+                Console.WriteLine($"Error in deleting {id}\n");
+
+        }
+
+        public bool DeleteByID(string tbl, int id)
+        {
+            int numRows;
             using (var cmd = Conn.CreateCommand())
             {
-                cmd.Parameters.AddWithValue("@ID", animalID);
+                string sql = $"DELETE FROM {tbl} WHERE [ID] =?";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ID", id);
+                numRows = CommitDB(cmd);
 
                 // Execute the DELETE command
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                if (numRows == 1)
                 {
-                    Console.WriteLine("Animal with ID " + animalID + " deleted successfully.");
+                    // Successfully deletes from the database
+                    var animal = Animal.FirstOrDefault(x => x.ID == id);
+                    if (animal != null)
+                    {
+                        Console.WriteLine("Animal with ID: " + id + " deleted successfully.");
+                        return Animal.Remove(animal);
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
-                }
+                Console.WriteLine("Animal with ID: " + id + " not found in the database.");
+                return false;
             }
         }
 
-        //update row
+        public int ConsoleGetID()
+        {
+            int id;
+            while (true)
+            {
+                Console.WriteLine("Enter id: ");
+                string? s = Console.ReadLine();
+                if (int.TryParse(s, out id))
+                    break;
+                else
+                    Console.WriteLine("Invalid Input. Try Again");
+            }
+            return id;
+        }
+
+        public Animals? GetObjectByID(int id)
+        {
+            // Retrieves objects info using id
+            return Animal.FirstOrDefault(x => x.ID == id);
+        }
+    #endregion
+
+        #region UPDATE ANIMAL
+        // Update Animal
         internal void UpdateAnimal(int animalID, double newWeight)
         {
             // Create a SQL UPDATE statement and execute it using your OdbcConnection
@@ -817,6 +866,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
             }
         }
+        #endregion
 
         private int GetValidIntInput(string prompt)
         {

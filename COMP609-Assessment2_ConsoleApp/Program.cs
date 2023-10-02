@@ -229,7 +229,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     case 4:
                         // Query by Weight
                         Console.Clear();
-                        QueryAnimalByColour();
+                        QueryAnimalByWeight();
                         break;
                     case 5:
                         // Insert a record from the database.
@@ -611,7 +611,67 @@ namespace COMP609_Assessment2_ConsoleApp
 
         internal void QueryAnimalByWeight()
         {
-            // To Do
+            Console.WriteLine("Enter the weight (kg) of the animal you want to query:");
+
+            if (double.TryParse(Console.ReadLine(), out double inputWeight))
+            {
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine("1. Find animals with weight greater than the specified value.");
+                Console.WriteLine("2. Find animals with weight less than the specified value.");
+                Console.Write("Enter your choice (1 or 2): ");
+
+                if (int.TryParse(Console.ReadLine(), out int option) && (option == 1 || option == 2))
+                {
+                    var animalsByWeight = Animal
+                        .Where(a => a is Animals)
+                        .ToList();
+
+                    if (option == 1)
+                    {
+                        animalsByWeight = animalsByWeight
+                            .Where(a => ((Animals)a).Weight >= inputWeight)
+                            .ToList();
+                        Console.WriteLine($"Animals with Weight Greater than {inputWeight} kg Found:");
+                    }
+                    else if (option == 2)
+                    {
+                        animalsByWeight = animalsByWeight
+                            .Where(a => ((Animals)a).Weight <= inputWeight)
+                            .ToList();
+                        Console.WriteLine($"Animals with Weight Less than {inputWeight} kg Found:");
+                    }
+
+                    if (animalsByWeight.Any())
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                        "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                        foreach (var animal in animalsByWeight)
+                        {
+                            Console.WriteLine(animal);
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"No animals found with the specified Weight.");
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid option. Please enter 1 for greater than or 2 for less than.");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid input. Please enter a valid numeric weight.");
+                Console.WriteLine();
+            }
         }
         #endregion
 

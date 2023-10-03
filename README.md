@@ -5,10 +5,10 @@
 - [x] Read data from database - COMPLETED
 - [x] Display data - COMPLETED
 - [ ] Display statistics - TODO
-- [x] Queries by ID/Type/Colour - COMPLETED
-    - [ ] Weight - TODO
-- [ ] Delete record from database - TODO
-- [ ] Insert record in database - TODO
+- [x] Queries by ID/Type/Colour/Weight - COMPLETED
+- [x] Delete record from database - COMPLETED
+- [x] Insert record in database - COMPLETED
+- [x] Update a record - OPTIONAL
 
 Note: all data, whether entered by user or retrieved from database, must be validated. For example,
 * For an entered livestock id, it must be a valid integer.

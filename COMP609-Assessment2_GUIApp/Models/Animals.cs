@@ -8,6 +8,7 @@ namespace COMP609_Assessment2_GUIApp.Models
 {
     internal abstract class Animals
     {
+        public string Type { get; set; }
         public int ID { get; set; }
 
         public double Water { get; set; }
@@ -22,6 +23,7 @@ namespace COMP609_Assessment2_GUIApp.Models
 
         public Animals(string type, int id, double water, double cost, double weight, string colour, double wool_milk)
         {
+            this.Type = GetType().Name;
             this.ID = id;
             this.Water = water;
             this.Cost = cost;

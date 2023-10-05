@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Live Stock Management by Dylan, Tristan and Lucky"
+        Width="1000"
+        Height="600"
+        MinWidth="600"
+        MinHeight="400"
+        ResizeMode="CanResize"
+        >
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TabControl Name="TabMenu" SelectionChanged="TabControl_selectionChanged">
+            <TabItem Header="TestView" />
+            <TabItem Header="Test" />
+            <TabItem Header="Test" />
+        </TabControl>
+        <ContentControl Name="MainView" Grid.Row="1" />
     </Grid>
 </Window>

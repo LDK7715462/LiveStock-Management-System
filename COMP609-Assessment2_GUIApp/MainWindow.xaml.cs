@@ -1,4 +1,6 @@
-﻿using System;
+﻿using COMP609_Assessment2_GUIApp.Views;
+using COMP609_Assessment2_GUIApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,24 @@ namespace COMP609_Assessment2_GUIApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        LMSApp app;
+
         public MainWindow()
         {
             InitializeComponent();
+            app = new LMSApp();
+        }
+
+        private void TabControl_selectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = TabMenu.SelectedIndex;
+            MainView.Content = index switch
+            {
+                0 => new TestPage(app),
+                1 => new TestPage(app),
+                2 => new TestPage(app),
+                _ => throw new NotImplementedException(),
+            };
         }
     }
 }

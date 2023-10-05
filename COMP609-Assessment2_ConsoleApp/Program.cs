@@ -819,7 +819,6 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
                 numRows = CommitDB(cmd);
             }
-            Conn.Close();
             if (numRows == 1)
             {
                 Animal.Add(a);
@@ -875,8 +874,11 @@ namespace COMP609_Assessment2_ConsoleApp
                         Console.WriteLine("Animal with ID: " + id + " deleted successfully.");
                         return Animal.Remove(animal);
                     }
+                    else
+                    {
+                        Console.WriteLine("Animal with ID: " + id + " not found in the database.");
+                    }
                 }
-                Console.WriteLine("Animal with ID: " + id + " not found in the database.");
                 return false;
             }
         }

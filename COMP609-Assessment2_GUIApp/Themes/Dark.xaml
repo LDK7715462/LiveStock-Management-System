@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp.Themes">
+
+                    <!-- Background Colours -->
+                    <SolidColorBrush x:Key="PrimaryBackgroundColour" Color="#323232"/>
+                    <SolidColorBrush x:Key="SecondaryBackgroundColour" Color="#1E1E1E"/>
+
+                    <!-- Typograhy Colours -->
+                    <SolidColorBrush x:Key="PrimaryTextColour" Color="#FFFFFF"/>
+                    <SolidColorBrush x:Key="TextSecondaryColour" Color="#B0B7C3"/>
+                    <SolidColorBrush x:Key="TextTertiaryColour" Color="#8A94A6"/>
+
+                    <!-- Icon Colours -->
+                    <SolidColorBrush x:Key="PrimaryIconColour" Color="#B0B7C3"/>
+                    <SolidColorBrush x:Key="SecondaryIconColour" Color="#FFFFFF"/>
+                    <SolidColorBrush x:Key="TertiarIconyColour" Color="#4B5D78"/>
+                    <SolidColorBrush x:Key="FourthIconColour" Color="Gray"/>
+
+                    <!-- Icon & Popout Colours -->
+                    <SolidColorBrush x:Key="ButtonPopoutColour" Color="#1E1E1E"/>
+                    <SolidColorBrush x:Key="PopoutBorderColour" Color="#47b559"/>
+                    <SolidColorBrush x:Key="IconClickedColour" Color="#47b559"/>
+
+                    <!-- Toggle Menu Icon -->
+                    <SolidColorBrush x:Key="ToggleIconColour" Color="#FFFFFF"/>
+
+                    <!-- Close Button Colour -->
+                    <SolidColorBrush x:Key="TopLeftButtonsColour" Color="#FFFFFF"/>
+                    <SolidColorBrush x:Key="TopLeftBackgroundColour" Color="#808080"/>
+                    <SolidColorBrush x:Key="btnClose" Color="#F72626"/>
+
+                    <!-- Image Resources -->
+                    <BitmapImage x:Key="background" UriSource="../Assets/images/background.png"/>
+    
+</ResourceDictionary>

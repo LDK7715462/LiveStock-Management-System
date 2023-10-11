@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_GUIApp\App.xaml
-21226771239
+9464365845
 
-122023796744
+16-590425009
 1991555966510
-MainWindow.xaml;Views\TestPage.xaml;
+Assets\Icons.xaml;Controls\MenuItem.xaml;Controls\UserPopup.xaml;MainWindow.xaml;Pages\Home.xaml;Pages\TestPage.xaml;Styles\MainStyle.xaml;Themes\Dark.xaml;Themes\Light.xaml;
 
 False
 

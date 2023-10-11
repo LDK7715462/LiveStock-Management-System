@@ -25,9 +25,9 @@ corrupted.
 
 ## LMS GUI App (Livestock Management System)
 
-- [ ] Code-behind that provides the funcionalities. (This is the same part as the LMS console app above.) - TODO
-- [ ] Working GUI - TODO
-- [ ] Display Database Records - TODO
+- [x] Code-behind that provides the funcionalities. (This is the same part as the LMS console app above.) - COMPLETED
+- [x] Working GUI - COMPLETED
+- [x] Display Database Records - COMPLETED
 - [ ] Display Database Records Statistics - TODO
 - [ ] Query Database Records - TODO
 - [ ] Insert Database Records - TODO

@@ -13,6 +13,8 @@
 
     <Border Background="{DynamicResource PrimaryBackgroundColour}"
             CornerRadius="8"
+            BorderThickness="1.5"
+            BorderBrush="{DynamicResource MainBorderColour}"
             MouseDown="Grid_MouseDown">
 
         <Grid>
@@ -52,22 +54,22 @@
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource home}" 
                                            IconWidth="16" Text="Home" VerticalAlignment="Center"/>
                         </Button>
-                        <Separator Height="4" Width="35" Background="Gray" Opacity="0.5" />
+                        <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
                         <Button x:Name="btnDashboard" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnDashboard_MouseEnter" MouseLeave="btnDashboard_MouseLeave" Click="btnDashboard_Click">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource dashboard}" 
                                            IconWidth="16" Text="Dashboard" VerticalAlignment="Center"/>
                         </Button>
-                        <Separator Height="4" Width="35" Background="Gray" Opacity="0.5" />
+                        <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
                         <Button x:Name="btnQueryData" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnQueryData_MouseEnter" MouseLeave="btnQueryData_MouseLeave">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource statistics}" 
                                            IconWidth="16" Text="Query Data" VerticalAlignment="Center"/>
                         </Button>
-                        <Separator Height="4" Width="35" Background="Gray" Opacity="0.5" />
+                        <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
                         <Button x:Name="btnStatistics" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnStatistics_MouseEnter" MouseLeave="btnStatistics_MouseLeave">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource querydata}" 
                                            IconWidth="16" Text="Analytics" VerticalAlignment="Center"/>
                         </Button>
-                        <Separator Height="4" Width="35" Background="Gray" Opacity="0.5" />
+                        <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
                         <Button x:Name="btnUpdateData" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnUpdateData_MouseEnter" MouseLeave="btnUpdateData_MouseLeave">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource updatedata}" 
                                            IconWidth="16" Text="Update Data" VerticalAlignment="Center"/>

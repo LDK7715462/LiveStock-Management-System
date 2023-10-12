@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp.Themes">
 
+
+                    <!-- Main Border Colour -->
+                    <SolidColorBrush x:Key="MainBorderColour" Color="#414141"/>
+
                     <!-- Background Colours -->
                     <SolidColorBrush x:Key="PrimaryBackgroundColour" Color="#FFFFFF"/>
                     <SolidColorBrush x:Key="SecondaryBackgroundColour" Color="#808080"/>
@@ -22,10 +26,13 @@
                     <SolidColorBrush x:Key="PopoutBorderColour" Color="#FFFFFF"/>
                     <SolidColorBrush x:Key="IconClickedColour" Color="#414141"/>
 
-                    <!-- Toggle Menu Icon -->
+                    <!-- Toggle Menu Icon Colour -->
                     <SolidColorBrush x:Key="ToggleIconColour" Color="#808080"/>
 
-                    <!-- Toggle Menu Icon -->
+                    <!-- Menu Separator Colour -->
+                    <SolidColorBrush x:Key="SeparatorColour" Color="#414141"/>
+
+                    <!-- Toggle Theme Text -->
                     <SolidColorBrush x:Key="ThemeTextColour" Color="#414141"/>
 
                     <!-- Top Left Buttons Colour -->

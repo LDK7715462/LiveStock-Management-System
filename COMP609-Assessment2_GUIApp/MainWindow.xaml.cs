@@ -169,14 +169,16 @@ namespace COMP609_Assessment2_GUIApp
         {
         }
 
-        private void LightThemeClick(object sender, RoutedEventArgs e)
+        private void ThemeToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             AppTheme.ChangeTheme(new Uri("Themes/Light.xaml", UriKind.Relative));
+            ToggleButtonLabel.Text = "Light"; // Set the text when Unchecked
         }
 
-        private void DarkThemeClick(object sender, RoutedEventArgs e)
+        private void ThemeToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             AppTheme.ChangeTheme(new Uri("Themes/Dark.xaml", UriKind.Relative));
+            ToggleButtonLabel.Text = "Dark"; // Set the text when checked
         }
     }
 }

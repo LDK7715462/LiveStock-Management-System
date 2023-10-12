@@ -23,6 +23,9 @@
                     <SolidColorBrush x:Key="IconClickedColour" Color="#47b559"/>
 
                     <!-- Toggle Menu Icon -->
+                    <SolidColorBrush x:Key="ThemeTextColour" Color="#FFFFFF"/>
+    
+                    <!-- Toggle Menu Icon -->
                     <SolidColorBrush x:Key="ToggleIconColour" Color="#FFFFFF"/>
 
                     <!-- Close Button Colour -->

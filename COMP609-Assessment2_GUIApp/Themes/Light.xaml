@@ -15,16 +15,19 @@
                     <SolidColorBrush x:Key="PrimaryIconColour" Color="#B0B7C3"/>
                     <SolidColorBrush x:Key="SecondaryIconColour" Color="#FFFFFF"/>
                     <SolidColorBrush x:Key="TertiarIconyColour" Color="#4B5D78"/>
-                    <SolidColorBrush x:Key="FourthIconColour" Color="Gray"/>
+                    <SolidColorBrush x:Key="FourthIconColour" Color="#808080"/>
 
                     <!-- Icon & Popout Colours -->
                     <SolidColorBrush x:Key="ButtonPopoutColour" Color="#414141"/>
                     <SolidColorBrush x:Key="PopoutBorderColour" Color="#FFFFFF"/>
-                    <SolidColorBrush x:Key="IconClickedColour" Color="#47b559"/>
+                    <SolidColorBrush x:Key="IconClickedColour" Color="#414141"/>
 
                     <!-- Toggle Menu Icon -->
                     <SolidColorBrush x:Key="ToggleIconColour" Color="#808080"/>
-    
+
+                    <!-- Toggle Menu Icon -->
+                    <SolidColorBrush x:Key="ThemeTextColour" Color="#414141"/>
+
                     <!-- Top Left Buttons Colour -->
                     <SolidColorBrush x:Key="TopLeftButtonsColour" Color="#414141"/>
                     <SolidColorBrush x:Key="TopLeftBackgroundColour" Color="#808080"/>

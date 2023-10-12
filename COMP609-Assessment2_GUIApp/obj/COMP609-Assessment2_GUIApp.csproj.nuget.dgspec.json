@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[4.9.0, )"
             },
+            "Syncfusion.Blazor.Buttons": {
+              "target": "Package",
+              "version": "[23.1.40, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"

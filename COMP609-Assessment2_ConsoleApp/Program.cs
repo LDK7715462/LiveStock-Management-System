@@ -928,98 +928,96 @@ namespace COMP609_Assessment2_ConsoleApp
                 }
                 else
                 {
-                    Console.WriteLine($"Animal [{id}] not found.");
+                    Console.WriteLine($"Animal with [{id}] not found.");
                     Console.WriteLine();
                     return; // Exit the method if the animal is not found
                 }
 
-                if (animal != null)
+                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("1. Update water consumption");
+                Console.WriteLine("2. Update tax cost");
+                Console.WriteLine("3. Update animal's weight");
+                Console.WriteLine("4. Update Milk production");
+                Console.WriteLine("5. Update Wool production");
+                Console.Write("\nEnter your choice (1, 2, 3, 4, or 5): ");
+
+                if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 5))
                 {
-                    Console.WriteLine("Choose an option:");
-                    Console.WriteLine("1. Update water consumption");
-                    Console.WriteLine("2. Update tax cost");
-                    Console.WriteLine("3. Update animal's weight");
-                    Console.WriteLine("4. Update animal's colour");
-                    Console.WriteLine("5. Update Milk/ Wool production");
-                    Console.Write("Enter your choice (1, 2, 3, 4, or 5): ");
+                    string columnName = "";
+                    object newValue = null;
 
-                    if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 6))
+                    if (option == 1 || option == 2 || option == 3 || option == 4 || option == 5)
                     {
-                        if (option == 1)
+                        // For options 1, 2, 3, 4, or 5, expect a numeric input
+                        columnName = option == 1 ? "Water" : (option == 2 ? "Cost" : (option == 3 ? "Weight" : (option == 4 ? "Milk" : "Wool")));
+                        Console.Clear();
+                        Console.Write($"Enter the new value for {columnName}: ");
+                        if (double.TryParse(Console.ReadLine(), out double numValue))
                         {
-                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
-
-                            using (var cmd = new OdbcCommand(sql, Conn))
-                            {
-                                cmd.CommandText = sql;
-                                cmd.Parameters.AddWithValue("@Water", option);
-                                CommitDB(cmd);
-                            }
-                            Console.WriteLine($"Water consumption for ID {id} Updated");
+                            newValue = numValue;
                         }
-                        else if (option == 2)
-                        {
-                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
-
-                            using (var cmd = new OdbcCommand(sql, Conn))
-                            {
-                                cmd.CommandText = sql;
-                                cmd.Parameters.AddWithValue("@Water", option);
-                                CommitDB(cmd);
-                            }
-                            Console.WriteLine($"Tax cost for ID {id} Updated");
-                        }
-                        else if (option == 3)
-                        {
-                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
-
-                            using (var cmd = new OdbcCommand(sql, Conn))
-                            {
-                                cmd.CommandText = sql;
-                                cmd.Parameters.AddWithValue("@Water", option);
-                                CommitDB(cmd);
-                            }
-                            Console.WriteLine($"The weight for ID {id} Updated");
-                        }
-                        else if (option == 4)
-                        {
-                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
-
-                            using (var cmd = new OdbcCommand(sql, Conn))
-                            {
-                                cmd.CommandText = sql;
-                                cmd.Parameters.AddWithValue("@Water", option);
-                                CommitDB(cmd);
-                            }
-                            Console.WriteLine($"The colour for ID {id} Updated");
-                        }
-                        //else if (option == 5)
-                        //{
-                        //    animalId = animalId
-                        //        .Where(a => ((Animals)a).Weight <= input)
-                        //        .ToList();
-                        //    Console.WriteLine($"Production amount for ID {inputId} Updated");
-                        //}
                         else
                         {
-                            Console.WriteLine("That is not a valid option.");
+                            Console.WriteLine($"\nInvalid {columnName} value. Update failed.\n");
+                            return;
                         }
-
                     }
-                    else
+
+                    string sql = $"UPDATE {animal.GetType().Name} SET [{columnName}] = ? WHERE [ID] = ?";
+                    using (var cmd = new OdbcCommand(sql, Conn))
                     {
-                        Console.WriteLine("\nInvalid option. Please choose again");
-                        Console.WriteLine();
+                        cmd.Parameters.AddWithValue("@Value", newValue);
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        int rowsUpdated = cmd.ExecuteNonQuery();
+
+                        if (rowsUpdated > 0)
+                        {
+                            // Update the corresponding object in the list
+                            if (animal is Animals updatedAnimal)
+                            {
+                                if (columnName == "Water")
+                                {
+                                    updatedAnimal.Water = (double)newValue;
+                                }
+                                else if (columnName == "Cost")
+                                {
+                                    updatedAnimal.Cost = (double)newValue;
+                                }
+                                else if (columnName == "Weight")
+                                {
+                                    updatedAnimal.Weight = (double)newValue;
+                                }
+                                else if (columnName == "Milk")
+                                {
+                                    updatedAnimal.Wool_Milk = (double)newValue;
+                                }
+                                else if (columnName == "Wool")
+                                {
+                                    updatedAnimal.Wool_Milk = (double)newValue;
+                                }
+                            }
+
+                            Console.WriteLine($"\nColumn: {columnName} for ID: [{id}] has been updated successfully.\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Update failed. No rows were affected.");
+                        }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("\nInvalid input. Please enter a valid ID");
+                    Console.WriteLine("\nInvalid option. Please choose again");
                     Console.WriteLine();
                 }
             }
+            else
+            {
+                Console.WriteLine("\nInvalid input. Please enter a valid ID");
+                Console.WriteLine();
+            }
         }
-        
+
         #endregion
 
         #region VALIDATION

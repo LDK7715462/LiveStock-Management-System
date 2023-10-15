@@ -151,7 +151,7 @@ namespace COMP609_Assessment2_ConsoleApp
                         break;
                     case 2:
                         Console.Clear();
-
+                        DisplayStatsMenu();
                         break;
                     case 3:
                         // Return to the main menu
@@ -904,35 +904,125 @@ namespace COMP609_Assessment2_ConsoleApp
             // Retrieves objects info using id
             return Animal.FirstOrDefault(x => x.ID == id);
         }
-    #endregion
+        #endregion
 
         #region UPDATE ANIMAL
         // Update Animal
-        internal void UpdateAnimal(int animalID, double newWeight)
+        internal void UpdateAnimalId()
         {
-            // Create a SQL UPDATE statement and execute it using your OdbcConnection
-            string sql = "UPDATE AnimalTable SET Weight = @NewWeight WHERE ID = @ID";
+            Console.WriteLine("Enter the ID of the animal you want to update below");
 
-            using (var cmd = new OdbcCommand(sql, Conn))
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
-                cmd.Parameters.AddWithValue("@NewWeight", newWeight);
-                cmd.Parameters.AddWithValue("@ID", animalID);
+                // Find the animal with the given ID using FirstOrDefault
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
 
-                // Execute the UPDATE command
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                if (animal != null)
                 {
-                    Console.WriteLine("Animal with ID " + animalID + " updated successfully.");
+                    Console.WriteLine();
+                    Console.WriteLine($"Animal with the ID: [{id}] Found.");
+                    Console.WriteLine();
+                    Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                  "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                    Console.WriteLine(animal);
                 }
                 else
                 {
-                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                    Console.WriteLine($"Animal [{id}] not found.");
+                    Console.WriteLine();
+                    return; // Exit the method if the animal is not found
+                }
+
+                if (animal != null)
+                {
+                    Console.WriteLine("Choose an option:");
+                    Console.WriteLine("1. Update water consumption");
+                    Console.WriteLine("2. Update tax cost");
+                    Console.WriteLine("3. Update animal's weight");
+                    Console.WriteLine("4. Update animal's colour");
+                    Console.WriteLine("5. Update Milk/ Wool production");
+                    Console.Write("Enter your choice (1, 2, 3, 4, or 5): ");
+
+                    if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 6))
+                    {
+                        if (option == 1)
+                        {
+                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
+
+                            using (var cmd = new OdbcCommand(sql, Conn))
+                            {
+                                cmd.CommandText = sql;
+                                cmd.Parameters.AddWithValue("@Water", option);
+                                CommitDB(cmd);
+                            }
+                            Console.WriteLine($"Water consumption for ID {id} Updated");
+                        }
+                        else if (option == 2)
+                        {
+                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
+
+                            using (var cmd = new OdbcCommand(sql, Conn))
+                            {
+                                cmd.CommandText = sql;
+                                cmd.Parameters.AddWithValue("@Water", option);
+                                CommitDB(cmd);
+                            }
+                            Console.WriteLine($"Tax cost for ID {id} Updated");
+                        }
+                        else if (option == 3)
+                        {
+                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
+
+                            using (var cmd = new OdbcCommand(sql, Conn))
+                            {
+                                cmd.CommandText = sql;
+                                cmd.Parameters.AddWithValue("@Water", option);
+                                CommitDB(cmd);
+                            }
+                            Console.WriteLine($"The weight for ID {id} Updated");
+                        }
+                        else if (option == 4)
+                        {
+                            string sql = $"UPDATE {animal} WHERE [Water] = {option}";
+
+                            using (var cmd = new OdbcCommand(sql, Conn))
+                            {
+                                cmd.CommandText = sql;
+                                cmd.Parameters.AddWithValue("@Water", option);
+                                CommitDB(cmd);
+                            }
+                            Console.WriteLine($"The colour for ID {id} Updated");
+                        }
+                        //else if (option == 5)
+                        //{
+                        //    animalId = animalId
+                        //        .Where(a => ((Animals)a).Weight <= input)
+                        //        .ToList();
+                        //    Console.WriteLine($"Production amount for ID {inputId} Updated");
+                        //}
+                        else
+                        {
+                            Console.WriteLine("That is not a valid option.");
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid option. Please choose again");
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid input. Please enter a valid ID");
+                    Console.WriteLine();
                 }
             }
         }
+        
         #endregion
 
+        #region VALIDATION
         private int GetValidIntInput(string prompt)
         {
             int result;
@@ -1038,10 +1128,11 @@ namespace COMP609_Assessment2_ConsoleApp
         }
         #endregion
 
+        #endregion
+
         #region ----------------------------------------------------------------------------------- [ STATISTICS ] ----------------------------------------
 
         /* Income generated by a cow (per day): milk_amount * cow_milk_price
-         * Income generated by a goat(per day) : milk_amount* goat_milk_price
          * Income generated by a goat(per day) : milk_amount* goat_milk_price
          * Income generated by a sheep(per day) : wool_amount* sheep_wool_price
          * Total cost of a cow/goat/sheep(per day) : operaton_cost + water_cost + government_tax
@@ -1051,7 +1142,127 @@ namespace COMP609_Assessment2_ConsoleApp
          * Show the average weight of all farm animals.
          */
 
-
-            #endregion
+        public void DisplayStatsSwitch()
+        {
+            while (true)
+            {
+                var opt = DisplayStatsMenu();
+                switch (opt)
+                {
+                    case 1:
+                        Console.Clear();
+                        DailyStats();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        GlobalStats();
+                        break;
+                    case 3:
+                        // Return to the main menu
+                        Console.Clear();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid Input.");
+                        break;
+                }
+            }
         }
-    }
+        public int DisplayStatsMenu() // Display Menu to Print Statistics
+        {
+            int opt = 0;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("**************** [ Statistics Menu ] *****************");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("*             1. Display Daily Statistics            *");
+                Console.WriteLine("*             2. Display Global Statistics           *");
+                Console.WriteLine("*             3. Back to Main Menu                   *");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine("Enter an Option: ");
+
+                try
+                {
+                    opt = int.Parse(Console.ReadLine());
+                    if (opt >= 1 && opt <= 3)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.\n");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-3).\n");
+                }
+            }
+            return opt;
+        }
+
+        private void DailyStats()
+        {
+            //Income generated by an animal in the database
+            //Enter ID of animal then load id from database
+            //Show income generated per day for that ID
+            //Show total cost of that ID per day
+            //profit/ loss for that ID
+
+            {
+            Console.WriteLine("Enter the ID of the animal you want statistics for: ");
+            if (int.TryParse(Console.ReadLine(), out int input))
+            {
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == input);
+                if (animal != null)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Animal with the ID: [" + input + "] Found.");
+                    Console.WriteLine();
+                    Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                    "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                    Console.WriteLine(animal);
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("\nAnimal not found with the specified ID.");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid input. Please enter a valid integer ID.");
+                Console.WriteLine();
+            }
+        }
+        }
+
+        public void GlobalStats()
+        {
+            //Tax paid by the farm per 30 days
+            //profit/loss of all animals per day
+            //average weight of all animals
+            //int totalWeight = 
+            //int totalTax = [Tax] * totalWeight;
+            while (true)
+            {
+                Console.Clear();
+                
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+        }
+        #endregion
+    }
+}

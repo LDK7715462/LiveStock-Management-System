@@ -1214,36 +1214,43 @@ namespace COMP609_Assessment2_ConsoleApp
             //Show total cost of that ID per day
             //profit/ loss for that ID
 
-            {
             Console.WriteLine("Enter the ID of the animal you want statistics for: ");
-            if (int.TryParse(Console.ReadLine(), out int input))
+
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
-                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == input);
+                // Find the animal with the given ID using FirstOrDefault
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+
                 if (animal != null)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("Animal with the ID: [" + input + "] Found.");
+                    Console.WriteLine($"ID [{id}] has been found.");
                     Console.WriteLine();
                     Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
-                                                    "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                                                  "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
                     Console.WriteLine(animal);
-                    Console.WriteLine();
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                    Console.Clear();
+                    Console.WriteLine($"Daily Statistics for [{animal.GetType().Name}] with ID No [{id}]: \n");
                 }
                 else
                 {
-                    Console.WriteLine("\nAnimal not found with the specified ID.");
+                    Console.WriteLine($"ID No [{id}] not found in database, please try again.");
                     Console.WriteLine();
+                    return;
+                }
+
+                if  (animal.GetType().Name == "Cow")
+                {
+
+                }
+                else if (animal.GetType().Name == "Goat")
+                {
+
+                }
+                else
+                {
+                    //Sheep
                 }
             }
-            else
-            {
-                Console.WriteLine("\nInvalid input. Please enter a valid integer ID.");
-                Console.WriteLine();
-            }
-        }
         }
 
         public void GlobalStats()

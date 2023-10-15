@@ -245,6 +245,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     case 7:
                         // Update a record into the database.
                         Console.Clear();
+                        UpdateAnimalId();
                         break;
                     case 8:
                         // Return to the main menu
@@ -889,15 +890,17 @@ namespace COMP609_Assessment2_ConsoleApp
             int id;
             while (true)
             {
-                Console.WriteLine("Enter id: ");
-                string? s = Console.ReadLine();
-                if (int.TryParse(s, out id))
-                    break;
+                if (int.TryParse(Console.ReadLine(), out id))
+                {
+                    return id;
+                }
                 else
-                    Console.WriteLine("Invalid Input. Try Again");
+                {
+                    Console.WriteLine("ID does not exist, please try Again");
+                }
             }
-            return id;
         }
+
 
         public Animals? GetObjectByID(int id)
         {

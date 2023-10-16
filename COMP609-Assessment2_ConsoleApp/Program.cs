@@ -1272,27 +1272,27 @@ namespace COMP609_Assessment2_ConsoleApp
                         double cowIncome = animal.Wool_Milk * cowMilkPrice;
                         double cowCost = animal.Cost * waterPrice * liveStockWeightTax;
                         double cowProfit = cowIncome - cowCost;
-                        Console.WriteLine($"Total Income per day: ${cowIncome}");
-                        Console.WriteLine($"Total Cost per day: ${cowCost}");
-                        Console.WriteLine($"Total profit/ loss per day ($): {cowProfit}");
+                        Console.WriteLine($"Total Income per day: ${cowIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${cowCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {cowProfit:F2}");
                     }
                     else if (animal.GetType().Name == "Goat")
                     {
                         double goatIncome = animal.Wool_Milk * goatMilkPrice;
                         double goatCost = animal.Cost * waterPrice * liveStockWeightTax;
                         double goatProfit = goatIncome - goatCost;
-                        Console.WriteLine($"Total Income per day: ${goatIncome}");
-                        Console.WriteLine($"Total Cost per day: ${goatCost}");
-                        Console.WriteLine($"Total profit/ loss per day ($): {goatProfit}");
+                        Console.WriteLine($"Total Income per day: ${goatIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${goatCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {goatProfit:F2}");
                     }
                     else
                     {
                         double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
                         double sheepCost = animal.Cost * waterPrice * liveStockWeightTax;
                         double sheepProfit = sheepIncome - sheepCost;
-                        Console.WriteLine($"Total Income per day: ${sheepIncome}");
-                        Console.WriteLine($"Total Cost per day: ${sheepCost}");
-                        Console.WriteLine($"Total profit/ loss per day ($): {sheepProfit}");
+                        Console.WriteLine($"Total Income per day: ${sheepIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${sheepCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {sheepProfit:F2}");
                     }
                 }
                 else
@@ -1311,15 +1311,7 @@ namespace COMP609_Assessment2_ConsoleApp
             //average weight of all animals
             //int totalWeight = 
             //int totalTax = [Tax] * totalWeight;
-            while (true)
-            {
-                Console.Clear();
-                
-                Console.WriteLine();
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-            }
+            
 
         }
         #endregion

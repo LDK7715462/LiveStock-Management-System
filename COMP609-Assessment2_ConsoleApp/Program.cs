@@ -1228,23 +1228,23 @@ namespace COMP609_Assessment2_ConsoleApp
                     {
                         case "GoatMilk":
                             goatMilkPrice = itemPrice;
-                            Console.WriteLine(goatMilkPrice);
+                            Console.WriteLine($"Current Goat Milk price (KG): ${goatMilkPrice}");
                             break;
                         case "CowMilk":
                             cowMilkPrice = itemPrice;
-                            Console.WriteLine(cowMilkPrice);
+                            Console.WriteLine($"Current cows Milk price (KG): ${cowMilkPrice}");
                             break;
                         case "SheepWool":
                             sheepWoolPrice = itemPrice;
-                            Console.WriteLine(sheepWoolPrice);
+                            Console.WriteLine($"Current Sheeps wool price (KG): ${sheepWoolPrice}");
                             break;
                         case "Water":
                             waterPrice = itemPrice;
-                            Console.WriteLine(waterPrice);
+                            Console.WriteLine($"Current cost of water (KG): ${waterPrice}");
                             break;
                         case "LivestockWeightTax":
                             liveStockWeightTax = itemPrice;
-                            Console.WriteLine(liveStockWeightTax);
+                            Console.WriteLine($"Current govt tax (KG per animal per day): ${liveStockWeightTax}");
                             break;
                     }
                 }
@@ -1270,7 +1270,8 @@ namespace COMP609_Assessment2_ConsoleApp
                     if (animal.GetType().Name == "Cow")
                     {
                         double cowIncome = animal.Wool_Milk * cowMilkPrice;
-                        double cowCost = animal.Cost * waterPrice * liveStockWeightTax;
+                        //livestock weight tax is per kg, not per animal
+                        double cowCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
                         double cowProfit = cowIncome - cowCost;
                         Console.WriteLine($"Total Income per day: ${cowIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${cowCost:F2}");
@@ -1279,7 +1280,8 @@ namespace COMP609_Assessment2_ConsoleApp
                     else if (animal.GetType().Name == "Goat")
                     {
                         double goatIncome = animal.Wool_Milk * goatMilkPrice;
-                        double goatCost = animal.Cost * waterPrice * liveStockWeightTax;
+                        //livestock weight tax is per kg, not per animal
+                        double goatCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
                         double goatProfit = goatIncome - goatCost;
                         Console.WriteLine($"Total Income per day: ${goatIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${goatCost:F2}");
@@ -1288,7 +1290,8 @@ namespace COMP609_Assessment2_ConsoleApp
                     else
                     {
                         double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
-                        double sheepCost = animal.Cost * waterPrice * liveStockWeightTax;
+                        //livestock weight tax is per kg, not per animal
+                        double sheepCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
                         double sheepProfit = sheepIncome - sheepCost;
                         Console.WriteLine($"Total Income per day: ${sheepIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${sheepCost:F2}");

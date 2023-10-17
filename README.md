@@ -8,7 +8,7 @@
 - [x] Queries by ID/Type/Colour/Weight - COMPLETED
 - [x] Delete record from database - COMPLETED
 - [x] Insert record in database - COMPLETED
-- [x] Update a record - OPTIONAL
+- [x] Update a record - COMPLETED
 
 Note: all data, whether entered by user or retrieved from database, must be validated. For example,
 * For an entered livestock id, it must be a valid integer.

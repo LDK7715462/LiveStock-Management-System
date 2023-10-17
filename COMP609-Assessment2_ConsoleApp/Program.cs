@@ -1264,7 +1264,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     {
                         double cowIncome = animal.Wool_Milk * cowMilkPrice;
                         //Note: livestock weight tax is per kg, not per animal
-                        double cowCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
+                        double cowCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
                         double cowProfit = cowIncome - cowCost;
                         Console.WriteLine($"Total Income per day: ${cowIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${cowCost:F2}");
@@ -1279,7 +1279,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     {
                         double goatIncome = animal.Wool_Milk * goatMilkPrice;
                         //Note: livestock weight tax is per kg, not per animal
-                        double goatCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
+                        double goatCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
                         double goatProfit = goatIncome - goatCost;
                         Console.WriteLine($"Total Income per day: ${goatIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${goatCost:F2}");
@@ -1294,7 +1294,7 @@ namespace COMP609_Assessment2_ConsoleApp
                     {
                         double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
                         //Note: livestock weight tax is per kg, not per animal
-                        double sheepCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
+                        double sheepCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
                         double sheepProfit = sheepIncome - sheepCost;
                         Console.WriteLine($"Total Income per day: ${sheepIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${sheepCost:F2}");
@@ -1383,6 +1383,10 @@ namespace COMP609_Assessment2_ConsoleApp
                             Console.WriteLine($"Total Tax for all animals per 30 day period: {totalTax}\n");
                             double avgWeight = totalWeight / animalCount;// avg weight of all animals
                             Console.WriteLine($"Current average weight of all animals in the Database: {avgWeight}\n");
+
+                            //double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
+                            //double sheepCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
+                            //double sheepProfit = sheepIncome - sheepCost;
                         }
                     }
                 }

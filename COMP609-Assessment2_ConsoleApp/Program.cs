@@ -1225,13 +1225,13 @@ namespace COMP609_Assessment2_ConsoleApp
 
                     switch (itemName)
                     {
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            Console.WriteLine($"Current Cows Milk price (KG): ${cowMilkPrice}");
+                            break;
                         case "GoatMilk":
                             goatMilkPrice = itemPrice;
                             Console.WriteLine($"Current Goat Milk price (KG): ${goatMilkPrice}");
-                            break;
-                        case "CowMilk":
-                            cowMilkPrice = itemPrice;
-                            Console.WriteLine($"Current cows Milk price (KG): ${cowMilkPrice}");
                             break;
                         case "SheepWool":
                             sheepWoolPrice = itemPrice;
@@ -1250,7 +1250,7 @@ namespace COMP609_Assessment2_ConsoleApp
                 reader.Close();
             }
 
-            Console.WriteLine("Enter the ID of the animal you want statistics for: ");
+            Console.WriteLine("\nEnter the ID of the animal you want statistics for: ");
 
             if (int.TryParse(Console.ReadLine(), out int id))
             {
@@ -1265,7 +1265,7 @@ namespace COMP609_Assessment2_ConsoleApp
                                                   "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
                     Console.WriteLine(animal);
                     Console.WriteLine($"\nShowing daily statistics for {animal.GetType().Name} with ID No {id}: \n");
-                    
+
                     if (animal.GetType().Name == "Cow")
                     {
                         double cowIncome = animal.Wool_Milk * cowMilkPrice;
@@ -1275,6 +1275,11 @@ namespace COMP609_Assessment2_ConsoleApp
                         Console.WriteLine($"Total Income per day: ${cowIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${cowCost:F2}");
                         Console.WriteLine($"Total profit/ loss per day ($): {cowProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                     else if (animal.GetType().Name == "Goat")
                     {
@@ -1285,6 +1290,11 @@ namespace COMP609_Assessment2_ConsoleApp
                         Console.WriteLine($"Total Income per day: ${goatIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${goatCost:F2}");
                         Console.WriteLine($"Total profit/ loss per day ($): {goatProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                     else
                     {
@@ -1295,12 +1305,19 @@ namespace COMP609_Assessment2_ConsoleApp
                         Console.WriteLine($"Total Income per day: ${sheepIncome:F2}");
                         Console.WriteLine($"Total Cost per day: ${sheepCost:F2}");
                         Console.WriteLine($"Total profit/ loss per day ($): {sheepProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine($"ID No [{id}] not found in database, please try again.");
                     Console.WriteLine();
+                    DailyStats();
                     return;
                 }
             }

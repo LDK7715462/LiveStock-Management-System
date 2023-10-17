@@ -1125,7 +1125,6 @@ namespace COMP609_Assessment2_ConsoleApp
                 conn.Open();
                 return conn;
             }
-
         }
         #endregion
 

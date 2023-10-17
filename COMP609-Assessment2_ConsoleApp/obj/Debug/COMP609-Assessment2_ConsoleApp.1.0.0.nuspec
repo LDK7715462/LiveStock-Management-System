@@ -13,7 +13,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" />
-    <file src="C:\Users\PC\OneDrive\My Study\Development Workspaces\Visual Studio Workplace\Repos\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.dll" />
+    <file src="C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json" />
+    <file src="C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll" target="lib\net6.0\COMP609-Assessment2_ConsoleApp.dll" />
   </files>
 </package>

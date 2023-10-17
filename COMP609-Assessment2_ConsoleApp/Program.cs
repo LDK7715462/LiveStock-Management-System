@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Collections.Generic;
 using static COMP609_Assessment2_ConsoleApp.App;
+using System.Reflection.PortableExecutable;
 
 namespace COMP609_Assessment2_ConsoleApp
 {
@@ -1333,8 +1334,10 @@ namespace COMP609_Assessment2_ConsoleApp
         {
             using (var Conn = GetConn())
             {
-                double totalTax = 0;
-                double totalWeight = 0;
+                double cowMilk = 0, cowCost = 0, cowWater = 0;
+                double sheepWool = 0, sheepCost = 0, sheepWater = 0;
+                double goatMilk = 0, goatCost = 0, goatWater = 0;
+                double totalTax = 0, totalWeight = 0;
                 int animalCount = 0;
 
                 using (var cmd = Conn.CreateCommand())
@@ -1345,13 +1348,22 @@ namespace COMP609_Assessment2_ConsoleApp
                     {
                         if (commodityReader.Read())
                         {
+                            double goatMilkPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("goatmilk"));
+                            double cowMilkPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("cowmilk"));
+                            double sheepWoolPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("sheepwool"));
+                            double waterPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("waterprice"));
                             double tax = commodityReader.GetDouble(commodityReader.GetOrdinal("tax"));
 
                             cmd.CommandText = "SELECT * FROM cow";
                             using (var cowReader = cmd.ExecuteReader())
                             {
                                 while (cowReader.Read())
-                                {
+                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                                    double milk = cowReader.GetDouble(cowReader.GetOrdinal("milk"));
+                                    double cost = cowReader.GetDouble(cowReader.GetOrdinal("cost"));
+                                    double water = cowReader.GetDouble(cowReader.GetOrdinal("water"));
+                                    cowMilk += milk; cowCost += cost; cowWater += water;
+
                                     double cowWeight = cowReader.GetDouble(cowReader.GetOrdinal("weight"));
                                     totalWeight += cowWeight;
                                     animalCount++;
@@ -1361,7 +1373,12 @@ namespace COMP609_Assessment2_ConsoleApp
                             using (var sheepReader = cmd.ExecuteReader())
                             {
                                 while (sheepReader.Read())
-                                {
+                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                                    double wool = sheepReader.GetDouble(sheepReader.GetOrdinal("wool"));
+                                    double cost = sheepReader.GetDouble(sheepReader.GetOrdinal("cost"));
+                                    double water = sheepReader.GetDouble(sheepReader.GetOrdinal("water"));
+                                    sheepWool += wool; sheepCost += cost; sheepWater += water;
+
                                     double sheepWeight = sheepReader.GetDouble(sheepReader.GetOrdinal("weight"));
                                     totalWeight += sheepWeight;
                                     animalCount++;
@@ -1371,7 +1388,12 @@ namespace COMP609_Assessment2_ConsoleApp
                             using (var goatReader = cmd.ExecuteReader())
                             {
                                 while (goatReader.Read())
-                                {
+                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                                    double milk = goatReader.GetDouble(goatReader.GetOrdinal("milk"));
+                                    double cost = goatReader.GetDouble(goatReader.GetOrdinal("cost"));
+                                    double water = goatReader.GetDouble(goatReader.GetOrdinal("water"));
+                                    goatMilk += milk; goatCost += cost; goatWater += water;
+
                                     double goatWeight = goatReader.GetDouble(goatReader.GetOrdinal("weight"));
                                     totalWeight += goatWeight;
                                     animalCount++;
@@ -1384,16 +1406,26 @@ namespace COMP609_Assessment2_ConsoleApp
                             double avgWeight = totalWeight / animalCount;// avg weight of all animals
                             Console.WriteLine($"Current average weight of all animals in the Database: {avgWeight}\n");
 
-                            //double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
-                            //double sheepCost = animal.Cost * waterPrice * (liveStockWeightTax * animal.Weight);
-                            //double sheepProfit = sheepIncome - sheepCost;
+
+                            double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
+                            Console.WriteLine($"Total income from all animals in the database: {totalIncome}");
+                            //         operation cost of each cow, sheep & goat + water usage price for each cow, sheep & goat + total tax by weight for each animal in the db
+                            double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
+                            Console.WriteLine($"Total costs incurred daily from all animals in the database: {totalCost}");
+                            double totalProfit = totalIncome - totalCost;
+                            Console.WriteLine($"Total profit gained from all animals in the database: {totalProfit}");
+
+                            Console.WriteLine();
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
+                            Console.Clear();
                         }
                     }
                 }
             }
-        }
 
-        #endregion
+            #endregion
+        }
     }
 }
 #endregion

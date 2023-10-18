@@ -1332,100 +1332,121 @@ namespace COMP609_Assessment2_ConsoleApp
 
         public void GlobalStats()
         {
-            using (var Conn = GetConn())
+            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+            double cowMilk = 0, cowCost = 0, cowWater = 0;
+            double sheepWool = 0, sheepCost = 0, sheepWater = 0;
+            double goatMilk = 0, goatCost = 0, goatWater = 0;
+            double totalTax = 0, totalWeight = 0;
+            int animalCount = 0;
+
+            using (var cmd = Conn.CreateCommand())
             {
-                double cowMilk = 0, cowCost = 0, cowWater = 0;
-                double sheepWool = 0, sheepCost = 0, sheepWater = 0;
-                double goatMilk = 0, goatCost = 0, goatWater = 0;
-                double totalTax = 0, totalWeight = 0;
-                int animalCount = 0;
+                cmd.Connection = Conn;
+                string sql;
+                OdbcDataReader reader;
+                sql = "SELECT * FROM Commodity";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
 
-                using (var cmd = Conn.CreateCommand())
+                while (reader.Read())
                 {
-                    cmd.Connection = Conn;
-                    cmd.CommandText = "SELECT * FROM commodity";
-                    using (var commodityReader = cmd.ExecuteReader())
+                    string itemName = reader["Item"].ToString();
+                    double itemPrice = Convert.ToDouble(reader["Price"]);
+
+                    switch (itemName)
                     {
-                        if (commodityReader.Read())
-                        {
-                            double goatMilkPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("goatmilk"));
-                            double cowMilkPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("cowmilk"));
-                            double sheepWoolPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("sheepwool"));
-                            double waterPrice = commodityReader.GetDouble(commodityReader.GetOrdinal("waterprice"));
-                            double tax = commodityReader.GetDouble(commodityReader.GetOrdinal("tax"));
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            Console.WriteLine($"Current Cows Milk price (KG): ${cowMilkPrice}");
+                            break;
+                        case "GoatMilk":
+                            goatMilkPrice = itemPrice;
+                            Console.WriteLine($"Current Goat Milk price (KG): ${goatMilkPrice}");
+                            break;
+                        case "SheepWool":
+                            sheepWoolPrice = itemPrice;
+                            Console.WriteLine($"Current Sheeps wool price (KG): ${sheepWoolPrice}");
+                            break;
+                        case "Water":
+                            waterPrice = itemPrice;
+                            Console.WriteLine($"Current cost of water (KG): ${waterPrice}");
+                            break;
+                        case "LivestockWeightTax":
+                            liveStockWeightTax = itemPrice;
+                            Console.WriteLine($"Current govt tax (KG per animal per day): ${liveStockWeightTax}");
+                            break;
+                    }
+                }reader.Close();
 
-                            cmd.CommandText = "SELECT * FROM cow";
-                            using (var cowReader = cmd.ExecuteReader())
-                            {
-                                while (cowReader.Read())
-                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
-                                    double milk = cowReader.GetDouble(cowReader.GetOrdinal("milk"));
-                                    double cost = cowReader.GetDouble(cowReader.GetOrdinal("cost"));
-                                    double water = cowReader.GetDouble(cowReader.GetOrdinal("water"));
-                                    cowMilk += milk; cowCost += cost; cowWater += water;
+                cmd.CommandText = "SELECT * FROM cow";
+                using (var cowReader = cmd.ExecuteReader())
+                {
+                    while (cowReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = cowReader.GetDouble(cowReader.GetOrdinal("Milk"));
+                        double cost = cowReader.GetDouble(cowReader.GetOrdinal("Cost"));
+                        double water = cowReader.GetDouble(cowReader.GetOrdinal("Water"));
+                        cowMilk += milk; cowCost += cost; cowWater += water;
 
-                                    double cowWeight = cowReader.GetDouble(cowReader.GetOrdinal("weight"));
-                                    totalWeight += cowWeight;
-                                    animalCount++;
-                                }
-                            }
-                            cmd.CommandText = "SELECT * FROM sheep";
-                            using (var sheepReader = cmd.ExecuteReader())
-                            {
-                                while (sheepReader.Read())
-                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
-                                    double wool = sheepReader.GetDouble(sheepReader.GetOrdinal("wool"));
-                                    double cost = sheepReader.GetDouble(sheepReader.GetOrdinal("cost"));
-                                    double water = sheepReader.GetDouble(sheepReader.GetOrdinal("water"));
-                                    sheepWool += wool; sheepCost += cost; sheepWater += water;
-
-                                    double sheepWeight = sheepReader.GetDouble(sheepReader.GetOrdinal("weight"));
-                                    totalWeight += sheepWeight;
-                                    animalCount++;
-                                }
-                            }
-                            cmd.CommandText = "SELECT * FROM goat";
-                            using (var goatReader = cmd.ExecuteReader())
-                            {
-                                while (goatReader.Read())
-                                {//takes each item in milk, cost, water and adds them together into their 'total' variable
-                                    double milk = goatReader.GetDouble(goatReader.GetOrdinal("milk"));
-                                    double cost = goatReader.GetDouble(goatReader.GetOrdinal("cost"));
-                                    double water = goatReader.GetDouble(goatReader.GetOrdinal("water"));
-                                    goatMilk += milk; goatCost += cost; goatWater += water;
-
-                                    double goatWeight = goatReader.GetDouble(goatReader.GetOrdinal("weight"));
-                                    totalWeight += goatWeight;
-                                    animalCount++;
-                                }
-                            }
-                            totalTax = tax * totalWeight;//tax per day
-                            Console.WriteLine($"Total Tax for all animals due today: {totalTax}\n");
-                            totalTax = tax * totalWeight * 30; //tax per 30 days
-                            Console.WriteLine($"Total Tax for all animals per 30 day period: {totalTax}\n");
-                            double avgWeight = totalWeight / animalCount;// avg weight of all animals
-                            Console.WriteLine($"Current average weight of all animals in the Database: {avgWeight}\n");
-
-
-                            double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
-                            Console.WriteLine($"Total income from all animals in the database: {totalIncome}");
-                            //         operation cost of each cow, sheep & goat + water usage price for each cow, sheep & goat + total tax by weight for each animal in the db
-                            double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
-                            Console.WriteLine($"Total costs incurred daily from all animals in the database: {totalCost}");
-                            double totalProfit = totalIncome - totalCost;
-                            Console.WriteLine($"Total profit gained from all animals in the database: {totalProfit}");
-
-                            Console.WriteLine();
-                            Console.WriteLine("Press any key to continue...");
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
+                        double cowWeight = cowReader.GetDouble(cowReader.GetOrdinal("Weight"));
+                        totalWeight += cowWeight;
+                        animalCount++;
                     }
                 }
-            }
+                cmd.CommandText = "SELECT * FROM sheep";
+                using (var sheepReader = cmd.ExecuteReader())
+                {
+                    while (sheepReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double wool = sheepReader.GetDouble(sheepReader.GetOrdinal("Wool"));
+                        double cost = sheepReader.GetDouble(sheepReader.GetOrdinal("Cost"));
+                        double water = sheepReader.GetDouble(sheepReader.GetOrdinal("Water"));
+                        sheepWool += wool; sheepCost += cost; sheepWater += water;
 
-            #endregion
+                        double sheepWeight = sheepReader.GetDouble(sheepReader.GetOrdinal("Weight"));
+                        totalWeight += sheepWeight;
+                        animalCount++;
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM goat";
+                using (var goatReader = cmd.ExecuteReader())
+                {
+                    while (goatReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = goatReader.GetDouble(goatReader.GetOrdinal("Milk"));
+                        double cost = goatReader.GetDouble(goatReader.GetOrdinal("Cost"));
+                        double water = goatReader.GetDouble(goatReader.GetOrdinal("Water"));
+                        goatMilk += milk; goatCost += cost; goatWater += water;
+
+                        double goatWeight = goatReader.GetDouble(goatReader.GetOrdinal("Weight"));
+                        totalWeight += goatWeight;
+                        animalCount++;
+                    }
+                }
+                totalTax = liveStockWeightTax * totalWeight;//tax per day
+                Console.WriteLine($"Total Tax for all animals due today: {totalTax}\n");
+                totalTax = liveStockWeightTax * totalWeight * 30; //tax per 30 days
+                Console.WriteLine($"Total Tax for all animals per 30 day period: {totalTax}\n");
+                double avgWeight = totalWeight / animalCount;// avg weight of all animals
+                Console.WriteLine($"Current average weight of all animals in the Database: {avgWeight}\n");
+
+
+                double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
+                Console.WriteLine($"Total income from all animals in the database: {totalIncome}");
+                //         operation cost of each cow, sheep & goat + water usage price for each cow, sheep & goat + total tax by weight for each animal in the db
+                double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
+                Console.WriteLine($"Total costs incurred daily from all animals in the database: {totalCost}");
+                double totalProfit = totalIncome - totalCost;
+                Console.WriteLine($"Total profit gained from all animals in the database: {totalProfit}");
+
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
         }
     }
 }
+
+    #endregion
 #endregion

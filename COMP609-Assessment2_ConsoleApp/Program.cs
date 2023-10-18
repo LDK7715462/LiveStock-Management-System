@@ -1347,33 +1347,33 @@ namespace COMP609_Assessment2_ConsoleApp
                 sql = "SELECT * FROM Commodity";
                 cmd.CommandText = sql;
                 reader = cmd.ExecuteReader();
+                Console.WriteLine("******[Current Wholesale Commodity Prices]******\n");
 
                 while (reader.Read())
                 {
                     string itemName = reader["Item"].ToString();
                     double itemPrice = Convert.ToDouble(reader["Price"]);
-
                     switch (itemName)
                     {
                         case "CowMilk":
                             cowMilkPrice = itemPrice;
-                            Console.WriteLine($"Current Cows Milk price (KG): ${cowMilkPrice}");
+                            Console.WriteLine($"Cow's Milk price (KG): ${cowMilkPrice}");
                             break;
                         case "GoatMilk":
                             goatMilkPrice = itemPrice;
-                            Console.WriteLine($"Current Goat Milk price (KG): ${goatMilkPrice}");
+                            Console.WriteLine($"Goat Milk price (KG): ${goatMilkPrice}");
                             break;
                         case "SheepWool":
                             sheepWoolPrice = itemPrice;
-                            Console.WriteLine($"Current Sheeps wool price (KG): ${sheepWoolPrice}");
+                            Console.WriteLine($"Sheep's wool price (KG): ${sheepWoolPrice}");
                             break;
                         case "Water":
                             waterPrice = itemPrice;
-                            Console.WriteLine($"Current cost of water (KG): ${waterPrice}");
+                            Console.WriteLine($"Cost of water (KG): ${waterPrice}");
                             break;
                         case "LivestockWeightTax":
                             liveStockWeightTax = itemPrice;
-                            Console.WriteLine($"Current govt tax (KG per animal per day): ${liveStockWeightTax}");
+                            Console.WriteLine($"Government Livestock Weight Tax (KG per animal per day): ${liveStockWeightTax}");
                             break;
                     }
                 }reader.Close();
@@ -1423,22 +1423,28 @@ namespace COMP609_Assessment2_ConsoleApp
                         animalCount++;
                     }
                 }
+                Console.WriteLine();
+                Console.WriteLine("********************[Animal Statistics Totals]***********************");
+                Console.WriteLine();
                 totalTax = liveStockWeightTax * totalWeight;//tax per day
-                Console.WriteLine($"Total Tax for all animals due today: {totalTax}\n");
+                Console.WriteLine($"Total Tax for all animals per day: ${totalTax:F2}");
                 totalTax = liveStockWeightTax * totalWeight * 30; //tax per 30 days
-                Console.WriteLine($"Total Tax for all animals per 30 day period: {totalTax}\n");
+                Console.WriteLine($"Total Tax for all animals per 30 day period: ${totalTax:F2}");
                 double avgWeight = totalWeight / animalCount;// avg weight of all animals
-                Console.WriteLine($"Current average weight of all animals in the Database: {avgWeight}\n");
-
-
+                Console.WriteLine($"Total average weight of all animals in the Database: {avgWeight:F2} KG");
+                Console.WriteLine();
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
                 double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
-                Console.WriteLine($"Total income from all animals in the database: {totalIncome}");
+                Console.WriteLine($"Total income from all animals in the database: ${totalIncome:F2}");
                 //         operation cost of each cow, sheep & goat + water usage price for each cow, sheep & goat + total tax by weight for each animal in the db
                 double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
-                Console.WriteLine($"Total costs incurred daily from all animals in the database: {totalCost}");
+                Console.WriteLine($"Total costs incurred daily from all animals in the database: ${totalCost:F2}");
                 double totalProfit = totalIncome - totalCost;
-                Console.WriteLine($"Total profit gained from all animals in the database: {totalProfit}");
-
+                Console.WriteLine($"Total profit gained from all animals in the database: ${totalProfit:F2}");
+                Console.WriteLine();
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();

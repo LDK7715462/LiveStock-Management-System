@@ -25,7 +25,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-      
+
         }
     }
 }

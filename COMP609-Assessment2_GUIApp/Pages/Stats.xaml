@@ -8,15 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,272,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Statistics"/></TextBlock>
-
+        <TextBlock FontSize="45" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="39,157,272,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Statistics"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" VerticalAlignment="Top" Margin="0,230,0,0" Width="761">
+            <Label FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="50,0,0,0">Which would you like to view?</Label>
+		    <RadioButton Name="IDStats"  Margin="20,0,20,0" IsChecked="True">Daily Statistics by Animal ID</RadioButton>
+		    <RadioButton Name="GlobalStats" Margin="0,0,20,0" >Global Statistics</RadioButton>
+            <RadioButton Name="PriceStats">Current Prices and Costs</RadioButton>
+        </TextBlock>
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
-            <TextBlock Text="Statistic data" 
-                   FontSize="30" 
-                   Foreground="{DynamicResource PrimaryTextColour}" 
-                   FontWeight="Bold"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center"/>
+            
         </Border>
     </Grid>
 </Page>

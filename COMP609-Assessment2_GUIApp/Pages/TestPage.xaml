@@ -16,53 +16,57 @@
         <System:Double x:Key="CW">100</System:Double>
     </Page.Resources>
 
-    <StackPanel>
 
-        <!--  must set MaxWidth/MaxHeight for ListView scrollbar to appear.  -->
-        <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
-        <ListView
+
+    <Grid>
+        <TextBlock Text="Dashboard" FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,520,0"  VerticalAlignment="Top" Height="57"/>
+        <StackPanel Margin="0,261,0,0">
+            <!--  must set MaxWidth/MaxHeight for ListView scrollbar to appear.  -->
+            <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
+                <ListView
                 Name="AnimalList"
                 MaxWidth="850"
                 MaxHeight="500"
                 Margin="10,0"
                 Foreground="{DynamicResource PrimaryTextColour}" 
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Stretch"
                 VerticalAlignment="Top"
                 >
 
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Type}"
                             Header="Type" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding ID}"
                             Header="ID" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Water}"
                             Header="Water" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Cost}"
                             Header="Cost" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Weight}"
                             Header="Weight(kg)" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Colour}"
                             Header="Colour" />
-                    <GridViewColumn
+                            <GridViewColumn
                             Width="{StaticResource CW}"
                             DisplayMemberBinding="{Binding Wool_Milk}"
                             Header="Milk/Wool" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        </Border>
-    </StackPanel>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+        </StackPanel>
+    </Grid>
 </Page>

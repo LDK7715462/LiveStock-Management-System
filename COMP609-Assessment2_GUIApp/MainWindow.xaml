@@ -76,7 +76,7 @@
                         </Button>
                     </StackPanel>
                     <!-- End: MenuItem -->
-                    
+
                     <!-- Start: Theme Toggle LIGHT/DARK -->
                     <StackPanel Grid.Row="1" Margin="0,540,0,0">
                         <TextBlock x:Name="ToggleButtonLabel" Foreground="{DynamicResource ThemeTextColour}" VerticalAlignment="Center" Margin="10,0,0,0"/>
@@ -141,10 +141,11 @@
                 <!-- End: Button Close | Restore | Minimize -->
 
                 <!-- Start: Background Image Container -->
-                <Grid Margin="0,0,0,365" Grid.Row="1">
+                <Grid Grid.Row="1" MaxHeight="500" VerticalAlignment="Top" Height="264">
                     <Grid.Background>
                         <ImageBrush ImageSource="{DynamicResource background}"
-                                    Stretch="UniformToFill"/>
+                                    Stretch="UniformToFill"
+                                    />
                     </Grid.Background>
                 </Grid>
                 <!-- End: Background Image Container -->

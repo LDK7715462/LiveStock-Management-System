@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\My Drive\\Workspace\\Application Development\\Assignment2\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
+    "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
   },
   "projects": {
-    "G:\\My Drive\\Workspace\\Application Development\\Assignment2\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {
+    "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Workspace\\Application Development\\Assignment2\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "projectUniqueName": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
         "projectName": "COMP609-Assessment2_GUIApp",
-        "projectPath": "G:\\My Drive\\Workspace\\Application Development\\Assignment2\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
-        "packagesPath": "C:\\Users\\RTX RYZEN\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Workspace\\Application Development\\Assignment2\\COMP609-Assessment2_GUIApp\\obj\\",
+        "projectPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\RTX RYZEN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

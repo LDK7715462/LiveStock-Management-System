@@ -28,5 +28,10 @@ namespace COMP609_Assessment2_GUIApp.Pages
             InitializeComponent();
             
         }
+
+        private void InBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

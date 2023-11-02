@@ -1032,8 +1032,6 @@ namespace COMP609_Assessment2_GUIApp.Models
                 Console.Clear();
             }
         }
-    }
-}
 
     #endregion
 #endregion

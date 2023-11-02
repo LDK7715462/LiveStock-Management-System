@@ -19,6 +19,9 @@
     <Compile Update="Pages\TestPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\Update.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\MenuItem.xaml">
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\TestPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Update.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Light.xaml">

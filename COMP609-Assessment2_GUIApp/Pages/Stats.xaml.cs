@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COMP609_Assessment2_GUIApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,14 @@ namespace COMP609_Assessment2_GUIApp.Pages
     /// <summary>
     /// Interaction logic for Stats.xaml
     /// </summary>
-    public partial class Stats : Window
+    public partial class StatsPage : Page
     {
-        public Stats()
+        LMSApp app;
+        internal StatsPage(LMSApp app)
         {
+            this.app = app;
             InitializeComponent();
+      
         }
     }
 }

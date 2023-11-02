@@ -171,6 +171,16 @@ namespace COMP609_Assessment2_GUIApp
             fContainer.Content = new QueryPage(app);
         }
 
+        private void btnStats_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Content = new StatsPage(app);
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Content = new UpdatePage(app);
+        }
+
         private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
         {
         }

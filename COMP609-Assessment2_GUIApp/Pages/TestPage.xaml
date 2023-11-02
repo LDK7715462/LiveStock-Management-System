@@ -19,7 +19,7 @@
 
 
     <Grid>
-        <TextBlock Text="Dashboard" FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,520,0"  VerticalAlignment="Top" Height="57"/>
+        <TextBlock Text="Dashboard" FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,284,0"  VerticalAlignment="Top" Height="57"/>
         <StackPanel Margin="0,261,0,0">
             <!--  must set MaxWidth/MaxHeight for ListView scrollbar to appear.  -->
             <Border CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">

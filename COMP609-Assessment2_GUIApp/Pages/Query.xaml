@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,520,0"  VerticalAlignment="Top" Height="57"><Run Language="en-nz" Text="Query Data"/></TextBlock>
+        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,282,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Query Data"/></TextBlock>
 
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
             <TextBlock Text="Home" 

@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\App.xaml
-10537733432
+111718703747
 
-17-897552066
+18-1588159352
 214-1660462045
-Assets\Icons.xaml;Controls\MenuItem.xaml;Controls\UserPopup.xaml;MainWindow.xaml;Pages\Home.xaml;Pages\Stats.xaml;Pages\TestPage.xaml;Styles\MainStyle.xaml;Themes\Dark.xaml;Themes\Light.xaml;
+Assets\Icons.xaml;Controls\MenuItem.xaml;Controls\UserPopup.xaml;MainWindow.xaml;Pages\Home.xaml;Pages\Query.xaml;Pages\Stats.xaml;Pages\TestPage.xaml;Styles\MainStyle.xaml;Themes\Dark.xaml;Themes\Light.xaml;
 
 True
 

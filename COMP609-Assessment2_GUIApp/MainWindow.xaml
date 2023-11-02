@@ -60,7 +60,7 @@
                                            IconWidth="16" Text="Dashboard" VerticalAlignment="Center"/>
                         </Button>
                         <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
-                        <Button x:Name="btnQueryData" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnQueryData_MouseEnter" MouseLeave="btnQueryData_MouseLeave">
+                        <Button x:Name="btnQueryData" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnQueryData_MouseEnter" MouseLeave="btnQueryData_MouseLeave" Click="btnQuery_Click">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource statistics}" 
                                            IconWidth="16" Text="Query Data" VerticalAlignment="Center"/>
                         </Button>

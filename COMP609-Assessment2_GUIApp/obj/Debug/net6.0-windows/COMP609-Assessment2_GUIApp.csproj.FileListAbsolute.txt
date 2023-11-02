@@ -272,3 +272,5 @@ C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.genruntimeconfig.cache
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\ref\COMP609-Assessment2_GUIApp.dll
+C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.g.cs
+C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.baml

@@ -10,10 +10,11 @@
     <Grid>
         <TextBlock FontSize="45" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="39,157,272,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Statistics"/></TextBlock>
         <TextBlock HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" VerticalAlignment="Top" Margin="0,230,0,0" Width="761">
-            <Label FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="50,0,0,0">Which would you like to view?</Label>
-		    <RadioButton Name="IDStats"  Margin="20,0,20,0" IsChecked="True">Daily Statistics by Animal ID</RadioButton>
-		    <RadioButton Name="GlobalStats" Margin="0,0,20,0" >Global Statistics</RadioButton>
-            <RadioButton Name="PriceStats">Current Prices and Costs</RadioButton>
+            <Label FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="50,10,0,0">Choose view</Label>
+		    <RadioButton Name="IDStats"  Margin="20,-25,20,0" IsChecked="True">Daily Statistics by Animal ID</RadioButton>
+		    <RadioButton Name="GlobalStats" Margin="0,-25,20,0" >Global Statistics</RadioButton>
+            <RadioButton Name="PriceStats" Margin="0,-25,0,0">Current Prices and Costs</RadioButton>
+            <Button Name="btnStats" Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Margin="20,-25,20,1" Height="26" Width="80">OK</Button>
         </TextBlock>
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
             

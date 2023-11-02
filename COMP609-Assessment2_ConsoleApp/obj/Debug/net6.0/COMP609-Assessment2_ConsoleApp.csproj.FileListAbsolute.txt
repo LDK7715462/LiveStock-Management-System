@@ -171,3 +171,37 @@ C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\obj\Debu
 C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb
 C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.genruntimeconfig.cache
 C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\ref\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.exe
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll.config
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.deps.json
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.runtimeconfig.json
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Data.Odbc.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\freebsd\lib\net6.0\System.Data.Odbc.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\linux\lib\net6.0\System.Data.Odbc.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\osx\lib\net6.0\System.Data.Odbc.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Data.Odbc.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.AssemblyInfo.cs
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.csproj.CopyComplete
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\refint\COMP609-Assessment2_ConsoleApp.dll
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.pdb
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\COMP609-Assessment2_ConsoleApp.genruntimeconfig.cache
+C:\Users\ldk77\OneDrive\Desktop\AppDevAssignment\COMP609-Assessment2_ConsoleApp\obj\Debug\net6.0\ref\COMP609-Assessment2_ConsoleApp.dll

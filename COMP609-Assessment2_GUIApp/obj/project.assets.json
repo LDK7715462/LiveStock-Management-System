@@ -1413,23 +1413,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RTX RYZEN\\.nuget\\packages\\": {},
+    "C:\\Users\\ldk77\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "projectUniqueName": "C:\\Users\\ldk77\\OneDrive\\Desktop\\AppDevAssignment\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
       "projectName": "COMP609-Assessment2_GUIApp",
-      "projectPath": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
-      "packagesPath": "C:\\Users\\RTX RYZEN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\obj\\",
+      "projectPath": "C:\\Users\\ldk77\\OneDrive\\Desktop\\AppDevAssignment\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "packagesPath": "C:\\Users\\ldk77\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ldk77\\OneDrive\\Desktop\\AppDevAssignment\\COMP609-Assessment2_GUIApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\RTX RYZEN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ldk77\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1492,7 +1492,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

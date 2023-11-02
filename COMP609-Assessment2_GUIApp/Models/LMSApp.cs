@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data.Odbc;
 using System.Globalization;
 using System.Linq;
@@ -532,30 +533,119 @@ namespace COMP609_Assessment2_GUIApp.Models
 
         #region UPDATE ANIMAL
         // Update Animal
-        internal void UpdateAnimal(int animalID, double newWeight)
+        internal void UpdateAnimalId()
         {
-            // Create a SQL UPDATE statement and execute it using your OdbcConnection
-            string sql = "UPDATE AnimalTable SET Weight = @NewWeight WHERE ID = @ID";
+            Console.WriteLine("Enter the ID of the animal you want to update below");
 
-            using (var cmd = new OdbcCommand(sql, Conn))
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
-                cmd.Parameters.AddWithValue("@NewWeight", newWeight);
-                cmd.Parameters.AddWithValue("@ID", animalID);
+                // Find the animal with the given ID using FirstOrDefault
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
 
-                // Execute the UPDATE command
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                if (animal != null)
                 {
-                    Console.WriteLine("Animal with ID " + animalID + " updated successfully.");
+                    Console.WriteLine();
+                    Console.WriteLine($"Animal with the ID: [{id}] Found.");
+                    Console.WriteLine();
+                    Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                  "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                    Console.WriteLine(animal);
                 }
                 else
                 {
-                    Console.WriteLine("Animal with ID " + animalID + " not found in the database.");
+                    Console.WriteLine($"Animal with [{id}] not found.");
+                    Console.WriteLine();
+                    return; // Exit the method if the animal is not found
+                }
+
+                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("1. Update water consumption");
+                Console.WriteLine("2. Update tax cost");
+                Console.WriteLine("3. Update animal's weight");
+                Console.WriteLine("4. Update Milk production");
+                Console.WriteLine("5. Update Wool production");
+                Console.Write("\nEnter your choice (1, 2, 3, 4, or 5): ");
+
+                if (int.TryParse(Console.ReadLine(), out int option) && (option >= 1 && option <= 5))
+                {
+                    string columnName = "";
+                    object newValue = null;
+
+                    if (option == 1 || option == 2 || option == 3 || option == 4 || option == 5)
+                    {
+                        // For options 1, 2, 3, 4, or 5, expect a numeric input
+                        columnName = option == 1 ? "Water" : (option == 2 ? "Cost" : (option == 3 ? "Weight" : (option == 4 ? "Milk" : "Wool")));
+                        Console.Clear();
+                        Console.Write($"Enter the new value for {columnName}: ");
+                        if (double.TryParse(Console.ReadLine(), out double numValue))
+                        {
+                            newValue = numValue;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nInvalid {columnName} value. Update failed.\n");
+                            return;
+                        }
+                    }
+
+                    string sql = $"UPDATE {animal.GetType().Name} SET [{columnName}] = ? WHERE [ID] = ?";
+                    using (var cmd = new OdbcCommand(sql, Conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Value", newValue);
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        int rowsUpdated = cmd.ExecuteNonQuery();
+
+                        if (rowsUpdated > 0)
+                        {
+                            // Update the corresponding object in the list
+                            if (animal is Animals updatedAnimal)
+                            {
+                                if (columnName == "Water")
+                                {
+                                    updatedAnimal.Water = (double)newValue;
+                                }
+                                else if (columnName == "Cost")
+                                {
+                                    updatedAnimal.Cost = (double)newValue;
+                                }
+                                else if (columnName == "Weight")
+                                {
+                                    updatedAnimal.Weight = (double)newValue;
+                                }
+                                else if (columnName == "Milk")
+                                {
+                                    updatedAnimal.Wool_Milk = (double)newValue;
+                                }
+                                else if (columnName == "Wool")
+                                {
+                                    updatedAnimal.Wool_Milk = (double)newValue;
+                                }
+                            }
+
+                            Console.WriteLine($"\nColumn: {columnName} for ID: [{id}] has been updated successfully.\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Update failed. No rows were affected.");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid option. Please choose again");
+                    Console.WriteLine();
                 }
             }
+            else
+            {
+                Console.WriteLine("\nInvalid input. Please enter a valid ID");
+                Console.WriteLine();
+            }
         }
+
         #endregion
+
+        #region validation
 
         private int GetValidIntInput(string prompt)
         {
@@ -620,5 +710,332 @@ namespace COMP609_Assessment2_GUIApp.Models
                 return 0;
             }
         }
+        #endregion
+
+        #region ---------------------------- [ STATISTICS ] --------------------------------
+
+        #region STATS SWITCH & MENU
+
+        public void DisplayStatsSwitch()
+        {
+            while (true)
+            {
+                var opt = DisplayStatsMenu();
+                switch (opt)
+                {
+                    case 1:
+                        Console.Clear();
+                        DailyStats();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        GlobalStats();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid Input.");
+                        break;
+                }
+            }
+        }
+        public int DisplayStatsMenu()
+        {
+            int opt = 0;
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("**************** [ Statistics Menu ] *****************");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("*             1. Display Daily Statistics            *");
+                Console.WriteLine("*             2. Display Global Statistics           *");
+                Console.WriteLine("*             3. Back to Main Menu                   *");
+                Console.WriteLine("*                                                    *");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine("Enter an Option: ");
+
+                try
+                {
+                    opt = int.Parse(Console.ReadLine());
+                    if (opt >= 1 && opt <= 3)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid choice. Please try again.\n");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please enter a valid option (1-3).\n");
+                }
+            }
+            return opt;
+        }
+        #endregion
+
+        #region DAILY STATS
+        private void DailyStats()
+        {
+            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+
+            using (var cmd = Conn.CreateCommand())
+            {
+                cmd.Connection = Conn;
+                string sql;
+                OdbcDataReader reader;
+                sql = "SELECT * FROM Commodity";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string itemName = reader["Item"].ToString();
+                    double itemPrice = Convert.ToDouble(reader["Price"]);
+
+                    switch (itemName)
+                    {
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            Console.WriteLine($"Current Cows Milk price (KG): ${cowMilkPrice}");
+                            break;
+                        case "GoatMilk":
+                            goatMilkPrice = itemPrice;
+                            Console.WriteLine($"Current Goat Milk price (KG): ${goatMilkPrice}");
+                            break;
+                        case "SheepWool":
+                            sheepWoolPrice = itemPrice;
+                            Console.WriteLine($"Current Sheeps wool price (KG): ${sheepWoolPrice}");
+                            break;
+                        case "Water":
+                            waterPrice = itemPrice;
+                            Console.WriteLine($"Current cost of water (KG): ${waterPrice}");
+                            break;
+                        case "LivestockWeightTax":
+                            liveStockWeightTax = itemPrice;
+                            Console.WriteLine($"Current govt tax (KG per animal per day): ${liveStockWeightTax}");
+                            break;
+                    }
+                }
+                reader.Close();
+            }
+
+            Console.WriteLine("\nEnter the ID of the animal you want statistics for: ");
+
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+
+                if (animal != null)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"ID No {id} has been found.");
+                    Console.WriteLine();
+                    Console.WriteLine(string.Format("{0,-20} {1,-10} {2,-10} {3,-10} {4,-10} {5,-10} {6,-10}",
+                                                  "Type", "ID", "Water", "Cost", "Weight(kg)", "Colour", "Milk/Wool"));
+                    Console.WriteLine(animal);
+                    Console.WriteLine($"\nShowing daily statistics for {animal.GetType().Name} with ID No {id}: \n");
+
+                    if (animal.GetType().Name == "Cow")
+                    {
+                        double cowIncome = animal.Wool_Milk * cowMilkPrice;
+                        //Note: livestock weight tax is per kg, not per animal
+                        double cowCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double cowProfit = cowIncome - cowCost;
+                        Console.WriteLine($"Total Income per day: ${cowIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${cowCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {cowProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else if (animal.GetType().Name == "Goat")
+                    {
+                        double goatIncome = animal.Wool_Milk * goatMilkPrice;
+                        //Note: livestock weight tax is per kg, not per animal
+                        double goatCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double goatProfit = goatIncome - goatCost;
+                        Console.WriteLine($"Total Income per day: ${goatIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${goatCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {goatProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
+                        //Note: livestock weight tax is per kg, not per animal
+                        double sheepCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double sheepProfit = sheepIncome - sheepCost;
+                        Console.WriteLine($"Total Income per day: ${sheepIncome:F2}");
+                        Console.WriteLine($"Total Cost per day: ${sheepCost:F2}");
+                        Console.WriteLine($"Total profit/ loss per day ($): {sheepProfit:F2}");
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine($"ID No [{id}] not found in database, please try again.");
+                    Console.WriteLine();
+                    DailyStats();
+                    return;
+                }
+            }
+        }
+        #endregion
+
+        #region GLOBAL STATS
+        internal static OdbcConnection GetConn()
+        {
+            string? dbstr = ConfigurationManager.AppSettings.Get("odbcString");
+            string fpath = @"..\..\FarmData.accdb";
+            string connstr = dbstr + fpath;
+            var conn = new OdbcConnection(connstr);
+            conn.Open();
+            return conn;
+        }
+
+        public void GlobalStats()
+        {
+            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+            double cowMilk = 0, cowCost = 0, cowWater = 0;
+            double sheepWool = 0, sheepCost = 0, sheepWater = 0;
+            double goatMilk = 0, goatCost = 0, goatWater = 0;
+            double totalTax = 0, totalWeight = 0;
+            int animalCount = 0;
+
+            using (var cmd = Conn.CreateCommand())
+            {
+                cmd.Connection = Conn;
+                string sql;
+                OdbcDataReader reader;
+                sql = "SELECT * FROM Commodity";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+                Console.WriteLine("******[Current Wholesale Commodity Prices]******\n");
+
+                while (reader.Read())
+                {
+                    string itemName = reader["Item"].ToString();
+                    double itemPrice = Convert.ToDouble(reader["Price"]);
+                    switch (itemName)
+                    {
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            Console.WriteLine($"Cow's Milk price (KG): ${cowMilkPrice}");
+                            break;
+                        case "GoatMilk":
+                            goatMilkPrice = itemPrice;
+                            Console.WriteLine($"Goat Milk price (KG): ${goatMilkPrice}");
+                            break;
+                        case "SheepWool":
+                            sheepWoolPrice = itemPrice;
+                            Console.WriteLine($"Sheep's wool price (KG): ${sheepWoolPrice}");
+                            break;
+                        case "Water":
+                            waterPrice = itemPrice;
+                            Console.WriteLine($"Cost of water (KG): ${waterPrice}");
+                            break;
+                        case "LivestockWeightTax":
+                            liveStockWeightTax = itemPrice;
+                            Console.WriteLine($"Government Livestock Weight Tax (KG per animal per day): ${liveStockWeightTax}");
+                            break;
+                    }
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT * FROM cow";
+                using (var cowReader = cmd.ExecuteReader())
+                {
+                    while (cowReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = cowReader.GetDouble(cowReader.GetOrdinal("Milk"));
+                        double cost = cowReader.GetDouble(cowReader.GetOrdinal("Cost"));
+                        double water = cowReader.GetDouble(cowReader.GetOrdinal("Water"));
+                        cowMilk += milk; cowCost += cost; cowWater += water;
+
+                        double cowWeight = cowReader.GetDouble(cowReader.GetOrdinal("Weight"));
+                        totalWeight += cowWeight;
+                        animalCount++;
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM sheep";
+                using (var sheepReader = cmd.ExecuteReader())
+                {
+                    while (sheepReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double wool = sheepReader.GetDouble(sheepReader.GetOrdinal("Wool"));
+                        double cost = sheepReader.GetDouble(sheepReader.GetOrdinal("Cost"));
+                        double water = sheepReader.GetDouble(sheepReader.GetOrdinal("Water"));
+                        sheepWool += wool; sheepCost += cost; sheepWater += water;
+
+                        double sheepWeight = sheepReader.GetDouble(sheepReader.GetOrdinal("Weight"));
+                        totalWeight += sheepWeight;
+                        animalCount++;
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM goat";
+                using (var goatReader = cmd.ExecuteReader())
+                {
+                    while (goatReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = goatReader.GetDouble(goatReader.GetOrdinal("Milk"));
+                        double cost = goatReader.GetDouble(goatReader.GetOrdinal("Cost"));
+                        double water = goatReader.GetDouble(goatReader.GetOrdinal("Water"));
+                        goatMilk += milk; goatCost += cost; goatWater += water;
+
+                        double goatWeight = goatReader.GetDouble(goatReader.GetOrdinal("Weight"));
+                        totalWeight += goatWeight;
+                        animalCount++;
+                    }
+                }
+                Console.WriteLine();
+                Console.WriteLine("********************[Animal Statistics Totals]***********************");
+                Console.WriteLine();
+                totalTax = liveStockWeightTax * totalWeight;//tax per day
+                Console.WriteLine($"Total Tax for all animals per day: ${totalTax:F2}");
+                totalTax = liveStockWeightTax * totalWeight * 30; //tax per 30 days
+                Console.WriteLine($"Total Tax for all animals per 30 day period: ${totalTax:F2}");
+                double avgWeight = totalWeight / animalCount;// avg weight of all animals
+                Console.WriteLine($"Total average weight of all animals in the Database: {avgWeight:F2} KG");
+                Console.WriteLine();
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
+                Console.WriteLine($"Total income from all animals in the database: ${totalIncome:F2}");
+                //         operation cost of each cow, sheep & goat + water usage price for each cow, sheep & goat + total tax by weight for each animal in the db
+                double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
+                Console.WriteLine($"Total costs incurred daily from all animals in the database: ${totalCost:F2}");
+                double totalProfit = totalIncome - totalCost;
+                Console.WriteLine($"Total profit gained from all animals in the database: ${totalProfit:F2}");
+                Console.WriteLine();
+                Console.WriteLine("******************************************************");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+    }
+}
+
+    #endregion
+#endregion
     }
 }

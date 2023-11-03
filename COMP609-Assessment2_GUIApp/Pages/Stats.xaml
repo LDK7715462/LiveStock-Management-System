@@ -8,16 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock FontSize="45" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="39,157,272,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Statistics"/></TextBlock>
-        <TextBlock HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" VerticalAlignment="Top" Margin="0,230,0,0" Width="761">
-            <Label FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="50,10,0,0">Choose view</Label>
-		    <RadioButton Name="IDStats"  Margin="20,-25,20,0" IsChecked="True">Daily Statistics by Animal ID</RadioButton>
-		    <RadioButton Name="GlobalStats" Margin="0,-25,20,0" >Global Statistics</RadioButton>
-            <RadioButton Name="PriceStats" Margin="0,-25,0,0">Current Prices and Costs</RadioButton>
-            <Button Name="StatOk" Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Margin="20,-25,20,1" Height="26" Width="80">OK</Button>
-        </TextBlock>
-        <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
+        <StackPanel Margin="0,261,0,0" Background="{DynamicResource SecondaryBackgroundColour}">
+            <!--Show statistics of an animal ID (Type, id, water, cost,weight,colour,milk/wool)-->
+            <!--also income earned per day, costs per day, total profit/loss per day-->
+            <TextBlock x:Name="TextBlockId" Text="You selected Option 1" Visibility="Collapsed" >
+                
+            </TextBlock>
+            <!--Show animal totals- total tax for all animals per day, per 30days, average weight of all animals-->
+            <!--Total income from all animals, total costs per day for all animals, total profit gained from all animals-->
+            <TextBlock x:Name="TextBlockGlobal" Text="You selected Option 2" Visibility="Collapsed" >
             
-        </Border>
+            </TextBlock>
+            <!--Show current prices of goats milk, cows milk, sheeps wool, and cost of water and govt tax-->
+            <StackPanel x:Name="StackPrice" Visibility="Collapsed" >
+                <Label FontWeight="Bold" FontSize="26" Foreground="{DynamicResource PrimaryTextColour}" Content="Current Commodity Prices"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="CowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="GoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="SheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="WaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="TaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock FontSize="45" FontWeight="Bold" Foreground="{DynamicResource PrimaryTextColour}" Margin="39,157,272,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Statistics"/></TextBlock>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,220,0,0" Width="765">
+            <Label FontWeight="Bold" FontSize="16" Foreground="{DynamicResource PrimaryTextColour}" Margin="0,10,0,0" Width="200" HorizontalAlignment="Left" Content="Choose View"/>
+            <RadioButton x:Name="IDStats" Foreground="{DynamicResource PrimaryTextColour}" Margin="120,-20,20,0" IsChecked="True" Content="Daily Statistics by Animal ID"/>
+            <RadioButton x:Name="GlobalStats" Foreground="{DynamicResource PrimaryTextColour}" Margin="320,-20,20,0" Content="Global Statistics" />
+            <RadioButton x:Name="PriceStats" Foreground="{DynamicResource PrimaryTextColour}" Margin="450,-20,0,0" Content="Current Prices and Costs"/>
+            <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Margin="600,-22,20,1" Height="26" Width="80" Content="OK" Click="OkStatsBtn"/>
+        </StackPanel>
+
     </Grid>
 </Page>

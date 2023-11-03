@@ -714,73 +714,9 @@ namespace COMP609_Assessment2_GUIApp.Models
 
         #region ---------------------------- [ STATISTICS ] --------------------------------
 
-        #region STATS SWITCH & MENU
-
-        public void DisplayStatsSwitch()
-        {
-            while (true)
-            {
-                var opt = DisplayStatsMenu();
-                switch (opt)
-                {
-                    case 1:
-                        Console.Clear();
-                        DailyStats();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        GlobalStats();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        return;
-                    default:
-                        Console.WriteLine("Invalid Input.");
-                        break;
-                }
-            }
-        }
-        public int DisplayStatsMenu()
-        {
-            int opt = 0;
-            bool validInput = false;
-            while (!validInput)
-            {
-                Console.WriteLine("**************** [ Statistics Menu ] *****************");
-                Console.WriteLine("*                                                    *");
-                Console.WriteLine("*             1. Display Daily Statistics            *");
-                Console.WriteLine("*             2. Display Global Statistics           *");
-                Console.WriteLine("*             3. Back to Main Menu                   *");
-                Console.WriteLine("*                                                    *");
-                Console.WriteLine("******************************************************");
-                Console.WriteLine();
-                Console.WriteLine("Enter an Option: ");
-
-                try
-                {
-                    opt = int.Parse(Console.ReadLine());
-                    if (opt >= 1 && opt <= 3)
-                    {
-                        validInput = true;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Invalid choice. Please try again.\n");
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Invalid input. Please enter a valid option (1-3).\n");
-                }
-            }
-            return opt;
-        }
-        #endregion
-
         #region DAILY STATS
-        private void DailyStats()
+
+        public void DailyStats()
         {
             double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
 

@@ -1,6 +1,7 @@
 ﻿using COMP609_Assessment2_GUIApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.Odbc;
 using System.Linq;
@@ -24,7 +25,10 @@ namespace COMP609_Assessment2_GUIApp.Pages
     {
         LMSApp app;
 
-        private OdbcConnection Conn;
+        ObservableCollection<LiveStockManagement> LMS { get; set; }
+        ObservableCollection<Animals> Animal { get; set; }
+
+        OdbcConnection Conn;
 
         internal static OdbcConnection GetConn()
         {
@@ -67,6 +71,63 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 TextBlockId.Visibility = Visibility.Collapsed;
                 TextBlockGlobal.Visibility = Visibility.Collapsed;
                 StackPrice.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+
+            if (int.TryParse(AnimalIDTextBox.Text, out int id))
+            {
+                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+
+                if (animal != null)
+                {
+                    double income, cost, profit;
+
+                    if (animal.GetType().Name == "Cow")
+                    {
+                        double cowIncome = animal.Wool_Milk * cowMilkPrice;
+                        double cowCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double cowProfit = cowIncome - cowCost;
+
+                        income = cowIncome;
+                        cost = cowCost;
+                        profit = cowProfit;
+                    }
+                    else if (animal.GetType().Name == "Goat")
+                    {
+                        double goatIncome = animal.Wool_Milk * goatMilkPrice;
+                        double goatCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double goatProfit = goatIncome - goatCost;
+
+                        income = goatIncome;
+                        cost = goatCost;
+                        profit = goatProfit;
+                    }
+                    else
+                    {
+                        double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
+                        double sheepCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
+                        double sheepProfit = sheepIncome - sheepCost;
+
+                        income = sheepIncome;
+                        cost = sheepCost;
+                        profit = sheepProfit;
+                    }
+
+                    ResultTextBlock.Text = string.Format(ResultTextBlock.Text, income, Environment.NewLine, cost, profit);
+                    ResultTextBlock.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    MessageBox.Show($"ID No [{id}] not found in the database. Please try again.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid input. Please enter a valid ID.");
             }
         }
 

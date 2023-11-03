@@ -26,10 +26,15 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            
+            AnimalList.ItemsSource = app.Animal;
         }
 
         private void InBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void AnimalList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

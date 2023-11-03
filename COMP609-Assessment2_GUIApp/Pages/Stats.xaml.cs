@@ -26,10 +26,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
             this.app = app;
             InitializeComponent();
         }
-        private void btnStats(object sender, RoutedEventArgs e)
-        {
-            //choose option for each radio button
 
-        }
     }
 }

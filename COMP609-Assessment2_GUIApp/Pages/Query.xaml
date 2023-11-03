@@ -5,51 +5,82 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp.Pages"
       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-
-
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,282,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Query Data"/></TextBlock>
+        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,282,0"  VerticalAlignment="Top" Height="65">
+            <Run Language="en-nz" Text="Query Data"/>
+        </TextBlock>
 
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
-                    <!-- Search TextBox takes 2/3 of the width -->
                     <ColumnDefinition Width="*"/>
-                    <!-- ComboBox takes 1/3 of the width -->
                 </Grid.ColumnDefinitions>
-                <Border CornerRadius="15,0,0,15" Background="{DynamicResource TextSecondaryColour}" Margin="20,20,0,142">
+
+                <Border VerticalAlignment="Top" CornerRadius="15,0,0,15" Background="White" Margin="20,20,0,142" MaxHeight="27">
                     <TextBox
-                
-                Name="InBox2"
-                Width="Auto"
-                
-                Grid.Column="0"
-                md:HintAssist.Hint="        Enter a word"
-                TextChanged="InBox2_TextChanged" />
+                        Name="InBox2"
+                        Width="Auto"
+                        Grid.Column="0"
+                        md:HintAssist.Hint="Enter a word"
+                        TextChanged="InBox2_TextChanged"
+                        Margin="40,0,0,0" />
                 </Border>
 
-                <Border  Background="{DynamicResource TextSecondaryColour}" Margin="10,20,33,142" Grid.Column="1">
-                    <ComboBox
-                
-                
-                x:Name="MyComboBox"
-                Width="Auto"
-                
-                md:HintAssist.Hint="Select an option" VerticalAlignment="Top" Height="27" Grid.Column="1">
+                <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0">
+                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0">
                         <ComboBoxItem Content="ID" />
-                        <ComboBoxItem Content="Option 2" />
-                        <ComboBoxItem Content="Option 3" />
+                        <ComboBoxItem Content="Type" />
+                        <ComboBoxItem Content="Colour" />
+                        <ComboBoxItem Content="Weight" />
                     </ComboBox>
-
                 </Border>
-
             </Grid>
-
-
         </Border>
+
+        <!-- Add a DataGrid for the table below -->
+        <DataGrid
+    Name="AnimalList"
+    MaxHeight="500"
+    Margin="0,321,0,0"
+    Foreground="{DynamicResource PrimaryTextColour}"
+    VerticalAlignment="Top"
+    FontSize="20"
+    AutoGenerateColumns="False"
+    ItemsSource="{Binding YourDataCollection}"
+    HorizontalAlignment="Stretch">
+            <!-- Custom DataGridColumnHeader style -->
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundColour}" />
+                    <Setter Property="Foreground" Value="White" />
+
+                    <Setter Property="Width" Value="Auto" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <!-- Custom DataGridRow style -->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundColour}" />
+                    <Setter Property="Foreground" Value="White" />
+
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Water" Binding="{Binding Water}" />
+                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" />
+                <DataGridTextColumn Header="Weight(kg)" Binding="{Binding Weight}" />
+                <DataGridTextColumn Header="Colour" Binding="{Binding Colour}" />
+                <DataGridTextColumn Header="Milk/Wool" Binding="{Binding Wool_Milk}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>

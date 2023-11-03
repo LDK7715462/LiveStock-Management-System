@@ -14,7 +14,7 @@
 		    <RadioButton Name="IDStats"  Margin="20,-25,20,0" IsChecked="True">Daily Statistics by Animal ID</RadioButton>
 		    <RadioButton Name="GlobalStats" Margin="0,-25,20,0" >Global Statistics</RadioButton>
             <RadioButton Name="PriceStats" Margin="0,-25,0,0">Current Prices and Costs</RadioButton>
-            <Button Name="btnStats" Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Margin="20,-25,20,1" Height="26" Width="80">OK</Button>
+            <Button Name="StatOk" Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Margin="20,-25,20,1" Height="26" Width="80">OK</Button>
         </TextBlock>
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
             

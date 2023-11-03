@@ -25,7 +25,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
     {
         LMSApp app;
 
-        ObservableCollection<LiveStockManagement> LMS { get; set; }
         ObservableCollection<Animals> Animal { get; set; }
 
         OdbcConnection Conn;
@@ -77,7 +76,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
 
-            if (int.TryParse(AnimalIDTextBox.Text, out int id) == true)
+            if (int.TryParse(AnimalIDTextBox.Text, out int id))
             {
                 var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
 

@@ -45,7 +45,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
             this.app = app;
             InitializeComponent();
             Conn = GetConn();
-            //LoadCommodityPrices();
         }
 
 
@@ -53,7 +52,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             if (IDStats.IsChecked == true)
             {
-
+                CalculateButton_Click(sender, e);
                 TextBlockId.Visibility = Visibility.Visible;
                 TextBlockGlobal.Visibility = Visibility.Collapsed;
                 StackPrice.Visibility = Visibility.Collapsed;
@@ -78,7 +77,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
 
-            if (int.TryParse(AnimalIDTextBox.Text, out int id))
+            if (int.TryParse(AnimalIDTextBox.Text, out int id) == true)
             {
                 var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
 

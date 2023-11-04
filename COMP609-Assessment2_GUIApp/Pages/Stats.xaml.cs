@@ -43,7 +43,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            Conn = GetConn();
+            Animal = new ObservableCollection<Animals>();
+            Conn = Util.GetConn();
         }
 
 
@@ -129,6 +130,10 @@ namespace COMP609_Assessment2_GUIApp.Pages
                             milkOrWool = sheep.Wool_Milk;
 
                         }
+                    }
+                    else
+                    {
+                        AnimalIDTextBox.Text = "NULLLLLLLLL";
                     }
 
 

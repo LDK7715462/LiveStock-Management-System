@@ -14,23 +14,13 @@
             <StackPanel x:Name="TextBlockId" >
                 <Label FontWeight="Bold" FontSize="26" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" Content="Enter the ID of the animal you want statistics for" />
                 <TextBox Name="AnimalIDTextBox" Background="White" FontSize="16" Width="400" HorizontalContentAlignment="Center" />
-                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="CalculateButton_Click" />
-            <TextBlock Name="ResultTextBlock" Visibility="Collapsed">
-                    <TextBlock.Text>
-                        <MultiBinding StringFormat="{}Total Income per day: ${0:F2}{1}Total Cost per day: ${2:F2}{1}Total profit/loss per day ($): {3:F2}">
-                            <Binding Path="Income" />
-                            <Binding Source="&#x0a;" />
-                            <Binding Path="Cost" />
-                            <Binding Source="&#x0a;" />
-                            <Binding Path="Profit" />
-                        </MultiBinding>
-                    </TextBlock.Text>
-            </TextBlock>
+                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="DailyIDStats" />
+                <TextBlock Name="ResultTextBlock" Foreground="{DynamicResource PrimaryTextColour}" />
             </StackPanel>
             <!--Show animal totals- total tax for all animals per day, per 30days, average weight of all animals-->
             <!--Total income from all animals, total costs per day for all animals, total profit gained from all animals-->
             <TextBlock x:Name="TextBlockGlobal" Text="You selected Option 2" Visibility="Collapsed" >
-            
+
             </TextBlock>
             <!--Show current prices of goats milk, cows milk, sheeps wool, and cost of water and govt tax-->
             <StackPanel x:Name="StackPrice" Visibility="Collapsed" >

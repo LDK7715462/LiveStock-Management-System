@@ -51,7 +51,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             if (IDStats.IsChecked == true)
             {
-                CalculateButton_Click(sender, e);
+                DailyIDStats(sender, e);
                 TextBlockId.Visibility = Visibility.Visible;
                 TextBlockGlobal.Visibility = Visibility.Collapsed;
                 StackPrice.Visibility = Visibility.Collapsed;
@@ -72,60 +72,130 @@ namespace COMP609_Assessment2_GUIApp.Pages
             }
         }
 
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        private void DailyIDStats(object sender, RoutedEventArgs e)
         {
-            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+            string enteredID = AnimalIDTextBox.Text;
 
-            if (int.TryParse(AnimalIDTextBox.Text, out int id))
+            if (string.IsNullOrEmpty(enteredID))
             {
-                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                AnimalIDTextBox.Text = "Please enter an animal ID.";
+                return;
+            }
 
-                if (animal != null)
+            using (var cmd = Conn.CreateCommand())
+            {
+                string sql;
+                OdbcDataReader reader;
+
+                string animalType = "";
+                double water = 0;
+                double cost = 0;
+                double weight = 0;
+                string color = "";
+                double milkOrWool = 0;
+
+                double cowMilkPrice = 0;
+                double goatMilkPrice = 0;
+                double sheepWoolPrice = 0;
+                double waterPrice = 0;
+                double taxPrice = 0;
+
+                if (int.TryParse(Console.ReadLine(), out int id))
                 {
-                    double income, cost, profit;
-
-                    if (animal.GetType().Name == "Cow")
+                    var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                    if (Animal.GetType().Name == "Cow")
                     {
-                        double cowIncome = animal.Wool_Milk * cowMilkPrice;
-                        double cowCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double cowProfit = cowIncome - cowCost;
+                        cmd.Connection = Conn;
+                        sql = $"SELECT * FROM Cow WHERE ID = '{enteredID}'";
+                        cmd.CommandText = sql;
+                        reader = cmd.ExecuteReader();
 
-                        income = cowIncome;
-                        cost = cowCost;
-                        profit = cowProfit;
+                        if (reader.Read())
+                        {
+                            animalType = reader["Type"].ToString();
+                            water = Convert.ToDouble(reader["Water"]);
+                            cost = Convert.ToDouble(reader["Cost"]);
+                            weight = Convert.ToDouble(reader["Weight"]);
+                            color = reader["Color"].ToString();
+                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
+                        }
+                        reader.Close();
                     }
-                    else if (animal.GetType().Name == "Goat")
+                    else if (Animal.GetType().Name == "Goat")
                     {
-                        double goatIncome = animal.Wool_Milk * goatMilkPrice;
-                        double goatCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double goatProfit = goatIncome - goatCost;
+                        cmd.Connection = Conn;
+                        sql = $"SELECT * FROM Goat WHERE ID = '{enteredID}'";
+                        cmd.CommandText = sql;
+                        reader = cmd.ExecuteReader();
 
-                        income = goatIncome;
-                        cost = goatCost;
-                        profit = goatProfit;
+                        if (reader.Read())
+                        {
+                            animalType = reader["Type"].ToString();
+                            water = Convert.ToDouble(reader["Water"]);
+                            cost = Convert.ToDouble(reader["Cost"]);
+                            weight = Convert.ToDouble(reader["Weight"]);
+                            color = reader["Color"].ToString();
+                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
+                        }
+                        reader.Close();
                     }
                     else
                     {
-                        double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
-                        double sheepCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double sheepProfit = sheepIncome - sheepCost;
+                        cmd.Connection = Conn;
+                        sql = $"SELECT * FROM Animal WHERE ID = '{enteredID}'";
+                        cmd.CommandText = sql;
+                        reader = cmd.ExecuteReader();
 
-                        income = sheepIncome;
-                        cost = sheepCost;
-                        profit = sheepProfit;
+                        if (reader.Read())
+                        {
+                            animalType = reader["Type"].ToString();
+                            water = Convert.ToDouble(reader["Water"]);
+                            cost = Convert.ToDouble(reader["Cost"]);
+                            weight = Convert.ToDouble(reader["Weight"]);
+                            color = reader["Color"].ToString();
+                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
+                        }
+                        reader.Close();
                     }
+                }
 
-                    ResultTextBlock.Text = string.Format(ResultTextBlock.Text, income, Environment.NewLine, cost, profit);
-                    ResultTextBlock.Visibility = Visibility.Visible;
-                }
-                else
+                sql = "SELECT * FROM Commodity";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    MessageBox.Show($"ID No [{id}] not found in the database. Please try again.");
+                    string itemName = reader["Item"].ToString();
+                    double itemPrice = Convert.ToDouble(reader["Price"]);
+
+                    switch (itemName)
+                    {
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            break;
+                        case "GoatMilk":
+                            goatMilkPrice = itemPrice;
+                            break;
+                        case "SheepWool":
+                            sheepWoolPrice = itemPrice;
+                            break;
+                        case "Water":
+                            waterPrice = itemPrice;
+                            break;
+                        case "LivestockWeightTax":
+                            taxPrice = itemPrice;
+                            break;
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Invalid input. Please enter a valid ID.");
+                reader.Close();
+
+                double incomePerDay = (milkOrWool * (animalType == "Cow" ? cowMilkPrice : animalType == "Goat" ? goatMilkPrice : sheepWoolPrice));
+                double costsPerDay = cost + (weight * waterPrice) + (weight * taxPrice);
+
+                double totalProfitLoss = incomePerDay - costsPerDay;
+
+                ResultTextBlock.Text = $"Animal Type: {animalType}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
+                    $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
             }
         }
 

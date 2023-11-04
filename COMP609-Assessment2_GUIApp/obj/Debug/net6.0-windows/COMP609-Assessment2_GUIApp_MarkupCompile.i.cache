@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\
+C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\
 COMP609_Assessment2_GUIApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\App.xaml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2Git\COMP609-Assessment2_GUIApp\App.xaml
 121014086301
 
 21-378452063
-214-1020422816
+214-273175434
 Assets\Icons.xaml;Controls\MenuItem.xaml;Controls\UserPopup.xaml;MainWindow.xaml;Pages\Home.xaml;Pages\Query.xaml;Pages\Stats.xaml;Pages\TestPage.xaml;Pages\Update.xaml;Styles\MainStyle.xaml;Themes\Dark.xaml;Themes\Light.xaml;
 
 True

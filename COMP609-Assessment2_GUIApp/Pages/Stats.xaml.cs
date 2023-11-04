@@ -87,7 +87,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 string sql;
                 OdbcDataReader reader;
 
-                string animalType = "";
                 double water = 0;
                 double cost = 0;
                 double weight = 0;
@@ -100,102 +99,77 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 double waterPrice = 0;
                 double taxPrice = 0;
 
-                if (int.TryParse(Console.ReadLine(), out int id))
+                if (int.TryParse(enteredID, out int id))
                 {
                     var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
-                    if (Animal.GetType().Name == "Cow")
+                    if (animal != null)
                     {
-                        cmd.Connection = Conn;
-                        sql = $"SELECT * FROM Cow WHERE ID = '{enteredID}'";
-                        cmd.CommandText = sql;
-                        reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
+                        if (animal is Cow cow)
                         {
-                            animalType = reader["Type"].ToString();
-                            water = Convert.ToDouble(reader["Water"]);
-                            cost = Convert.ToDouble(reader["Cost"]);
-                            weight = Convert.ToDouble(reader["Weight"]);
-                            color = reader["Color"].ToString();
-                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
+                            water = cow.Water;
+                            cost = cow.Cost;
+                            weight = cow.Weight;
+                            color = cow.Colour;
+                            milkOrWool = cow.Wool_Milk;
                         }
-                        reader.Close();
+                        else if (animal is Goat goat)
+                        {
+                            water = goat.Water;
+                            cost = goat.Cost;
+                            weight = goat.Weight;
+                            color = goat.Colour;
+                            milkOrWool = goat.Wool_Milk;
+                        }
+                        else if (animal is Sheep sheep)
+                        {
+                            water = sheep.Water;
+                            cost = sheep.Cost;
+                            weight = sheep.Weight;
+                            color = sheep.Colour;
+                            milkOrWool = sheep.Wool_Milk;
+
+                        }
                     }
-                    else if (Animal.GetType().Name == "Goat")
+
+
+                    sql = "SELECT * FROM Commodity";
+                    cmd.CommandText = sql;
+                    reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        cmd.Connection = Conn;
-                        sql = $"SELECT * FROM Goat WHERE ID = '{enteredID}'";
-                        cmd.CommandText = sql;
-                        reader = cmd.ExecuteReader();
+                        string itemName = reader["Item"].ToString();
+                        double itemPrice = Convert.ToDouble(reader["Price"]);
 
-                        if (reader.Read())
+                        switch (itemName)
                         {
-                            animalType = reader["Type"].ToString();
-                            water = Convert.ToDouble(reader["Water"]);
-                            cost = Convert.ToDouble(reader["Cost"]);
-                            weight = Convert.ToDouble(reader["Weight"]);
-                            color = reader["Color"].ToString();
-                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
+                            case "CowMilk":
+                                cowMilkPrice = itemPrice;
+                                break;
+                            case "GoatMilk":
+                                goatMilkPrice = itemPrice;
+                                break;
+                            case "SheepWool":
+                                sheepWoolPrice = itemPrice;
+                                break;
+                            case "Water":
+                                waterPrice = itemPrice;
+                                break;
+                            case "LivestockWeightTax":
+                                taxPrice = itemPrice;
+                                break;
                         }
-                        reader.Close();
                     }
-                    else
-                    {
-                        cmd.Connection = Conn;
-                        sql = $"SELECT * FROM Animal WHERE ID = '{enteredID}'";
-                        cmd.CommandText = sql;
-                        reader = cmd.ExecuteReader();
+                    reader.Close();
 
-                        if (reader.Read())
-                        {
-                            animalType = reader["Type"].ToString();
-                            water = Convert.ToDouble(reader["Water"]);
-                            cost = Convert.ToDouble(reader["Cost"]);
-                            weight = Convert.ToDouble(reader["Weight"]);
-                            color = reader["Color"].ToString();
-                            milkOrWool = Convert.ToDouble(reader["MilkOrWool"]);
-                        }
-                        reader.Close();
-                    }
+                    double incomePerDay = (milkOrWool * milkOrWool);
+                    double costsPerDay = cost + (weight * waterPrice) + (weight * taxPrice);
+
+                    double totalProfitLoss = incomePerDay - costsPerDay;
+
+                    ResultTextBlock.Text = $"Animal Type: {animal}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
+                        $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
                 }
-
-                sql = "SELECT * FROM Commodity";
-                cmd.CommandText = sql;
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string itemName = reader["Item"].ToString();
-                    double itemPrice = Convert.ToDouble(reader["Price"]);
-
-                    switch (itemName)
-                    {
-                        case "CowMilk":
-                            cowMilkPrice = itemPrice;
-                            break;
-                        case "GoatMilk":
-                            goatMilkPrice = itemPrice;
-                            break;
-                        case "SheepWool":
-                            sheepWoolPrice = itemPrice;
-                            break;
-                        case "Water":
-                            waterPrice = itemPrice;
-                            break;
-                        case "LivestockWeightTax":
-                            taxPrice = itemPrice;
-                            break;
-                    }
-                }
-                reader.Close();
-
-                double incomePerDay = (milkOrWool * (animalType == "Cow" ? cowMilkPrice : animalType == "Goat" ? goatMilkPrice : sheepWoolPrice));
-                double costsPerDay = cost + (weight * waterPrice) + (weight * taxPrice);
-
-                double totalProfitLoss = incomePerDay - costsPerDay;
-
-                ResultTextBlock.Text = $"Animal Type: {animalType}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
-                    $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
             }
         }
 

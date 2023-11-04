@@ -61,7 +61,7 @@ namespace COMP609_Assessment2_GUIApp.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/COMP609-Assessment2_GUIApp;V1.0.0.0;component/controls/menuitem.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/COMP609-Assessment2_GUIApp;component/controls/menuitem.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\MenuItem.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

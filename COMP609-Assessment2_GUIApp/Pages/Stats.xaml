@@ -12,9 +12,10 @@
             <!--Show statistics of an animal ID (Type, id, water, cost,weight,colour,milk/wool)-->
             <!--also income earned per day, costs per day, total profit/loss per day-->
             <StackPanel x:Name="TextBlockId" >
-                <Label FontWeight="Bold" FontSize="26" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" Content="Enter the ID of the animal you want statistics for" />
+                <Label FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" Content="Enter the ID of the animal you want statistics for" />
                 <TextBox Name="AnimalIDTextBox" Background="White" FontSize="16" Width="400" HorizontalContentAlignment="Center" />
-                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="DailyIDStats" />
+                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="DailyIDStats" IsDefault="True" />
+                
                 <TextBlock Name="ResultTextBlock" Foreground="{DynamicResource PrimaryTextColour}" />
             </StackPanel>
             <!--Show animal totals- total tax for all animals per day, per 30days, average weight of all animals-->

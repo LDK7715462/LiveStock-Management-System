@@ -22,20 +22,22 @@
 
                 <Border VerticalAlignment="Top" CornerRadius="15,0,0,15" Background="White" Margin="20,20,0,142" MaxHeight="27">
                     <TextBox
-                        Name="InBox2"
+                        Name="Search"
                         Width="Auto"
                         Grid.Column="0"
                         md:HintAssist.Hint="Enter a word"
-                        TextChanged="InBox2_TextChanged"
+                        TextChanged="Auto_Search" 
                         Margin="40,0,0,0" />
                 </Border>
 
                 <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0">
-                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0">
+                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0">
+                        <ComboBoxItem Content="All" />
                         <ComboBoxItem Content="ID" />
                         <ComboBoxItem Content="Type" />
                         <ComboBoxItem Content="Colour" />
                         <ComboBoxItem Content="Weight" />
+
                     </ComboBox>
                 </Border>
             </Grid>
@@ -44,11 +46,12 @@
         <!-- Add a DataGrid for the table below -->
         <DataGrid
     Name="AnimalList"
-    MaxHeight="500"
-    Margin="0,321,0,0"
+    
+    Margin="20,321,20,0"
     Foreground="{DynamicResource PrimaryTextColour}"
     VerticalAlignment="Top"
     FontSize="20"
+            
     AutoGenerateColumns="False"
     ItemsSource="{Binding YourDataCollection}"
     HorizontalAlignment="Stretch">
@@ -72,13 +75,13 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTextColumn Header="Water" Binding="{Binding Water}" />
-                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" />
-                <DataGridTextColumn Header="Weight(kg)" Binding="{Binding Weight}" />
-                <DataGridTextColumn Header="Colour" Binding="{Binding Colour}" />
-                <DataGridTextColumn Header="Milk/Wool" Binding="{Binding Wool_Milk}" />
+                <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Width="*" Header="Water" Binding="{Binding Water}" />
+                <DataGridTextColumn Width="*" Header="Cost" Binding="{Binding Cost}" />
+                <DataGridTextColumn Width="*" Header="Weight(kg)" Binding="{Binding Weight}" />
+                <DataGridTextColumn Width="*" Header="Colour" Binding="{Binding Colour}" />
+                <DataGridTextColumn Width="*" Header="Milk/Wool" Binding="{Binding Wool_Milk}" />
             </DataGrid.Columns>
         </DataGrid>
 

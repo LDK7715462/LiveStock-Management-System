@@ -29,14 +29,53 @@ namespace COMP609_Assessment2_GUIApp.Pages
             AnimalList.ItemsSource = app.Animal;
         }
 
-        private void InBox2_TextChanged(object sender, TextChangedEventArgs e)
+        private void Auto_Search(object sender, TextChangedEventArgs e)
         {
+            string searchText = Search.Text;
+            ComboBoxItem selectedSortItem = (ComboBoxItem)SearchOptions.SelectedItem;
 
+            if (string.IsNullOrEmpty(searchText))
+            {
+                AnimalList.ItemsSource = app.Animal;
+                return;
+            }
+
+            var filteredAnimals = app.Animal.Where(a => a.Type.ToLower().Contains(searchText.ToLower())).ToList();
+
+            string? sortBy = selectedSortItem?.Content?.ToString(); // Safe access using ?. operator
+
+
+            if (sortBy == "ID")
+            {
+
+                filteredAnimals = filteredAnimals.OrderBy(a => a.ID).ToList();
+
+            }
+
+            if (!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy)
+                {
+                    case "Colour":
+                        filteredAnimals = filteredAnimals.OrderBy(a => a.Colour).ToList();
+                        break;
+                    case "Type":
+                        filteredAnimals = filteredAnimals.OrderBy(a => a.Type).ToList();
+                        break;
+                        // Add more cases for sorting by other properties if needed
+                }
+            }
+
+            AnimalList.ItemsSource = filteredAnimals;
         }
+
+
 
         private void AnimalList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+
     }
 }

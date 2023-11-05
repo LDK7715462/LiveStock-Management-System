@@ -30,9 +30,9 @@
                         Margin="40,0,0,0" />
                 </Border>
 
-                <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0">
-                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" >
-                        <ComboBoxItem Content="Type" IsSelected="True"/>
+                <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0" >
+                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" SelectionChanged="ColourInfoPopup">
+                        <ComboBoxItem Content="Type" />
                         <ComboBoxItem Content="ID" />
                         <ComboBoxItem Content="Water" />
                         <ComboBoxItem Content="Cost" />
@@ -44,7 +44,7 @@
                 </Border>
             </Grid>
         </Border>
-        <TextBlock FontSize="20" Name="NoResultsMessage" Text="No matching items found in the database." Foreground="White" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,392,0,0"/>
+        <TextBlock FontSize="20" Name="NoResultsMessage" Text="No matching items found in the database." Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,392,0,0"/>
 
         <!-- Add a DataGrid for the table below -->
         <DataGrid
@@ -87,6 +87,13 @@
                 <DataGridTextColumn Width="*" Header="Milk/Wool" Binding="{Binding Wool_Milk}" />
             </DataGrid.Columns>
         </DataGrid>
+<Grid x:Name="ColourInfo" Visibility="Collapsed">
+        <!-- Content for the "Colour" search section -->
+        <TextBlock Text="Enter a color:" Foreground="White" Margin="10"/>
+        <TextBox x:Name="ColourSearchBox" TextChanged="Auto_Search" Margin="10" VerticalAlignment="Top"/>
+    </Grid>
+
+
 
     </Grid>
 </Page>

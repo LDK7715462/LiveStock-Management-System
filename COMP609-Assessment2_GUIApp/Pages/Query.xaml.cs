@@ -29,6 +29,24 @@ namespace COMP609_Assessment2_GUIApp.Pages
             AnimalList.ItemsSource = app.Animal;
         }
 
+
+
+        private void ColourInfoPopup(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
+
+            // Hide or show the Color search section based on the selection
+            if (selectedFilter == "Colour")
+            {
+                AnimalList.Visibility = Visibility.Collapsed;
+                ColourInfo.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AnimalList.Visibility = Visibility.Visible;
+            }
+        }
+
         private void Auto_Search(object sender, TextChangedEventArgs e)
         {
             string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
@@ -42,6 +60,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
             }
 
             List<Animals> filteredAnimals = new List<Animals>();
+
+
+
 
             switch (selectedFilter)
             {
@@ -136,6 +157,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
         }
 
+        private void AnimalList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

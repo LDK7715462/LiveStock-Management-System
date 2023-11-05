@@ -142,11 +142,6 @@ namespace COMP609_Assessment2_GUIApp
         }
         // End: Button Close | Restore | Minimize
 
-        //private void btnHome_Click(object sender, RoutedEventArgs e)
-        //{
-        //    fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
-        //}
-
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -164,7 +159,6 @@ namespace COMP609_Assessment2_GUIApp
         {
             fContainer.Content = new TestPage(app);
         }
-
 
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {

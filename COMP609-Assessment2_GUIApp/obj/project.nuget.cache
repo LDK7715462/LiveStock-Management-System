@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kZZrDghXZVYrhNFi/zPfUph62ezGBytkrqEpIMsAz9pjiEThTP/mkS17+GhbsCzg04cwjWaXt9aTBnihLoq8Dw==",
+  "dgSpecHash": "X6r0ZIHuqgUvxIRsc9+tjbA5ToiPwl8tnoMYqPmbqk9/+SrejbLLf2B8YbtyyLnJ2/xls9C5h63w9zD/Vxqgtg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Source\\Repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+  "projectFilePath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",

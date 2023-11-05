@@ -4,7 +4,7 @@
 
 - [x] Read data from database - COMPLETED
 - [x] Display data - COMPLETED
-- [ ] Display statistics - TODO
+- [x] Display statistics - COMPLETED
 - [x] Queries by ID/Type/Colour/Weight - COMPLETED
 - [x] Delete record from database - COMPLETED
 - [x] Insert record in database - COMPLETED

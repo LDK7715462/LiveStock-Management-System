@@ -31,26 +31,17 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
         private void Auto_Search(object sender, TextChangedEventArgs e)
         {
+            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
+            string searchText = Search.Text;
+
+            if (string.IsNullOrEmpty(searchText))
             {
-                if (SearchOptions.SelectedItem == null)
-                {
-                    // Handle the case where no filter is selected
-                    // You can show a message to the user or clear the results
-                    AnimalList.ItemsSource = null; // Clear the results
-                    return;
-                }
+                // Handle empty search text (show all data or display a message)
+                AnimalList.ItemsSource = app.Animal;
+                return;
+            }
 
-                string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
-                string searchText = Search.Text;
-
-                if (string.IsNullOrEmpty(searchText))
-                {
-                    // Handle empty search text (show all data or display a message)
-                    AnimalList.ItemsSource = app.Animal;
-                    return;
-                }
-
-                List<Animals> filteredAnimals = new List<Animals>();
+            List<Animals> filteredAnimals = new List<Animals>();
 
             switch (selectedFilter)
             {
@@ -60,11 +51,12 @@ namespace COMP609_Assessment2_GUIApp.Pages
                         filteredAnimals = app.Animal.Where(a => a.ID == searchID).ToList();
                     }
                     else
-                    {
-                        // Handle the case where the input is not a valid integer
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
-                    }
+                        {
+                            // Handle the case where the input is not a valid number
+                            MessageBox.Show("No Stock Found");
+                            // You can also clear the results if needed:
+                            // AnimalList.ItemsSource = null; // Clear the results
+                        }
                     break;
                 case "Colour":
                     filteredAnimals = app.Animal.Where(a => a.Colour.ToLower().Contains(searchText.ToLower())).ToList();
@@ -121,6 +113,16 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     break;
                     // Add more cases for other filter criteria as needed
+            }
+           
+            
+            if (filteredAnimals.Count == 0)
+            {
+                NoResultsMessage.Visibility = Visibility.Visible; // Show the message
+            }
+            else
+            {
+                NoResultsMessage.Visibility = Visibility.Collapsed; // Hide the message
             }
 
             AnimalList.ItemsSource = filteredAnimals;

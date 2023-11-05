@@ -32,7 +32,7 @@
 
                 <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0">
                     <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" >
-                        <ComboBoxItem Content="Type" />
+                        <ComboBoxItem Content="Type" IsSelected="True"/>
                         <ComboBoxItem Content="ID" />
                         <ComboBoxItem Content="Water" />
                         <ComboBoxItem Content="Cost" />
@@ -44,6 +44,7 @@
                 </Border>
             </Grid>
         </Border>
+        <TextBlock FontSize="20" Name="NoResultsMessage" Text="No matching items found in the database." Foreground="White" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,392,0,0"/>
 
         <!-- Add a DataGrid for the table below -->
         <DataGrid

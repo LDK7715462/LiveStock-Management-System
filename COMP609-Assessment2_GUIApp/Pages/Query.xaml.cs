@@ -31,17 +31,26 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
         private void Auto_Search(object sender, TextChangedEventArgs e)
         {
-            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
-            string searchText = Search.Text;
-
-            if (string.IsNullOrEmpty(searchText))
             {
-                // Handle empty search text (show all data or display a message)
-                AnimalList.ItemsSource = app.Animal;
-                return;
-            }
+                if (SearchOptions.SelectedItem == null)
+                {
+                    // Handle the case where no filter is selected
+                    // You can show a message to the user or clear the results
+                    AnimalList.ItemsSource = null; // Clear the results
+                    return;
+                }
 
-            List<Animals> filteredAnimals = new List<Animals>();
+                string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
+                string searchText = Search.Text;
+
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    // Handle empty search text (show all data or display a message)
+                    AnimalList.ItemsSource = app.Animal;
+                    return;
+                }
+
+                List<Animals> filteredAnimals = new List<Animals>();
 
             switch (selectedFilter)
             {

@@ -43,7 +43,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            Conn = GetConn();
+            Animal = new ObservableCollection<Animals>();
+            Conn = Util.GetConn();
         }
 
 
@@ -51,14 +52,14 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             if (IDStats.IsChecked == true)
             {
-                CalculateButton_Click(sender, e);
+                DailyIDStats(sender, e);
                 TextBlockId.Visibility = Visibility.Visible;
                 TextBlockGlobal.Visibility = Visibility.Collapsed;
                 StackPrice.Visibility = Visibility.Collapsed;
             }
             else if (GlobalStats.IsChecked == true)
             {
-
+                GetGlobalStats();
                 TextBlockId.Visibility = Visibility.Collapsed;
                 TextBlockGlobal.Visibility = Visibility.Visible;
                 StackPrice.Visibility = Visibility.Collapsed;
@@ -72,63 +73,240 @@ namespace COMP609_Assessment2_GUIApp.Pages
             }
         }
 
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        #region DailyIDStats
+        private void DailyIDStats(object sender, RoutedEventArgs e)
         {
-            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+            string enteredID = AnimalIDTextBox.Text;
 
-            if (int.TryParse(AnimalIDTextBox.Text, out int id))
+            if (string.IsNullOrEmpty(enteredID))
             {
-                var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                AnimalIDTextBox.Text = "Please enter an animal ID.";
+                return;
+            }
 
-                if (animal != null)
+            using (var cmd = Conn.CreateCommand())
+            {
+                string sql;
+                OdbcDataReader reader;
+
+                double water = 0;
+                double cost = 0;
+                double weight = 0;
+                string color = "";
+                double milkOrWool = 0;
+
+                double cowMilkPrice = 0;
+                double goatMilkPrice = 0;
+                double sheepWoolPrice = 0;
+                double waterPrice = 0;
+                double taxPrice = 0;
+
+                if (int.TryParse(enteredID, out int id))
                 {
-                    double income, cost, profit;
-
-                    if (animal.GetType().Name == "Cow")
+                    var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                    if (animal != null)
                     {
-                        double cowIncome = animal.Wool_Milk * cowMilkPrice;
-                        double cowCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double cowProfit = cowIncome - cowCost;
+                        if (animal is Cow cow)
+                        {
+                            water = cow.Water;
+                            cost = cow.Cost;
+                            weight = cow.Weight;
+                            color = cow.Colour;
+                            milkOrWool = cow.Wool_Milk;
+                        }
+                        else if (animal is Goat goat)
+                        {
+                            water = goat.Water;
+                            cost = goat.Cost;
+                            weight = goat.Weight;
+                            color = goat.Colour;
+                            milkOrWool = goat.Wool_Milk;
+                        }
+                        else if (animal is Sheep sheep)
+                        {
+                            water = sheep.Water;
+                            cost = sheep.Cost;
+                            weight = sheep.Weight;
+                            color = sheep.Colour;
+                            milkOrWool = sheep.Wool_Milk;
 
-                        income = cowIncome;
-                        cost = cowCost;
-                        profit = cowProfit;
-                    }
-                    else if (animal.GetType().Name == "Goat")
-                    {
-                        double goatIncome = animal.Wool_Milk * goatMilkPrice;
-                        double goatCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double goatProfit = goatIncome - goatCost;
-
-                        income = goatIncome;
-                        cost = goatCost;
-                        profit = goatProfit;
+                        }
                     }
                     else
                     {
-                        double sheepIncome = animal.Wool_Milk * sheepWoolPrice;
-                        double sheepCost = animal.Cost + (animal.Water * waterPrice) + (liveStockWeightTax * animal.Weight);
-                        double sheepProfit = sheepIncome - sheepCost;
-
-                        income = sheepIncome;
-                        cost = sheepCost;
-                        profit = sheepProfit;
+                        AnimalIDTextBox.Text = "NULLLLLLLLL";
                     }
 
-                    ResultTextBlock.Text = string.Format(ResultTextBlock.Text, income, Environment.NewLine, cost, profit);
-                    ResultTextBlock.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    MessageBox.Show($"ID No [{id}] not found in the database. Please try again.");
+
+                    sql = "SELECT * FROM Commodity";
+                    cmd.CommandText = sql;
+                    reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string itemName = reader["Item"].ToString();
+                        double itemPrice = Convert.ToDouble(reader["Price"]);
+
+                        switch (itemName)
+                        {
+                            case "CowMilk":
+                                cowMilkPrice = itemPrice;
+                                break;
+                            case "GoatMilk":
+                                goatMilkPrice = itemPrice;
+                                break;
+                            case "SheepWool":
+                                sheepWoolPrice = itemPrice;
+                                break;
+                            case "Water":
+                                waterPrice = itemPrice;
+                                break;
+                            case "LivestockWeightTax":
+                                taxPrice = itemPrice;
+                                break;
+                        }
+                    }
+                    reader.Close();
+
+                    double incomePerDay = (milkOrWool * milkOrWool);
+                    double costsPerDay = cost + (weight * waterPrice) + (weight * taxPrice);
+
+                    double totalProfitLoss = incomePerDay - costsPerDay;
+
+                    ResultTextBlock.Text = $"Animal Type: {animal}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
+                        $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
                 }
             }
-            else
+        }
+        #endregion
+
+        #region GlobalStats
+        private void GetGlobalStats()
+        {
+
+            double goatMilkPrice = 0.0, cowMilkPrice = 0.0, sheepWoolPrice = 0.0, waterPrice = 0.0, liveStockWeightTax = 0.0;
+            double cowMilk = 0, cowCost = 0, cowWater = 0;
+            double sheepWool = 0, sheepCost = 0, sheepWater = 0;
+            double goatMilk = 0, goatCost = 0, goatWater = 0;
+            double totalTax = 0, totalWeight = 0;
+            int animalCount = 0;
+
+            using (var cmd = Conn.CreateCommand())
             {
-                MessageBox.Show("Invalid input. Please enter a valid ID.");
+                cmd.Connection = Conn;
+                string sql;
+                OdbcDataReader reader;
+                sql = "SELECT * FROM Commodity";
+                cmd.CommandText = sql;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string itemName = reader["Item"].ToString();
+                    double itemPrice = Convert.ToDouble(reader["Price"]);
+                    switch (itemName)
+                    {
+                        case "CowMilk":
+                            cowMilkPrice = itemPrice;
+                            Console.WriteLine($"Cow's Milk price (KG): ${cowMilkPrice}");
+                            break;
+                        case "GoatMilk":
+                            goatMilkPrice = itemPrice;
+                            Console.WriteLine($"Goat Milk price (KG): ${goatMilkPrice}");
+                            break;
+                        case "SheepWool":
+                            sheepWoolPrice = itemPrice;
+                            Console.WriteLine($"Sheep's wool price (KG): ${sheepWoolPrice}");
+                            break;
+                        case "Water":
+                            waterPrice = itemPrice;
+                            Console.WriteLine($"Cost of water (KG): ${waterPrice}");
+                            break;
+                        case "LivestockWeightTax":
+                            liveStockWeightTax = itemPrice;
+                            Console.WriteLine($"Government Livestock Weight Tax (KG per animal per day): ${liveStockWeightTax}");
+                            break;
+                    }
+                }
+                reader.Close();
+
+                cmd.CommandText = "SELECT * FROM cow";
+                using (var cowReader = cmd.ExecuteReader())
+                {
+                    while (cowReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = cowReader.GetDouble(cowReader.GetOrdinal("Milk"));
+                        double cost = cowReader.GetDouble(cowReader.GetOrdinal("Cost"));
+                        double water = cowReader.GetDouble(cowReader.GetOrdinal("Water"));
+                        cowMilk += milk; cowCost += cost; cowWater += water;
+
+                        double cowWeight = cowReader.GetDouble(cowReader.GetOrdinal("Weight"));
+                        totalWeight += cowWeight;
+                        animalCount++;
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM sheep";
+                using (var sheepReader = cmd.ExecuteReader())
+                {
+                    while (sheepReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double wool = sheepReader.GetDouble(sheepReader.GetOrdinal("Wool"));
+                        double cost = sheepReader.GetDouble(sheepReader.GetOrdinal("Cost"));
+                        double water = sheepReader.GetDouble(sheepReader.GetOrdinal("Water"));
+                        sheepWool += wool; sheepCost += cost; sheepWater += water;
+
+                        double sheepWeight = sheepReader.GetDouble(sheepReader.GetOrdinal("Weight"));
+                        totalWeight += sheepWeight;
+                        animalCount++;
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM goat";
+                using (var goatReader = cmd.ExecuteReader())
+                {
+                    while (goatReader.Read())
+                    {//takes each item in milk, cost, water and adds them together into their 'total' variable
+                        double milk = goatReader.GetDouble(goatReader.GetOrdinal("Milk"));
+                        double cost = goatReader.GetDouble(goatReader.GetOrdinal("Cost"));
+                        double water = goatReader.GetDouble(goatReader.GetOrdinal("Water"));
+                        goatMilk += milk; goatCost += cost; goatWater += water;
+
+                        double goatWeight = goatReader.GetDouble(goatReader.GetOrdinal("Weight"));
+                        totalWeight += goatWeight;
+                        animalCount++;
+                    }
+                }
+
+                // Set the values in the TextBlocks
+                //GCowMilkPriceTextBlock.Text = $"{cowMilkPrice:C}";
+                //GGoatMilkPriceTextBlock.Text = $"{goatMilkPrice:C}";
+                //GSheepWoolPriceTextBlock.Text = $"{sheepWoolPrice:C}";
+                //GWaterPriceTextBlock.Text = $"{waterPrice:C}";
+                //GLiveStockWeightTaxTextBlock.Text = $"{liveStockWeightTax:C}";
+
+                // Set the values in the TextBlocks
+                GCowMilkTextBlock.Text = $"{cowMilk:N2} KG";
+                GCowCostTextBlock.Text = $"{cowCost:C}";
+                GCowWaterTextBlock.Text = $"{cowWater:C}";
+
+                GSheepWoolTextBlock.Text = $"{sheepWool:N2} KG";
+                GSheepCostTextBlock.Text = $"{sheepCost:C}";
+                GSheepWaterTextBlock.Text = $"{sheepWater:C}";
+
+                GGoatMilkTextBlock.Text = $"{goatMilk:N2} KG";
+                GGoatCostTextBlock.Text = $"{goatCost:C}";
+                GGoatWaterTextBlock.Text = $"{goatWater:C}";
+
+                GTotalTaxTextBlock.Text = $"{totalTax:C}";
+                GTotalWeightTextBlock.Text = $"{totalWeight:N2} KG";
+                GAnimalCountTextBlock.Text = animalCount.ToString();
+
+
             }
         }
 
+        #endregion
+
+        #region LoadCommodityPrices
         private void LoadCommodityPrices()
         {
             using (var cmd = Conn.CreateCommand())
@@ -167,7 +345,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 reader.Close();
             }
         }
-
+        #endregion
 
     }
 }
+

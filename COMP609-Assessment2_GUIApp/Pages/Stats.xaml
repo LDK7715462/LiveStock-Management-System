@@ -12,35 +12,54 @@
             <!--Show statistics of an animal ID (Type, id, water, cost,weight,colour,milk/wool)-->
             <!--also income earned per day, costs per day, total profit/loss per day-->
             <StackPanel x:Name="TextBlockId" >
-                <Label FontWeight="Bold" FontSize="26" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" Content="Enter the ID of the animal you want statistics for" />
+                <Label FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextColour}" Content="Enter the ID of the animal you want statistics for" />
                 <TextBox Name="AnimalIDTextBox" Background="White" FontSize="16" Width="400" HorizontalContentAlignment="Center" />
-                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="CalculateButton_Click" />
-            <TextBlock Name="ResultTextBlock" Visibility="Collapsed">
-                    <TextBlock.Text>
-                        <MultiBinding StringFormat="{}Total Income per day: ${0:F2}{1}Total Cost per day: ${2:F2}{1}Total profit/loss per day ($): {3:F2}">
-                            <Binding Path="Income" />
-                            <Binding Source="&#x0a;" />
-                            <Binding Path="Cost" />
-                            <Binding Source="&#x0a;" />
-                            <Binding Path="Profit" />
-                        </MultiBinding>
-                    </TextBlock.Text>
-            </TextBlock>
+                <Button Foreground="{DynamicResource PrimaryTextColour}" Background="Gray" Height="26" Width="80" Content="OK" Click="DailyIDStats" IsDefault="True" />
+                <TextBlock Name="ResultTextBlock" Foreground="{DynamicResource PrimaryTextColour}" />
             </StackPanel>
-            <!--Show animal totals- total tax for all animals per day, per 30days, average weight of all animals-->
+            <!--GlobalStats- total tax for all animals per day, per 30days, average weight of all animals-->
             <!--Total income from all animals, total costs per day for all animals, total profit gained from all animals-->
-            <TextBlock x:Name="TextBlockGlobal" Text="You selected Option 2" Visibility="Collapsed" >
-            
-            </TextBlock>
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <StackPanel x:Name="TextBlockGlobal" Visibility="Collapsed">
+                    <Label FontWeight="Bold" FontSize="16" Foreground="{DynamicResource PrimaryTextColour}" Width="200" HorizontalAlignment="Left" Content="Global Statistics"/>
+                    <!-- <Label FontWeight="Bold" FontSize="12" Foreground="{DynamicResource PrimaryTextColour}" Width="200" HorizontalAlignment="Left" Content="Current Commodity Prices"/>
+                    <TextBlock Name="GCowMilkPriceTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GGoatMilkPriceTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GSheepWoolPriceTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GWaterPriceTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GLiveStockWeightTaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>-->
+
+                    <Label FontWeight="Bold" FontSize="14" Foreground="{DynamicResource PrimaryTextColour}" Width="200" HorizontalAlignment="Left" Content="Animal Statistics Totals"/>
+                    <TextBlock Name="GCowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GCowCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GCowWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+
+                    <TextBlock Name="GSheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GSheepCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GSheepWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+
+                    <TextBlock Name="GGoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GGoatCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GGoatWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+
+                    <TextBlock Name="GTotalTaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GTotalWeightTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GAnimalCountTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                </StackPanel>
+            </ScrollViewer>
             <!--Show current prices of goats milk, cows milk, sheeps wool, and cost of water and govt tax-->
             <StackPanel x:Name="StackPrice" Visibility="Collapsed" >
-                <Label FontWeight="Bold" FontSize="26" Foreground="{DynamicResource PrimaryTextColour}" Content="Current Commodity Prices"/>
+                <Label FontWeight="Bold" FontSize="16" Foreground="{DynamicResource PrimaryTextColour}" Content="Current Commodity Prices"/>
                 <TextBlock FontSize="15"/>
-                <TextBlock Name="CowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="GoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="SheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="WaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="TaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="CowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="GoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="SheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="WaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="TaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
             </StackPanel>
         </StackPanel>
 

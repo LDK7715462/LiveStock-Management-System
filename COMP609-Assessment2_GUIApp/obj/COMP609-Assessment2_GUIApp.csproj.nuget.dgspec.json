@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
   },
   "projects": {
@@ -12,12 +13,25 @@
         "projectPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+=======
+    "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "projectName": "COMP609-Assessment2_GUIApp",
+        "projectPath": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "packagesPath": "C:\\Users\\RTX RYZEN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RTX RYZEN\\Desktop\\AppDevAss2Git\\COMP609-Assessment2_GUIApp\\obj\\",
+>>>>>>> c8e033dec2c9103a628e59a1621739c611f67ff6
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RTX RYZEN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -80,7 +94,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -49,13 +49,17 @@
             </ScrollViewer>
             <!--Show current prices of goats milk, cows milk, sheeps wool, and cost of water and govt tax-->
             <StackPanel x:Name="StackPrice" Visibility="Collapsed" >
-                <Label FontWeight="Bold" FontSize="26" Foreground="{DynamicResource PrimaryTextColour}" Content="Current Commodity Prices"/>
+                <Label FontWeight="Bold" FontSize="16" Foreground="{DynamicResource PrimaryTextColour}" Content="Current Commodity Prices"/>
                 <TextBlock FontSize="15"/>
-                <TextBlock Name="CowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="GoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="SheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="WaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
-                <TextBlock Name="TaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="20"/>
+                <TextBlock Name="CowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="GoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="SheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="WaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
+                <TextBlock FontSize="15"/>
+                <TextBlock Name="TaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="14"/>
             </StackPanel>
         </StackPanel>
 

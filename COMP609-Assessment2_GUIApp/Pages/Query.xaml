@@ -31,7 +31,7 @@
                 </Border>
 
                 <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0">
-                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0">
+                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" SelectionChanged="Auto_search">
                         <ComboBoxItem Content="All" />
                         <ComboBoxItem Content="ID" />
                         <ComboBoxItem Content="Type" />

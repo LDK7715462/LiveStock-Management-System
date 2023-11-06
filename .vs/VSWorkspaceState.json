@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\COMP609-Assessment2_GUIApp",
+    "\\COMP609-Assessment2_GUIApp\\Pages"
   ],
-  "SelectedNode": "\\COMP609-Assessment2_GUIApp.sln",
+  "SelectedNode": "\\COMP609-Assessment2_GUIApp\\Pages\\Home.xaml",
   "PreviewInSolutionExplorer": false
 }

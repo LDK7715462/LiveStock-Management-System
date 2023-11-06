@@ -1,24 +1,35 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
+=======
+    "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {}
+>>>>>>> 8d38d40d9bc18bc5c58d14793a450267ba8591e4
   },
   "projects": {
-    "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {
+    "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "projectUniqueName": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
         "projectName": "COMP609-Assessment2_GUIApp",
+<<<<<<< HEAD
         "projectPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+=======
+        "projectPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+        "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+>>>>>>> 8d38d40d9bc18bc5c58d14793a450267ba8591e4
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 8d38d40d9bc18bc5c58d14793a450267ba8591e4
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +91,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+>>>>>>> 8d38d40d9bc18bc5c58d14793a450267ba8591e4
         }
       }
     }

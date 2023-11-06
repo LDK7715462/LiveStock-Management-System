@@ -29,43 +29,125 @@ namespace COMP609_Assessment2_GUIApp.Pages
             AnimalList.ItemsSource = app.Animal;
         }
 
-       private void Auto_Search(object sender, TextChangedEventArgs e)
-{
-    string searchText = Search.Text;
-    ComboBoxItem selectedSortItem = (ComboBoxItem)SearchOptions.SelectedItem;
 
-    if (string.IsNullOrEmpty(searchText))
-    {
-        AnimalList.ItemsSource = app.Animal;
-        return;
-    }
 
-    var filteredAnimals = app.Animal.Where(a => a.Type.ToLower().Contains(searchText.ToLower())).ToList();
-
-    string? sortBy = selectedSortItem?.Content?.ToString(); // Safe access using ?. operator
-
-    if (!string.IsNullOrEmpty(sortBy))
-    {
-        switch (sortBy)
+        private void ColourInfoPopup(object sender, SelectionChangedEventArgs e)
         {
-            case "Colour":
-                filteredAnimals = filteredAnimals.OrderBy(a => a.Colour).ToList();
-                break;
-            case "Type":
-                filteredAnimals = filteredAnimals.OrderBy(a => a.Type).ToList();
-                break;
-            case "Weight":
-                filteredAnimals = filteredAnimals.OrderBy(a => a.Weight).ToList();
-                break;
-            case "ID":
-                filteredAnimals = filteredAnimals.OrderBy(a => a.ID).ToList();
-                break;
-            // Add more cases for sorting by other properties if needed
-        }
-    }
+            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
 
-    AnimalList.ItemsSource = filteredAnimals;
-}
+            // Hide or show the Color search section based on the selection
+            if (selectedFilter == "Colour")
+            {
+                AnimalList.Visibility = Visibility.Collapsed;
+                ColourInfo.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AnimalList.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Auto_Search(object sender, TextChangedEventArgs e)
+        {
+            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
+            string searchText = Search.Text;
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                // Handle empty search text (show all data or display a message)
+                AnimalList.ItemsSource = app.Animal;
+                return;
+            }
+
+            List<Animals> filteredAnimals = new List<Animals>();
+
+
+
+
+            switch (selectedFilter)
+            {
+                case "ID":
+                    if (int.TryParse(searchText, out int searchID))
+                    {
+                        filteredAnimals = app.Animal.Where(a => a.ID == searchID).ToList();
+                    }
+                    else
+                        {
+                            // Handle the case where the input is not a valid number
+                            MessageBox.Show("No Stock Found");
+                            // You can also clear the results if needed:
+                            // AnimalList.ItemsSource = null; // Clear the results
+                        }
+                    break;
+                case "Colour":
+                    filteredAnimals = app.Animal.Where(a => a.Colour.ToLower().Contains(searchText.ToLower())).ToList();
+                    break;
+                case "Type":
+                    filteredAnimals = app.Animal.Where(a => a.Type.ToLower().Contains(searchText.ToLower())).ToList();
+                    break;
+                case "Weight":
+                    if (double.TryParse(searchText, out double searchWeight))
+                    {
+                        filteredAnimals = app.Animal.Where(a => a.Weight == searchWeight).ToList();
+                    }
+                    else
+                    {
+                        // Handle the case where the input is not a valid number
+                        // You can show a message to the user or clear the results
+                        AnimalList.ItemsSource = null; // Clear the results
+                    }
+                    break;
+                case "Cost":
+                    if (double.TryParse(searchText, out double searchCost))
+                    {
+                        filteredAnimals = app.Animal.Where(a => a.Cost == searchCost).ToList();
+                    }
+                    else
+                    {
+                        // Handle the case where the input is not a valid number
+                        // You can show a message to the user or clear the results
+                        AnimalList.ItemsSource = null; // Clear the results
+                    }
+                    break;
+                case "Water":
+                    if (double.TryParse(searchText, out double searchWater))
+                    {
+                        filteredAnimals = app.Animal.Where(a => a.Water == searchWater).ToList();
+                    }
+                    else
+                    {
+                        // Handle the case where the input is not a valid number
+                        // You can show a message to the user or clear the results
+                        AnimalList.ItemsSource = null; // Clear the results
+                    }
+                    break;
+                case "Milk Volume":
+                    if (double.TryParse(searchText, out double searchMilk))
+                    {
+                        filteredAnimals = app.Animal.Where(a => a.Wool_Milk == searchMilk).ToList();
+                    }
+                    else
+                    {
+                        // Handle the case where the input is not a valid number
+                        // You can show a message to the user or clear the results
+                        AnimalList.ItemsSource = null; // Clear the results
+                    }
+                    break;
+                    // Add more cases for other filter criteria as needed
+            }
+           
+            
+            if (filteredAnimals.Count == 0)
+            {
+                NoResultsMessage.Visibility = Visibility.Visible; // Show the message
+            }
+            else
+            {
+                NoResultsMessage.Visibility = Visibility.Collapsed; // Hide the message
+            }
+
+            AnimalList.ItemsSource = filteredAnimals;
+        }
 
 
 
@@ -75,6 +157,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
         }
 
+        private void AnimalList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

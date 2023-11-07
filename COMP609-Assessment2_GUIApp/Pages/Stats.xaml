@@ -29,22 +29,25 @@
                     <TextBlock Name="GWaterPriceTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
                     <TextBlock Name="GLiveStockWeightTaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>-->
 
-                    <Label FontWeight="Bold" FontSize="14" Foreground="{DynamicResource PrimaryTextColour}" Width="200" HorizontalAlignment="Left" Content="Animal Statistics Totals"/>
-                    <TextBlock Name="GCowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GCowCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GCowWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GCowMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GCowCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GCowWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
 
-                    <TextBlock Name="GSheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GSheepCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GSheepWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GSheepWoolTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GSheepCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GSheepWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
 
-                    <TextBlock Name="GGoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GGoatCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GGoatWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GGoatMilkTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GGoatCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GGoatWaterTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
 
-                    <TextBlock Name="GTotalTaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GTotalWeightTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
-                    <TextBlock Name="GAnimalCountTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="12"/>
+                    <TextBlock Name="GTotalTaxTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GTotalWeightTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GAnimalCountTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GTotalAvgWeightTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GTotalIncomeTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GTotalCostTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
+                    <TextBlock Name="GTotalProfitTextBlock" Foreground="{DynamicResource PrimaryTextColour}" FontSize="11"/>
                 </StackPanel>
             </ScrollViewer>
             <!--Show current prices of goats milk, cows milk, sheeps wool, and cost of water and govt tax-->

@@ -47,7 +47,7 @@ namespace COMP609_Assessment2_GUIApp {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.9.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.11.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -59,7 +59,7 @@ namespace COMP609_Assessment2_GUIApp {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/COMP609-Assessment2_GUIApp;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/COMP609-Assessment2_GUIApp;V1.0.0.0;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -73,7 +73,7 @@ namespace COMP609_Assessment2_GUIApp {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.9.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.11.0")]
         public static void Main() {
             COMP609_Assessment2_GUIApp.App app = new COMP609_Assessment2_GUIApp.App();
             app.InitializeComponent();

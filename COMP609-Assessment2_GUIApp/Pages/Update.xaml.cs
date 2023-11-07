@@ -65,8 +65,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 // Insert the new animal into the database
                 app.InsertAnimal(newAnimal);
 
-                // Refresh the data displayed in the list
-                AnimalList.ItemsSource = app.Animal;
+           
             }
             catch (Exception ex)
             {

@@ -144,6 +144,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
 
 
+
+
+
         private void AnimalList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

@@ -51,7 +51,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
             if (string.IsNullOrEmpty(searchText))
             {
-                // Handle empty search text (show all data or display a message)
+       
                 AnimalList.ItemsSource = app.Animal;
                 return;
             }
@@ -70,10 +70,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
+                       
                         MessageBox.Show("No Stock Found");
-                        // You can also clear the results if needed:
-                        // AnimalList.ItemsSource = null; // Clear the results
+                    
                     }
                     break;
                 case "Colour":
@@ -89,8 +88,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
+          
                         AnimalList.ItemsSource = null; // Clear the results
                     }
                     break;
@@ -101,9 +99,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+                  
+                        AnimalList.ItemsSource = null; 
                     }
                     break;
                 case "Water":
@@ -113,9 +110,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+              
+                        AnimalList.ItemsSource = null;
                     }
                     break;
                 case "Milk Volume":
@@ -125,12 +121,11 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+                 
+                        AnimalList.ItemsSource = null; 
                     }
                     break;
-                    // Add more cases for other filter criteria as needed
+               
             }
 
 

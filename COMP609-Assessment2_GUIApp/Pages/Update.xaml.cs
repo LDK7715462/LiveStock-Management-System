@@ -1,6 +1,7 @@
 ﻿using COMP609_Assessment2_GUIApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,5 +29,58 @@ namespace COMP609_Assessment2_GUIApp.Pages
             InitializeComponent();
             
         }
+
+
+        private void InsertSubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Retrieve user input from the form
+                string type = SearchOptions.Text;
+                string color = colours.Text;
+                int weight = int.Parse(Weight.Text);
+                int cost = int.Parse(Cost.Text);
+                double water = double.Parse(Water.Text);
+                double woolMilk = double.Parse(wool.Text);
+
+                Animals newAnimal;
+
+                switch (type.ToLower())
+                {
+                    case "cow":
+                        newAnimal = new Cow("Cow", GetNewID(), water, cost, weight, color, woolMilk);
+                        break;
+                    case "goat":
+                        newAnimal = new Goat("Goat", GetNewID(), water, cost, weight, color, woolMilk);
+                        break;
+                    case "sheep":
+                        newAnimal = new Sheep("Sheep", GetNewID(), water, cost, weight, color, woolMilk);
+                        break;
+                    default:
+                        MessageBox.Show("Invalid animal type.");
+                        return;
+       
+                }
+
+                // Insert the new animal into the database
+                app.InsertAnimal(newAnimal);
+
+                // Refresh the data displayed in the list
+                AnimalList.ItemsSource = app.Animal;
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions, e.g., display an error message
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        private int GetNewID()
+        {
+            // Find the maximum ID from existing animal records and increment it
+            int maxID = app.Animal.Max(a => a.ID);
+            return maxID + 1;
+        }
+
+
     }
 }

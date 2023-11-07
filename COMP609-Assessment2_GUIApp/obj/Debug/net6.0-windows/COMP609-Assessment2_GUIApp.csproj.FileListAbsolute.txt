@@ -403,7 +403,6 @@ C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.g.cs
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -416,7 +415,6 @@ C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.baml
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Styles\MainStyle.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Dark.baml

@@ -65,23 +65,6 @@ namespace COMP609_Assessment2_GUIApp
             Popup.IsOpen = false;
         }
 
-        private void btnDashboard_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnDashboard;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Dashboard";
-            }
-        }
-
-        private void btnDashboard_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-
         private void btnQueryData_MouseEnter(object sender, MouseEventArgs e)
         {
             if (Tg_Btn.IsChecked == false)
@@ -165,11 +148,6 @@ namespace COMP609_Assessment2_GUIApp
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             fContainer.Content = new Home(app);
-        }
-
-        private void btnDashboard_Click(object sender, RoutedEventArgs e)
-        {
-            fContainer.Content = new TestPage(app);
         }
 
         private void btnQuery_Click(object sender, RoutedEventArgs e)

@@ -85,7 +85,7 @@
     </Style>
     <!-- End: iToggleButton Style -->
     
-    <!-- Start: Button Close | Restore | Minimize -->
+    <!-- Start: Button Close | Minimize -->
     <Style x:Key="IconButtonsStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Cursor" Value="Hand"/>

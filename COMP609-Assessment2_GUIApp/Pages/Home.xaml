@@ -20,7 +20,8 @@
                    Foreground="White" 
                    Margin="30,50,383,0"  
                    VerticalAlignment="Top" 
-                   Height="57"/>
+                   Height="60"
+                   />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -41,7 +42,7 @@
                 <Border Width="300"
                         Height="102"
                         VerticalAlignment="Top"
-                        Margin="40,110,0,0"
+                        Margin="50,140,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>
@@ -72,10 +73,10 @@
             <StackPanel Grid.Column="1"
                 Orientation="Horizontal" Margin="0,0,0,4">
                 <Border Width="300"
-                        Height="150"
+                        Height="135"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Margin="40,110,0,0"
+                        Margin="50,140,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>
@@ -121,7 +122,8 @@
                 <Border Width="200"
                         Height="100"
                         HorizontalAlignment="Left"
-                        Margin="40,-130,0,0"
+                        VerticalAlignment="Top"
+                        Margin="50,-1,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>
@@ -156,7 +158,7 @@
                 <Border Width="200"
                         Height="100"
                         HorizontalAlignment="Left"
-                        Margin="40,100,0,0"
+                        Margin="50,100,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>
@@ -188,10 +190,10 @@
             <StackPanel Grid.ColumnSpan="2" Grid.Row="1"
                         Orientation="Horizontal" 
                         Margin="0,0,0,0">
-                <Border Width="150"
+                <Border Width="200"
                         Height="100"
                         HorizontalAlignment="Left"
-                        Margin="260,-130,0,0"
+                        Margin="280,-120,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>

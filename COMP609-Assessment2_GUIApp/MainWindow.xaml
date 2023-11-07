@@ -58,11 +58,6 @@
                                            IconWidth="16" Text="Home" VerticalAlignment="Center"/>
                         </Button>
                         <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
-                        <Button x:Name="btnDashboard" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnDashboard_MouseEnter" MouseLeave="btnDashboard_MouseLeave" Click="btnDashboard_Click">
-                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource dashboard}" 
-                                           IconWidth="16" Text="Dashboard" VerticalAlignment="Center"/>
-                        </Button>
-                        <Separator Height="4" Width="35" Background="{DynamicResource SeparatorColour}" Opacity="0.5" />
                         <Button x:Name="btnQueryData" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnQueryData_MouseEnter" MouseLeave="btnQueryData_MouseLeave" Click="btnQuery_Click">
                             <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource ButtonPopoutColour}" Icon="{DynamicResource statistics}" 
                                            IconWidth="16" Text="Query Data" VerticalAlignment="Center"/>
@@ -124,24 +119,12 @@
                     </ToggleButton.Triggers>
                 </ToggleButton>
 
-                <!-- Start: Button Close | Restore | Minimize -->
+                <!-- Start: Button Close | Minimize -->
                 <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
                     <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-                    <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
-                                <Setter Property="Content" Value="{DynamicResource maximize}"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding WindowState, ElementName=home}" Value="Maximized">
-                                        <Setter Property="Content" Value="{DynamicResource restore}"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
                     <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
                 </StackPanel>
-                <!-- End: Button Close | Restore | Minimize -->
+                <!-- End: Button Close | Minimize -->
 
                 <!-- Start: Background Image Container -->
                 <Grid Grid.Row="1" MaxHeight="500" VerticalAlignment="Top" Height="264">

@@ -25,8 +25,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
     {
         LMSApp app;
 
-        ObservableCollection<Animals> Animal { get; set; }
-
         OdbcConnection Conn;
 
         internal static OdbcConnection GetConn()
@@ -131,8 +129,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
                         }
                     }
-                        ResultTextBlock.Text = "Animal ID does not exist in the system. Please enter a valid ID.";
-                        return;
+                    else
+                    {
                         ResultTextBlock.Text = "Animal ID does not exist in the system. Please enter a valid ID.";
                         return;
                     }
@@ -171,6 +169,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     double incomePerDay = (milkOrWool * milkOrWool);
                     double costsPerDay = cost + (weight * waterPrice) + (weight * taxPrice);
 
+                    double totalProfitLoss = incomePerDay - costsPerDay;
+
                     ResultTextBlock.Text =
                         $"Animal Type: \t\t\t{animal.Type:F2}\n" +
                         $"Water: \t\t\t\t{water:F2} Litres\n" +
@@ -182,8 +182,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
                         $"Total Daily Income: \t\t${incomePerDay:F2} \n" +
                         $"Total expenditure per day: \t\t${costsPerDay:F2}\n" +
                         $"Total profit/ loss: \t\t\t${totalProfitLoss:F2} \n";
-                    ResultTextBlock.Text = $"Animal Type: {animal}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
-                        $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
                 }
 
             }

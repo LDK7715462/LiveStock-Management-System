@@ -12,14 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-<<<<<<< HEAD
-      "C:\\Users\\PC\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\PC\\.nuget\\packages",
+      "C:\\Users\\RTX RYZEN\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\RTX RYZEN\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-=======
-      "C:\\Users\\trist\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\trist\\.nuget\\packages"
->>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

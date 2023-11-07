@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\COMP609-Assessment2_ConsoleApp",
     "\\COMP609-Assessment2_GUIApp",
+    "\\COMP609-Assessment2_GUIApp\\Models",
     "\\COMP609-Assessment2_GUIApp\\Pages"
   ],
-  "SelectedNode": "\\COMP609-Assessment2_GUIApp\\Pages\\Home.xaml",
+  "SelectedNode": "\\COMP609-Assessment2_ConsoleApp\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

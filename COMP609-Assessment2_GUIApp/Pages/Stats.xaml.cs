@@ -24,9 +24,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
     public partial class StatsPage : Page
     {
         LMSApp app;
-
-        ObservableCollection<Animals> Animal { get; set; }
-
         OdbcConnection Conn;
 
         internal static OdbcConnection GetConn()
@@ -43,7 +40,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            Animal = new ObservableCollection<Animals>();
             Conn = Util.GetConn();
         }
 
@@ -103,7 +99,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
                 if (int.TryParse(enteredID, out int id))
                 {
-                    var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                    var animal = app.Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
                     if (animal != null)
                     {
                         if (animal is Cow cow)
@@ -173,7 +169,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
                     double totalProfitLoss = incomePerDay - costsPerDay;
 
-                    ResultTextBlock.Text = $"Animal Type: {animal}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
+                    ResultTextBlock.Text = $"Animal Type: {animal.Type}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
                         $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
                 }
             }

@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "X6r0ZIHuqgUvxIRsc9+tjbA5ToiPwl8tnoMYqPmbqk9/+SrejbLLf2B8YbtyyLnJ2/xls9C5h63w9zD/Vxqgtg==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
@@ -35,42 +34,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
-=======
-  "dgSpecHash": "EczHZTQwaPsszEX5VllhBaRUgJdfTO4KLzLGkiSm2mjpEvP6W3tthPMFI1ngaW1WtSOlfDxSzEszk6UhlNUfdg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\trist\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.5\\microsoft.aspnetcore.authorization.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.5\\microsoft.aspnetcore.components.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.5\\microsoft.aspnetcore.components.analyzers.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.5\\microsoft.aspnetcore.components.forms.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.5\\microsoft.aspnetcore.components.web.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.5\\microsoft.aspnetcore.metadata.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.jsinterop\\6.0.5\\microsoft.jsinterop.6.0.5.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\syncfusion.blazor.buttons\\23.1.40\\syncfusion.blazor.buttons.23.1.40.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\syncfusion.blazor.core\\23.1.40\\syncfusion.blazor.core.23.1.40.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\syncfusion.licensing\\23.1.40\\syncfusion.licensing.23.1.40.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.data.odbc\\7.0.0\\system.data.odbc.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0\\system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\trist\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
->>>>>>> 8d38d40d9bc18bc5c58d14793a450267ba8591e4
   ],
   "logs": [
     {

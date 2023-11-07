@@ -28,9 +28,21 @@ namespace COMP609_Assessment2_GUIApp
         {
             InitializeComponent();
             app = new LMSApp();
+            // Register the Loaded event handler
+            Loaded += MainWindow_Loaded;
         }
 
-        private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Unregister the Loaded event handler to ensure it only runs once
+            Loaded -= MainWindow_Loaded;
+
+            // Navigate to Home.xaml
+            Home homePage = new Home(app);
+            fContainer.Content = homePage;
+        }
+
+    private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Tg_Btn.IsChecked = false;
         }
@@ -152,7 +164,7 @@ namespace COMP609_Assessment2_GUIApp
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Content = new Home();
+            fContainer.Content = new Home(app);
         }
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)

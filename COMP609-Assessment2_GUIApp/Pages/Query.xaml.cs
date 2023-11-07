@@ -1,6 +1,7 @@
 ﻿using COMP609_Assessment2_GUIApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,21 +32,17 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
 
 
-        private void ColourInfoPopup(object sender, SelectionChangedEventArgs e)
-        {
-            string selectedFilter = (string)((ComboBoxItem)SearchOptions.SelectedItem).Content;
 
-            // Hide or show the Color search section based on the selection
-            if (selectedFilter == "Colour")
-            {
-                AnimalList.Visibility = Visibility.Collapsed;
-                ColourInfo.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                AnimalList.Visibility = Visibility.Visible;
-            }
-        }
+
+
+
+
+
+
+
+
+
+
 
         private void Auto_Search(object sender, TextChangedEventArgs e)
         {
@@ -54,7 +51,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
             if (string.IsNullOrEmpty(searchText))
             {
-                // Handle empty search text (show all data or display a message)
+       
                 AnimalList.ItemsSource = app.Animal;
                 return;
             }
@@ -72,12 +69,11 @@ namespace COMP609_Assessment2_GUIApp.Pages
                         filteredAnimals = app.Animal.Where(a => a.ID == searchID).ToList();
                     }
                     else
-                        {
-                            // Handle the case where the input is not a valid number
-                            MessageBox.Show("No Stock Found");
-                            // You can also clear the results if needed:
-                            // AnimalList.ItemsSource = null; // Clear the results
-                        }
+                    {
+                       
+                        MessageBox.Show("No Stock Found");
+                    
+                    }
                     break;
                 case "Colour":
                     filteredAnimals = app.Animal.Where(a => a.Colour.ToLower().Contains(searchText.ToLower())).ToList();
@@ -88,55 +84,51 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 case "Weight":
                     if (double.TryParse(searchText, out double searchWeight))
                     {
-                        filteredAnimals = app.Animal.Where(a => a.Weight == searchWeight).ToList();
+                        filteredAnimals = app.Animal.Where(a => a.Weight.ToString().Contains(searchText)).ToList();
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
+          
                         AnimalList.ItemsSource = null; // Clear the results
                     }
                     break;
                 case "Cost":
                     if (double.TryParse(searchText, out double searchCost))
                     {
-                        filteredAnimals = app.Animal.Where(a => a.Cost == searchCost).ToList();
+                        filteredAnimals = app.Animal.Where(a => a.Cost.ToString().Contains(searchText)).ToList();
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+                  
+                        AnimalList.ItemsSource = null; 
                     }
                     break;
                 case "Water":
                     if (double.TryParse(searchText, out double searchWater))
                     {
-                        filteredAnimals = app.Animal.Where(a => a.Water == searchWater).ToList();
+                        filteredAnimals = app.Animal.Where(a => a.Water.ToString().Contains(searchText)).ToList();
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+              
+                        AnimalList.ItemsSource = null;
                     }
                     break;
                 case "Milk Volume":
                     if (double.TryParse(searchText, out double searchMilk))
                     {
-                        filteredAnimals = app.Animal.Where(a => a.Wool_Milk == searchMilk).ToList();
+                        filteredAnimals = app.Animal.Where(a => a.Wool_Milk.ToString().Contains(searchText)).ToList();
                     }
                     else
                     {
-                        // Handle the case where the input is not a valid number
-                        // You can show a message to the user or clear the results
-                        AnimalList.ItemsSource = null; // Clear the results
+                 
+                        AnimalList.ItemsSource = null; 
                     }
                     break;
-                    // Add more cases for other filter criteria as needed
+               
             }
-           
-            
+
+
             if (filteredAnimals.Count == 0)
             {
                 NoResultsMessage.Visibility = Visibility.Visible; // Show the message
@@ -148,6 +140,9 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
             AnimalList.ItemsSource = filteredAnimals;
         }
+
+
+
 
 
 

@@ -4,19 +4,57 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp.Pages"
+            xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
-    <Grid>
+    <Grid >
         <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,254,0"  VerticalAlignment="Top" Height="65"><Run Language="en-nz" Text="Update"/></TextBlock>
 
         <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
-            <TextBlock Text="Update" 
-                   FontSize="30" 
-                   Foreground="{DynamicResource PrimaryTextColour}" 
-                   FontWeight="Bold"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center"/>
+            <TabControl VerticalAlignment="Top" HorizontalAlignment="Center" Width="780" Margin="0,10,0,0" Grid.Row="1">
+                <!-- Tab for Insert -->
+                <TabItem Foreground="{DynamicResource PrimaryTextColour}" Header="Insert" Width="158">
+                    <Grid Width="596" Height="119">
+                        <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an Animal" Height="27" Margin="82,10,333,0" VerticalAlignment="Top">
+                            <ComboBoxItem Content="cow"/>
+                            <ComboBoxItem Content="sheep" />
+                            <ComboBoxItem Content="goat" />
+                        </ComboBox>
+
+                        <!-- Additional form inputs -->
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="   Water:" x:Name="Water"  Margin="82,0,333,0" VerticalAlignment="Center" />
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="   Cost:" x:Name="Cost"  Margin="337,0,78,0" VerticalAlignment="Center" />
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="   Weight" x:Name="Weight"  Margin="82,84,333,0" VerticalAlignment="Top" />
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="   Wool/Milk" x:Name="wool"  Margin="337,12,78,0" VerticalAlignment="Top" />
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="   colour:" x:Name="colours"  Margin="337,84,78,0" VerticalAlignment="Top" />
+
+                        <Button Content="Submit" Margin="549,83,-53,0" VerticalAlignment="Top" Width="100" Height="28" x:Name="InsertSubmitButton" Click="InsertSubmitButton_Click" />
+
+                    </Grid>
+                </TabItem>
+
+
+                <!-- Tab for Update -->
+                <TabItem Foreground="{DynamicResource PrimaryTextColour}" Header="Update" Width="158" >
+                    <!-- Content for the Update tab goes here -->
+                </TabItem>
+
+                <!-- Tab for Delete -->
+                <TabItem Foreground="{DynamicResource PrimaryTextColour}" Header="Delete" Width="158">
+                    <!-- Tab for Delete -->
+
+                    <Grid>
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="  Type in ID to delete:" x:Name="DeleteID"  Margin="208,23,208,0" VerticalAlignment="Top" />
+                        <Button Content="Delete" VerticalAlignment="Top" Margin="264,61,264,0" Click="DeleteButton_Click" />
+                        <TextBlock x:Name="DeleteResult" VerticalAlignment="Top" Margin="10,40,10,10" Foreground="Red" />
+                    </Grid>
+
+
+                    <!-- Content for the Delete tab goes here -->
+                </TabItem>
+            </TabControl>
+
         </Border>
     </Grid>
 </Page>

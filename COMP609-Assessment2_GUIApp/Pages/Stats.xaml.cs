@@ -25,8 +25,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
     {
         LMSApp app;
 
-        ObservableCollection<Animals> Animal { get; set; }
-
         OdbcConnection Conn;
 
         internal static OdbcConnection GetConn()
@@ -43,7 +41,6 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            Animal = new ObservableCollection<Animals>();
             Conn = Util.GetConn();
         }
 
@@ -80,7 +77,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
             if (string.IsNullOrEmpty(enteredID))
             {
-                AnimalIDTextBox.Text = "Please enter an animal ID.";
+                ResultTextBlock.Text = "Please enter an animal ID.";
                 return;
             }
 
@@ -103,7 +100,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
                 if (int.TryParse(enteredID, out int id))
                 {
-                    var animal = Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
+                    var animal = app.Animal.FirstOrDefault(a => a is Animals && ((Animals)a).ID == id);
                     if (animal != null)
                     {
                         if (animal is Cow cow)
@@ -134,7 +131,8 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     }
                     else
                     {
-                        AnimalIDTextBox.Text = "NULLLLLLLLL";
+                        ResultTextBlock.Text = "Animal ID does not exist in the system. Please enter a valid ID.";
+                        return;
                     }
 
 
@@ -173,9 +171,19 @@ namespace COMP609_Assessment2_GUIApp.Pages
 
                     double totalProfitLoss = incomePerDay - costsPerDay;
 
-                    ResultTextBlock.Text = $"Animal Type: {animal}\nWater: {water}\nCost: {cost}\nWeight: {weight}\nColor: {color}\nMilk/Wool: {milkOrWool}\n" +
-                        $"Income per Day: {incomePerDay:F2}\nCosts per Day: {costsPerDay:F2}\nTotal Profit/Loss per Day: {totalProfitLoss:F2}";
+                    ResultTextBlock.Text =
+                        $"Animal Type: \t\t\t{animal.Type:F2}\n" +
+                        $"Water: \t\t\t\t{water:F2} Litres\n" +
+                        $"Operating Cost: \t\t\t${cost:F2}\n" +
+                        $"Current Weight: \t\t\t{weight:F2} KG\n" +
+                        $"Colour: \t\t\t\t{color}\n" +
+                        $"Milk Production: \t\t\t{milkOrWool:F2} KG\n" +
+                        "--------------------------------------------------------------------------------\n" +
+                        $"Total Daily Income: \t\t${incomePerDay:F2} \n" +
+                        $"Total expenditure per day: \t\t${costsPerDay:F2}\n" +
+                        $"Total profit/ loss: \t\t\t${totalProfitLoss:F2} \n";
                 }
+
             }
         }
         #endregion
@@ -208,23 +216,18 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     {
                         case "CowMilk":
                             cowMilkPrice = itemPrice;
-                            Console.WriteLine($"Cow's Milk price (KG): ${cowMilkPrice}");
                             break;
                         case "GoatMilk":
                             goatMilkPrice = itemPrice;
-                            Console.WriteLine($"Goat Milk price (KG): ${goatMilkPrice}");
                             break;
                         case "SheepWool":
                             sheepWoolPrice = itemPrice;
-                            Console.WriteLine($"Sheep's wool price (KG): ${sheepWoolPrice}");
                             break;
                         case "Water":
                             waterPrice = itemPrice;
-                            Console.WriteLine($"Cost of water (KG): ${waterPrice}");
                             break;
                         case "LivestockWeightTax":
                             liveStockWeightTax = itemPrice;
-                            Console.WriteLine($"Government Livestock Weight Tax (KG per animal per day): ${liveStockWeightTax}");
                             break;
                     }
                 }
@@ -275,32 +278,31 @@ namespace COMP609_Assessment2_GUIApp.Pages
                         animalCount++;
                     }
                 }
+                totalTax = totalWeight * liveStockWeightTax * 30;
+                double avgWeight = totalWeight / animalCount;
+                double totalIncome = (cowMilk * cowMilkPrice) + (sheepWool * sheepWoolPrice) + (goatMilk * goatMilkPrice);
+                double totalCost = (cowCost + sheepCost + goatCost) + (cowWater * waterPrice) + (sheepWater * waterPrice) + (goatWater * waterPrice) + totalTax;
+                double totalProfit = totalIncome - totalCost;
 
-                // Set the values in the TextBlocks
-                //GCowMilkPriceTextBlock.Text = $"{cowMilkPrice:C}";
-                //GGoatMilkPriceTextBlock.Text = $"{goatMilkPrice:C}";
-                //GSheepWoolPriceTextBlock.Text = $"{sheepWoolPrice:C}";
-                //GWaterPriceTextBlock.Text = $"{waterPrice:C}";
-                //GLiveStockWeightTaxTextBlock.Text = $"{liveStockWeightTax:C}";
+                GCowMilkTextBlock.Text = $"Total Yield of cows milk per day: \t\t\t\t{cowMilk:N1} KG";
+                GCowCostTextBlock.Text = $"Total operation cost of all cows per day: \t\t\t${cowCost:C}";
+                GCowWaterTextBlock.Text = $"Total water consumed by all cows: \t\t\t\t{cowWater:F2} Litres";
 
-                // Set the values in the TextBlocks
-                GCowMilkTextBlock.Text = $"{cowMilk:N2} KG";
-                GCowCostTextBlock.Text = $"{cowCost:C}";
-                GCowWaterTextBlock.Text = $"{cowWater:C}";
+                GSheepWoolTextBlock.Text = $"Total yield of wool per day: \t\t\t\t{sheepWool:N1} KG";
+                GSheepCostTextBlock.Text = $"Total operation cost of all sheep per day: \t\t\t${sheepCost:C}";
+                GSheepWaterTextBlock.Text = $"Total water consumed by all sheep: \t\t\t\t{sheepWater:F2} Litres";
 
-                GSheepWoolTextBlock.Text = $"{sheepWool:N2} KG";
-                GSheepCostTextBlock.Text = $"{sheepCost:C}";
-                GSheepWaterTextBlock.Text = $"{sheepWater:C}";
-
-                GGoatMilkTextBlock.Text = $"{goatMilk:N2} KG";
-                GGoatCostTextBlock.Text = $"{goatCost:C}";
-                GGoatWaterTextBlock.Text = $"{goatWater:C}";
-
-                GTotalTaxTextBlock.Text = $"{totalTax:C}";
-                GTotalWeightTextBlock.Text = $"{totalWeight:N2} KG";
-                GAnimalCountTextBlock.Text = animalCount.ToString();
-
-
+                GGoatMilkTextBlock.Text = $"Total Yield of goats milk per day: \t\t\t\t{goatMilk:N1} KG";
+                GGoatCostTextBlock.Text = $"Total operation cost of all goats per day: \t\t\t${goatCost:C}";
+                GGoatWaterTextBlock.Text = $"Total water consumed by all goats: \t\t\t\t{goatWater:F2} Litres\n" +
+                    "--------------------------------------------------------------------------------";
+                GTotalTaxTextBlock.Text = $"Total tax for all animals per 30-day cycle: \t\t\t{totalTax:C}";
+                GTotalWeightTextBlock.Text = $"Total weight of all animals currently in system: \t\t{totalWeight:N1} KG";
+                GAnimalCountTextBlock.Text = $"Total Animals currently in the system: \t\t\t{animalCount.ToString()}";
+                GTotalAvgWeightTextBlock.Text = $"Average weight of all animals currently in system: \t\t{avgWeight:N1} KG";
+                GTotalIncomeTextBlock.Text = $"Total income from all animals in the database: \t\t{totalIncome:C}";
+                GTotalCostTextBlock.Text = $"Total costs incurred daily from all animals in the database: \t{totalCost:C}";
+                GTotalProfitTextBlock.Text = $"Total profit gained from all animals in the database: \t\t{totalProfit:C}";
             }
         }
 

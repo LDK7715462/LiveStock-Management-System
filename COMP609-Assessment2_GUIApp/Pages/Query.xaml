@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:COMP609_Assessment2_GUIApp.Pages"
       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
@@ -31,8 +32,8 @@
                 </Border>
 
                 <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0" >
-                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" SelectionChanged="ColourInfoPopup">
-                        <ComboBoxItem Content="Type" />
+                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" >
+                        <ComboBoxItem Content="Type" IsSelected="True"/>
                         <ComboBoxItem Content="ID" />
                         <ComboBoxItem Content="Water" />
                         <ComboBoxItem Content="Cost" />
@@ -87,11 +88,14 @@
                 <DataGridTextColumn Width="*" Header="Milk/Wool" Binding="{Binding Wool_Milk}" />
             </DataGrid.Columns>
         </DataGrid>
-<Grid x:Name="ColourInfo" Visibility="Collapsed">
-        <!-- Content for the "Colour" search section -->
-        <TextBlock Text="Enter a color:" Foreground="White" Margin="10"/>
-        <TextBox x:Name="ColourSearchBox" TextChanged="Auto_Search" Margin="10" VerticalAlignment="Top"/>
-    </Grid>
+        <!-- Colour Search UI -->
+        <Grid Visibility="Collapsed" x:Name="ColourInfo" Margin="0,321,0,0"  Background="{DynamicResource SecondaryBackgroundColour}">
+            <TextBox x:Name="ColorCountText" Text="{Binding ColorCount}" IsReadOnly="True"  FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,442,0,0"/>
+
+
+        </Grid>
+
+
 
 
 

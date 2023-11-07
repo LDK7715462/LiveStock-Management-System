@@ -1413,24 +1413,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\trist\\.nuget\\packages\\": {}
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
       "projectName": "COMP609-Assessment2_GUIApp",
       "projectPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "projectName": "COMP609-Assessment2_GUIApp",
+      "projectPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+        "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1492,16 +1508,12 @@
             "privateAssets": "none"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\PC\\source\\repos\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -28,7 +28,7 @@ corrupted.
 - [x] Code-behind that provides the funcionalities. (This is the same part as the LMS console app above.) - COMPLETED
 - [x] Working GUI - COMPLETED
 - [x] Display Database Records - COMPLETED
-- [ ] Display Database Records Statistics - TODO
+- [x] Display Database Records Statistics - COMPLETED
 - [ ] Query Database Records - TODO
 - [ ] Insert Database Records - TODO
 - [ ] Delete Database Records - TODO

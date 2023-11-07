@@ -47,7 +47,11 @@ namespace COMP609_Assessment2_GUIApp {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.12.0")]
+=======
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.9.0")]
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -73,7 +77,11 @@ namespace COMP609_Assessment2_GUIApp {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.12.0")]
+=======
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "7.0.9.0")]
+>>>>>>> 5839486d63457a6c5f40c28368c74719dd744a46
         public static void Main() {
             COMP609_Assessment2_GUIApp.App app = new COMP609_Assessment2_GUIApp.App();
             app.InitializeComponent();

@@ -76,7 +76,7 @@
                         Height="135"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Margin="50,140,0,0"
+                        Margin="30,140,0,0"
                         Background="{DynamicResource PrimaryBackgroundColour}"
                         CornerRadius="10">
                     <Grid>

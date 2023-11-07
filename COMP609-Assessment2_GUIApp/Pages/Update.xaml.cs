@@ -27,7 +27,7 @@ namespace COMP609_Assessment2_GUIApp.Pages
         {
             this.app = app;
             InitializeComponent();
-            
+
         }
 
 
@@ -59,13 +59,13 @@ namespace COMP609_Assessment2_GUIApp.Pages
                     default:
                         MessageBox.Show("Invalid animal type.");
                         return;
-       
+
                 }
 
                 // Insert the new animal into the database
                 app.InsertAnimal(newAnimal);
 
-           
+
             }
             catch (Exception ex)
             {
@@ -79,6 +79,91 @@ namespace COMP609_Assessment2_GUIApp.Pages
             int maxID = app.Animal.Max(a => a.ID);
             return maxID + 1;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Retrieve the ID to delete from the TextBox
+                if (int.TryParse(DeleteID.Text, out int deleteID))
+                {
+                    string tbl = app.Animal.FirstOrDefault(a => a.ID == deleteID)?.GetType().Name;
+                    if (tbl != null)
+                    {
+                        if (app.DeleteByID(tbl, deleteID))
+                        {
+                            // Successfully deleted the record
+                            // Refresh the data displayed in the list
+
+                            DeleteResult.Text = "Record deleted successfully.";
+                        }
+                        else
+                        {
+                            DeleteResult.Text = "Error in deleting the record.";
+                        }
+                    }
+                    else
+                    {
+                        DeleteResult.Text = "No record found with the given ID.";
+                    }
+                }
+                else
+                {
+                    DeleteResult.Text = "Invalid ID input. Please enter a valid ID.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions, e.g., display an error message
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+
+        public bool DeleteByID(string tbl, int id)
+        {
+            try
+            {
+                var animal = app.Animal.FirstOrDefault(a => a.ID == id);
+                if (animal != null)
+                {
+                    // Successfully deletes from the database
+                    if (app.Animal.Remove(animal))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false; // Remove from the collection failed
+                    }
+                }
+                return false; // Record not found in the collection
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions, e.g., log or display an error message
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
+        // Delete Animal by ID
+
+
 
 
     }

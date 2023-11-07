@@ -42,6 +42,15 @@
 
                 <!-- Tab for Delete -->
                 <TabItem Foreground="{DynamicResource PrimaryTextColour}" Header="Delete" Width="158">
+                    <!-- Tab for Delete -->
+
+                    <Grid>
+                        <TextBox Foreground="{DynamicResource PrimaryTextColour}" md:HintAssist.Hint="  Type in ID to delete:" x:Name="DeleteID"  Margin="208,23,208,0" VerticalAlignment="Top" />
+                        <Button Content="Delete" VerticalAlignment="Top" Margin="264,61,264,0" Click="DeleteButton_Click" />
+                        <TextBlock x:Name="DeleteResult" VerticalAlignment="Top" Margin="10,40,10,10" Foreground="Red" />
+                    </Grid>
+
+
                     <!-- Content for the Delete tab goes here -->
                 </TabItem>
             </TabControl>

@@ -10,48 +10,56 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,282,0"  VerticalAlignment="Top" Height="65">
-            <Run Language="en-nz" Text="Query Data"/>
-        </TextBlock>
+        <Border Margin="0,50,0,0" 
+                CornerRadius="5" 
+                Opacity="0.8" 
+                Background="{DynamicResource SecondaryBackgroundColour}">
+        </Border>
+        
+        <TextBlock Text="Query Data" 
+                   FontSize="45" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   Margin="30,50,383,0"  
+                   VerticalAlignment="Top" 
+                   Height="60"
+                   />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Border VerticalAlignment="Top" CornerRadius="15,0,0,15" Background="White" Margin="20,20,0,142" MaxHeight="27">
-                    <TextBox
+            <Border VerticalAlignment="Top" CornerRadius="15,0,0,15" Background="White" Margin="20,140,0,142" MaxHeight="25">
+                <TextBox
                         Name="Search"
                         Width="Auto"
                         Grid.Column="0"
                         md:HintAssist.Hint="Enter a word"
                         TextChanged="Auto_Search" 
                         Margin="40,0,0,0" />
-                </Border>
+            </Border>
 
-                <Border VerticalAlignment="Top" Background="White" Margin="10,20,33,142" Grid.Column="1" MaxHeight="27" CornerRadius="0,15,15,0" >
-                    <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" >
-                        <ComboBoxItem Content="Type" IsSelected="True"/>
-                        <ComboBoxItem Content="ID" />
-                        <ComboBoxItem Content="Water" />
-                        <ComboBoxItem Content="Cost" />
-                        <ComboBoxItem Content="Weight" />
-                        <ComboBoxItem Content="Colour" />
-                        <ComboBoxItem Content="Milk/Wool" />
+            <Border VerticalAlignment="Top" Background="White" Margin="10,140,33,142" Grid.Column="1" MaxHeight="25" CornerRadius="0,15,15,0" >
+                <ComboBox x:Name="SearchOptions" md:HintAssist.Hint="   Select an option" Height="27" Grid.Column="1" Margin="0,0,10,0" >
+                    <ComboBoxItem Content="Type" IsSelected="True"/>
+                    <ComboBoxItem Content="ID" />
+                    <ComboBoxItem Content="Water" />
+                    <ComboBoxItem Content="Cost" />
+                    <ComboBoxItem Content="Weight" />
+                    <ComboBoxItem Content="Colour" />
+                    <ComboBoxItem Content="Milk/Wool" />
 
-                    </ComboBox>
-                </Border>
-            </Grid>
-        </Border>
-        <TextBlock FontSize="20" Name="NoResultsMessage" Text="No matching items found in the database." Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,392,0,0"/>
+                </ComboBox>
+            </Border>
+        </Grid>
+        <TextBlock FontSize="20" Name="NoResultsMessage" Text="No matching items found in the database." Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,280,0,0"/>
 
         <!-- Add a DataGrid for the table below -->
         <DataGrid
     Name="AnimalList"
     
-    Margin="20,321,20,0"
+    Margin="20,210,20,0"
     Foreground="{DynamicResource PrimaryTextColour}"
     VerticalAlignment="Top"
     FontSize="20"

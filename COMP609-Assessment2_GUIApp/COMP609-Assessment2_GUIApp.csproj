@@ -9,7 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\images\abacus.png" />
     <None Remove="Assets\images\background.png" />
+    <None Remove="Assets\images\calendar_clock.png" />
+    <None Remove="Assets\images\cow.png" />
+    <None Remove="Assets\images\goat.png" />
+    <None Remove="Assets\images\sheep.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\images\abacus.png" />
     <Resource Include="Assets\images\background.png" />
+    <Resource Include="Assets\images\calendar_clock.png" />
+    <Resource Include="Assets\images\cow.png" />
+    <Resource Include="Assets\images\goat.png" />
+    <Resource Include="Assets\images\sheep.png" />
   </ItemGroup>
 
 </Project>

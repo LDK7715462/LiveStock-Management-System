@@ -40,5 +40,6 @@
 
                     <!-- Image Resources -->
                     <BitmapImage x:Key="background" UriSource="../Assets/images/background.png"/>
+                    <BitmapImage x:Key="clock" UriSource="../Assets/images/calendar_clock.png"/>
     
 </ResourceDictionary>

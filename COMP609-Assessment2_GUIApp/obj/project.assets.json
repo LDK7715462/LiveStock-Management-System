@@ -1413,19 +1413,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\trist\\.nuget\\packages\\": {}
+    "C:\\Users\\mrdyl\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "projectUniqueName": "C:\\Users\\mrdyl\\Development Workspaces\\Visual Studio Workplace\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
       "projectName": "COMP609-Assessment2_GUIApp",
-      "projectPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
-      "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\trist\\Source\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
+      "projectPath": "C:\\Users\\mrdyl\\Development Workspaces\\Visual Studio Workplace\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\COMP609-Assessment2_GUIApp.csproj",
+      "packagesPath": "C:\\Users\\mrdyl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mrdyl\\Development Workspaces\\Visual Studio Workplace\\Repos\\DylanMartino\\COMP609-LiveStockManagement_System\\COMP609-Assessment2_GUIApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mrdyl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

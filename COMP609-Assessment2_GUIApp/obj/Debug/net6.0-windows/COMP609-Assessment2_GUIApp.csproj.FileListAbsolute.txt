@@ -403,7 +403,6 @@ C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.g.cs
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -416,7 +415,6 @@ C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.baml
-C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Styles\MainStyle.baml
 C:\Users\PC\Source\Repos\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Dark.baml
@@ -510,3 +508,157 @@ C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.genruntimeconfig.cache
 C:\Users\trist\Source\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\ref\COMP609-Assessment2_GUIApp.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.exe
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll.config
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.deps.json
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.runtimeconfig.json
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authorization.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Metadata.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.JSInterop.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Blazor.Buttons.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Blazor.Core.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Licensing.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Data.Odbc.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Security.Permissions.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Text.Encoding.CodePages.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\freebsd\lib\net6.0\System.Data.Odbc.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.Data.Odbc.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.Data.Odbc.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.Odbc.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.AssemblyReference.cache
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Assets\Icons.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\MenuItem.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\UserPopup.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp_MarkupCompile.cache
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp_MarkupCompile.lref
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\MenuItem.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\UserPopup.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\TestPage.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Styles\MainStyle.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Dark.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Light.baml
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.g.resources
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.AssemblyInfoInputs.cache
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.AssemblyInfo.cs
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.CoreCompileInputs.cache
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.CopyComplete
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\refint\COMP609-Assessment2_GUIApp.dll
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.genruntimeconfig.cache
+C:\Users\RTX RYZEN\Desktop\AppDevAss2- Livestock Management System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\ref\COMP609-Assessment2_GUIApp.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.exe
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll.config
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.deps.json
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.runtimeconfig.json
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authorization.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Metadata.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.JSInterop.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Blazor.Buttons.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Blazor.Core.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\Syncfusion.Licensing.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Data.Odbc.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Security.Permissions.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Text.Encoding.CodePages.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\freebsd\lib\net6.0\System.Data.Odbc.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\linux\lib\net6.0\System.Data.Odbc.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\osx\lib\net6.0\System.Data.Odbc.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.Odbc.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.AssemblyReference.cache
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Assets\Icons.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\MenuItem.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\UserPopup.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp_MarkupCompile.cache
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp_MarkupCompile.lref
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\App.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\MenuItem.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Controls\UserPopup.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Home.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Query.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Stats.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Pages\Update.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Styles\MainStyle.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Dark.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\Themes\Light.baml
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.g.resources
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.AssemblyInfoInputs.cache
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.AssemblyInfo.cs
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.CoreCompileInputs.cache
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.csproj.CopyComplete
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\refint\COMP609-Assessment2_GUIApp.dll
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.pdb
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\COMP609-Assessment2_GUIApp.genruntimeconfig.cache
+C:\Users\mrdyl\Development Workspaces\Visual Studio Workplace\Repos\DylanMartino\COMP609-LiveStockManagement_System\COMP609-Assessment2_GUIApp\obj\Debug\net6.0-windows\ref\COMP609-Assessment2_GUIApp.dll

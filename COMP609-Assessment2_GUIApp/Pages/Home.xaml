@@ -8,15 +8,219 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
     <Grid>
-        <TextBlock Text="Home" FontSize="45" FontWeight="Bold" Foreground="White" Margin="39,157,371,0"  VerticalAlignment="Top" Height="57"/>
 
-        <Border Margin="0,261,0,0" CornerRadius="5" Background="{DynamicResource SecondaryBackgroundColour}">
+        <Border Margin="0,50,0,0" 
+                CornerRadius="5" 
+                Opacity="0.8" 
+                Background="{DynamicResource SecondaryBackgroundColour}">
+        </Border>
         <TextBlock Text="Home" 
-                   FontSize="30" 
-                   Foreground="{DynamicResource PrimaryTextColour}" 
-                   FontWeight="Bold"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center"/>
-    </Border>
-     </Grid>
+                   FontSize="45" 
+                   FontWeight="Bold" 
+                   Foreground="White" 
+                   Margin="30,50,383,0"  
+                   VerticalAlignment="Top" 
+                   Height="60"
+                   />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="133*"/>
+                <RowDefinition Height="92*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Start: Date and Time Block -->
+            <StackPanel Grid.Column="0"
+                Orientation="Horizontal" Margin="0,0,0,4">
+                <Border Width="300"
+                        Height="102"
+                        VerticalAlignment="Top"
+                        Margin="50,140,0,0"
+                        Background="{DynamicResource PrimaryBackgroundColour}"
+                        CornerRadius="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Today's Date/Time"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource ThemeTextColour}"
+                               Margin="45,5,10,10"/>
+
+                            <TextBlock x:Name="dateTime"
+                               Text=""
+                               FontSize="18"
+                               Foreground="{DynamicResource ThemeTextColour}"
+                               Margin="10,10,10,10"/>
+                        </StackPanel>
+                        <Image Width="50"
+                           Height="50"
+                           Source="/Assets/images/calendar_clock.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Stretch="UniformToFill"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <!-- End: Date and Time Block -->
+
+            <!-- Start: Animal Count Block -->
+            <StackPanel Grid.Column="1"
+                Orientation="Horizontal" Margin="0,0,0,4">
+                <Border Width="300"
+                        Height="135"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="30,140,0,0"
+                        Background="{DynamicResource PrimaryBackgroundColour}"
+                        CornerRadius="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Total Animals:"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="45,5,0,0"/>
+
+                            <TextBlock x:Name="animalCount1"
+                                       Text="text"
+                                       FontSize="20"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="50,10,0,0"/>
+
+                            <TextBlock x:Name="animalCount2"
+                                       Text="text"
+                                       FontSize="20"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="50,5,0,0"/>
+
+                            <TextBlock x:Name="animalCount3"
+                                       Text="text"
+                                       FontSize="20"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="50,5,0,0"/>
+                        </StackPanel>
+                        <Image Width="40"
+                           Height="40"
+                           Source="/Assets/images/abacus.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Stretch="UniformToFill" Margin="3,-1,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <!-- End: Animal Count Block -->
+
+            <!-- Start: Milk Prices Block -->
+            <StackPanel Grid.Column="0" Grid.Row="1"
+                        Orientation="Horizontal" 
+                        Margin="0,0,0,0">
+                <Border Width="200"
+                        Height="100"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="50,-1,0,0"
+                        Background="{DynamicResource PrimaryBackgroundColour}"
+                        CornerRadius="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Cows Milk Price"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="45,5,0,0"/>
+
+                            <TextBlock x:Name="cowsMilkPrice"
+                                       Text="$$$/ltr"
+                                       FontSize="40"
+                                       HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <Image Width="60"
+                           Height="60"
+                           Source="/Assets/images/cow.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Stretch="Fill" Margin="-4,-13,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <!-- End: Cows Milk Prices Block -->
+
+            <!-- Start: Goat Milk Prices Block -->
+            <StackPanel Grid.Column="0" Grid.Row="1"
+                        Orientation="Horizontal" 
+                        Margin="0,0,0,0">
+                <Border Width="200"
+                        Height="100"
+                        HorizontalAlignment="Left"
+                        Margin="50,100,0,0"
+                        Background="{DynamicResource PrimaryBackgroundColour}"
+                        CornerRadius="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Goats Milk Price"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="45,5,0,0"/>
+
+                            <TextBlock x:Name="goatsMilkPrice"
+                                       Text="$$$/ltr"
+                                       FontSize="40"
+                                       HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <Image Width="45"
+                           Height="40"
+                           Source="/Assets/images/goat.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Stretch="Fill" Margin="2,0,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <!-- End: Goat Milk Prices Block -->
+
+            <!-- Start: Sheep Prices Block -->
+            <StackPanel Grid.ColumnSpan="2" Grid.Row="1"
+                        Orientation="Horizontal" 
+                        Margin="0,0,0,0">
+                <Border Width="200"
+                        Height="100"
+                        HorizontalAlignment="Left"
+                        Margin="280,-120,0,0"
+                        Background="{DynamicResource PrimaryBackgroundColour}"
+                        CornerRadius="10">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Wool Price"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="45,5,0,0"/>
+
+                            <TextBlock x:Name="sheepsWoolPrice"
+                                       Text="$$$/ltr"
+                                       FontSize="40"
+                                       HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource ThemeTextColour}"
+                                       Margin="0,5,0,0"/>
+                        </StackPanel>
+                        <Image Width="41"
+                           Height="42"
+                           Source="/Assets/images/sheep.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" Stretch="Fill" Margin="3,-3,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <!-- End: Goat Milk Prices Block -->
+        </Grid>
+
+    </Grid>
 </Page>

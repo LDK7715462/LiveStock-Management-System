@@ -285,15 +285,15 @@ namespace COMP609_Assessment2_GUIApp.Pages
                 double totalProfit = totalIncome - totalCost;
 
                 GCowMilkTextBlock.Text = $"Total Yield of cows milk per day: \t\t\t\t{cowMilk:N1} KG";
-                GCowCostTextBlock.Text = $"Total operation cost of all cows per day: \t\t\t${cowCost:C}";
+                GCowCostTextBlock.Text = $"Total operation cost of all cows per day: \t\t\t{cowCost:C}";
                 GCowWaterTextBlock.Text = $"Total water consumed by all cows: \t\t\t\t{cowWater:F2} Litres";
 
                 GSheepWoolTextBlock.Text = $"Total yield of wool per day: \t\t\t\t{sheepWool:N1} KG";
-                GSheepCostTextBlock.Text = $"Total operation cost of all sheep per day: \t\t\t${sheepCost:C}";
+                GSheepCostTextBlock.Text = $"Total operation cost of all sheep per day: \t\t\t{sheepCost:C}";
                 GSheepWaterTextBlock.Text = $"Total water consumed by all sheep: \t\t\t\t{sheepWater:F2} Litres";
 
                 GGoatMilkTextBlock.Text = $"Total Yield of goats milk per day: \t\t\t\t{goatMilk:N1} KG";
-                GGoatCostTextBlock.Text = $"Total operation cost of all goats per day: \t\t\t${goatCost:C}";
+                GGoatCostTextBlock.Text = $"Total operation cost of all goats per day: \t\t\t{goatCost:C}";
                 GGoatWaterTextBlock.Text = $"Total water consumed by all goats: \t\t\t\t{goatWater:F2} Litres\n" +
                     "--------------------------------------------------------------------------------";
                 GTotalTaxTextBlock.Text = $"Total tax for all animals per 30-day cycle: \t\t\t{totalTax:C}";
